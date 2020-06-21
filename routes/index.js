@@ -3,22 +3,24 @@ var router = express.Router();
 
 const MongoClient = require("mongodb").MongoClient;
 
-const url = "mongodb://localhost:27017/";
-const mongoClient = new MongoClient(url, { useNewUrlParser: true });
+//const url = "mongodb://localhost:27017/";
+//const mongoClient = new MongoClient(url, { useNewUrlParser: true });
 
-mongoClient.connect(function(err, client) {
+/*mongoClient.connect(function(err, client) {
     const db = client.db("news_db");
     const collection = db.collection("news");
 
-    /* GET home page. */
-    router.get('/', async function(req, res, next) {
-        const data = await collection.find({}).toArray();
-        console.log(data)
-        res.render('index', {
-            ivan: 'Ivan',
-            news: data
-        });
-    });
+    
+    
+});*/
+
+router.get('/', async function(req, res, next) {
+  //const data = await collection.find({}).toArray();
+  //console.log(data)
+  res.render('index', {
+      ivan: 'Ivan',
+      //news: data
+  });
 });
 
 router.get('/dashboard', function(req, res) {

@@ -1,0 +1,11 @@
+<h1>{{ivan}}</h1>
+<p>Welcome to {{ivan}}</p>
+<script src="javascripts/main.js"></script>
+<ul>
+{{#each news}}
+    <li>
+      <a href="{{link}}">{{title}}</a>
+      {{published_at}}
+    </li>
+{{/each}}
+</ul>

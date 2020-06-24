@@ -1,11 +1,23 @@
-<h1>{{ivan}}</h1>
+<header>
+  <nav>
+    <ul>
+      <li><a href="/">Главная</a></li>
+      <li><a href="/signin">Войти</a></li>
+      <li><a href="/about">О компании</a></li>
+      <li><a href="/contacts">Контакты</a></li>
+    </ul>
+  </nav>
+</header>
+<body>
+  <h1>{{ivan}}</h1>
 <p>Welcome to {{ivan}}</p>
 <script src="javascripts/main.js"></script>
 <ul>
-{{#each news}}
-    <li>
-      <a href="{{link}}">{{title}}</a>
-      {{published_at}}
-    </li>
-{{/each}}
+  {{#each news}}
+  <li>
+    <a href="{{link}}">{{title}}</a>
+    {{published_at}}
+  </li>
+  {{/each}}
 </ul>
+</body>

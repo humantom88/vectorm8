@@ -38,19 +38,36 @@ router.get('/about', function (req, res) {
   })
 });
 
-router.post('/login', function (req, res) {
-  let login = req.body.login;
-  let password = req.body.password;
+router.post('/refresh', function(req, res) {
+  const jwt = req.body.jwt;
   res.send(`
   <html>
-    <head>
-      <link rel='stylesheet' href='/stylesheets/style.css' />
-    </head>
     <body>
-      <h2>login: ${login}</h2>
-      <h2>password: ${password}</h2>
+      <h2>${jwt}</h2>
     </body>
   </html>`);
+});
+
+router.post('/login',async function(req, res) {
+  const { login, password } = req.body;
+  
+  const data = await axios.post('http://online.omnicomm.ru/auth/login?jwt=1', {login, password});
+
+  const jwt = await axios.post('/refresh', {jwt, refresh});
+
+  console.log(data);
+  console.log(jwt);
+  /*
+  этот код работает, но попробуем сделать лучше
+  axios.post('http://online.omnicomm.ru/auth/login?jwt=1', {login, password})
+  .then((data) => {
+    res.send(`${data}`);
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+  */
 });
 
 module.exports = router;

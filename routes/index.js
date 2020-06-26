@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const axios = require('axios');
 
+
+
 const MongoClient = require("mongodb").MongoClient;
 
 //const url = "mongodb://localhost:27017/";
@@ -18,10 +20,7 @@ const MongoClient = require("mongodb").MongoClient;
 router.get('/', async function (req, res, next) {
   //const data = await collection.find({}).toArray();
   //console.log(data)
-  res.render('index', {
-    ivan: 'Ivan',
-    //news: data
-  });
+  res.render('index');
 });
 
 router.get('/signin', function (req, res) {
@@ -38,27 +37,29 @@ router.get('/about', function (req, res) {
   })
 });
 
-router.post('/refresh', function(req, res) {
+/*router.post('/refresh', function (req, res) {
   const jwt = req.body.jwt;
+  console.log(jwt);
   res.send(`
   <html>
     <body>
       <h2>${jwt}</h2>
     </body>
   </html>`);
-});
+});*/
 
-router.post('/login',async function(req, res) {
+router.post('/login', async function (req, res) {
   const { login, password } = req.body;
-  
-  const data = await axios.post('http://online.omnicomm.ru/auth/login?jwt=1', {login, password});
 
-  const jwt = await axios.post('/refresh', {jwt, refresh});
-
-  console.log(data);
-  console.log(jwt);
+  const data = await axios.post('http://online.omnicomm.ru/auth/login?jwt=1', { login, password });
+  try {
+    const jwt = data.data.jwt;
+    console.log(jwt);
+  } catch (error) {
+    console.log(error);
+  }
   /*
-  этот код работает, но попробуем сделать лучше
+  //этот код работает, но попробуем сделать лучше
   axios.post('http://online.omnicomm.ru/auth/login?jwt=1', {login, password})
   .then((data) => {
     res.send(`${data}`);
@@ -69,5 +70,15 @@ router.post('/login',async function(req, res) {
   });
   */
 });
+
+
+
+/*let instance = axios.create({headers: {
+  'Authorization': `JWT ${jwt}`
+}});
+
+instance.get('https://online.omnicomm.ru/ls/api/v1/users', function(req, res) {
+  console.log(res);
+});*/
 
 module.exports = router;

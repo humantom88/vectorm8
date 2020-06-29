@@ -63,6 +63,7 @@ router.post('/login', async function (req, res) {
     router.get('/geozones', function(req, res) {
       
       res.render('geozones',  {name: someZone.name, id: someZone.id, pointID: someZone.points[0].pointID, latitude: someZone.points[0].latitude, longitude: someZone.points[0].longitude});
+      console.log(someZone);
     });
   } catch (err) {
     console.log(err);

@@ -1,20 +1,22 @@
-<header>
-	<nav>
-		<ul>
-			<li><a href="/">Главная</a></li>
-			<li><a href="/signin">Войти</a></li>
-			<li><a href="/about">О компании</a></li>
-			<li><a href="/contacts">Контакты</a></li>
-		</ul>
-	</nav>
-</header>
-<main>
-	<h1>Страница авторизации</h1>
-	<form method="POST" action="/login">
-		<label for="login">Логин</label>
-		<input type="text" id="login" required name="login">
-		<label for="password">Пароль</label>
-		<input type="password" id="password" required name="password">
-		<input type="submit">
-	</form>
-</main>
+<div class="container">
+	<header class="padding-site">
+		<nav class="main-nav">
+			<ul class="main-nav__list">
+				<li><a href="/" class="main-nav__link">Главная</a></li>
+				<li><a href="/signin" class="main-nav__link">Войти</a></li>
+				<li><a href="/about" class="main-nav__link">О компании</a></li>
+				<li><a href="/contacts" class="main-nav__link">Контакты</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main class="padding-site">
+		<h1>Страница авторизации</h1>
+		<form method="POST" action="/login">
+			<label for="login">Логин</label>
+			<input type="text" id="login" required name="login" class="input-window">
+			<label for="password">Пароль</label>
+			<input type="password" id="password" required name="password" class="input-window">
+			<input type="submit" class="submit-button">
+		</form>
+	</main>
+</div>

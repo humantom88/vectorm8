@@ -17,6 +17,12 @@ h2 {
     font-family: sans-serif;
 }
 
+p {
+    text-align: center;
+    font-size: 25px;
+    color: #3b3b3b;
+}
+
 .about_p {
     color: #666;
     font-family: sans-serif;

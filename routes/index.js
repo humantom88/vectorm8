@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 const axios = require('axios');
 
-
-
 const MongoClient = require("mongodb").MongoClient;
 
 //const url = "mongodb://localhost:27017/";
@@ -52,12 +50,26 @@ router.post('/login', async function (req, res) {
   const { login, password } = req.body;
 
   const data = await axios.post('http://online.omnicomm.ru/auth/login?jwt=1', { login, password });
+
+  const jwt = data.data.jwt;
+
+  let instance = await axios.create({headers: {
+    "Authorization": "JWT " + jwt
+  }});
+
+  const geozoneData = await instance.get('https://online.omnicomm.ru/api/service/geozones/geozones?pageSize=200');
   try {
-    const jwt = data.data.jwt;
-    console.log(jwt);
-  } catch (error) {
-    console.log(error);
+    someZone = geozoneData.data.rows[20];
+    router.get('/geozones', function(req, res) {
+      
+      res.render('geozones',  {name: someZone.name, id: someZone.id, pointID: someZone.points[0].pointID, latitude: someZone.points[0].latitude, longitude: someZone.points[0].longitude});
+    });
+  } catch (err) {
+    console.log(err);
   }
+  });
+
+  
   /*
   //этот код работает, но попробуем сделать лучше
   axios.post('http://online.omnicomm.ru/auth/login?jwt=1', {login, password})
@@ -69,16 +81,5 @@ router.post('/login', async function (req, res) {
     console.log(err);
   });
   */
-});
-
-
-
-/*let instance = axios.create({headers: {
-  'Authorization': `JWT ${jwt}`
-}});
-
-instance.get('https://online.omnicomm.ru/ls/api/v1/users', function(req, res) {
-  console.log(res);
-});*/
 
 module.exports = router;

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const axios = require('axios');
+const data = require('./data.json');
 
 const MongoClient = require("mongodb").MongoClient;
 
@@ -53,11 +54,60 @@ router.post('/login', async function (req, res) {
 
   const jwt = data.data.jwt;
 
+  //Promise.all([без await все что после])
+
   let instance = await axios.create({headers: {
     "Authorization": "JWT " + jwt
+  }}, {body:  {
+    "ids": [
+      202000295,
+      281001458,
+      303006856,
+      303013239,
+      303013240,
+      336014678,
+      336015445,
+      336017875,
+      336017876,
+      336017878,
+      336017879,
+      336017880,
+      336017881,
+      336017882,
+      336017883,
+      336017884,
+      336017898,
+      336020428,
+      336022384,
+      336026783,
+      336027062,
+      336027497,
+      336027600,
+      336027879,
+      336027880,
+      336027881,
+      336027898,
+      336027900,
+      336027901,
+      336030037,
+      336030046,
+      336032468,
+      369005017,
+      369005066,
+      369005069
+    ],
+    "parseAddress": false
   }});
 
-  const geozoneData = await instance.get('https://online.omnicomm.ru/api/service/geozones/geozones?pageSize=200');
+  const vehiclesActivity = await instance.post('https://online.omnicomm.ru/ls/api/v1/activity/vehicles');
+  try {
+    let activity = vehiclesActivity.data;
+    console.log(activity);
+  } catch (error) {
+    console.log(error);
+  }
+
+  /*const geozoneData = await instance.get('https://online.omnicomm.ru/api/service/geozones/geozones?pageSize=200');
   try {
     someZone = geozoneData.data.rows[20];
     router.get('/geozones', function(req, res) {
@@ -67,7 +117,7 @@ router.post('/login', async function (req, res) {
     });
   } catch (err) {
     console.log(err);
-  }
+  }*/
   });
 
   

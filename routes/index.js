@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const axios = require('axios');
-const data = require('./data.json');
+const data = require('./consolidate.json');
 
 const MongoClient = require("mongodb").MongoClient;
 
@@ -20,6 +20,20 @@ router.get('/', async function (req, res, next) {
   //const data = await collection.find({}).toArray();
   //console.log(data)
   res.render('index');
+});
+
+router.get('/table', function (req, res) {
+  name = data.results.rows[0].vehicleName;
+  mileage = String(data.results.rows[0].mileage);
+  idlingRPM = data.results.rows[0].idlingRPM;
+  excessRPM = data.results.rows[0].excessRPM;
+  fuelConsumption = data.results.rows[0].fuelConsumption;
+  dutyConsumptionMH = data.results.rows[0].dutyConsumptionMH;
+  mileageSpeeding = data.results.rows[0].mileageSpeeding;
+  univInputOnTime = data.results.rows[0].univInputOnTime;
+  res.render('table');
+  console.log(mileage);
+  console.log(name);
 });
 
 router.get('/signin', function (req, res) {

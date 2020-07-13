@@ -113,3 +113,28 @@ label {
     background-color: #445162;
     color: #dedede;
 }
+
+table {
+    margin: 90px 50px;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+th,
+td {
+    padding: 8px;
+    border: 1px solid #444;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #adadad;
+}
+
+tr:nth-child(odd) {
+    background-color: #c5c5c5;
+}
+
+th {
+    background-color: #e66868;
+}

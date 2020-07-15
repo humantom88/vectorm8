@@ -18,32 +18,59 @@
                     <th>Группа ТС</th>
                     <th>Дата</th>
                     <th>Пробег</th>
+                    <th>Пробег с превышением</th>
                     <th>Время работы на холостых</th>
                     <th>Время работы на предельных</th>
                     <th>Расход всего</th>
-                    <th>Расход всего</th>
                     <th>Норма расхода на час</th>
-                    <th>Норма расхода на 100</th>
+                    <th>Норма расхода на 100 км</th>
                     <th>Время работы доп. оборудования</th>
                     <th>Расход при работе доп. оборудования</th>
                 </tr>
             </thead>
             <tbody>
+                {{#each rows}}
                 <tr>
-                    <td>{{name}}</td>
-                    <td>что-то ещё</td>
-                    <td>и ещё</td>
-                    <td>{{mileage}}</td>
-                    <td>пока пусто</td>
-                    <td>{{idlingRPM}}</td>
-                    <td>{{excessRPM}}</td>
-                    <td>{{fuelConsumption}}</td>
-                    <td>{{dutyConsumptionMH}}</td>
-                    <td>{{mileageSpeeding}}</td>
-                    <td>{{univInputOnTime}}</td>
-                    <td>это ещё не получили</td>
+                    <td>
+                        {{this.vehicleName}}
+                    </td>
+                    <td>
+                        {{this.group}}
+                    </td>
+                    <td>
+                        {{this.date}}
+                    </td>
+                    <td>
+                        {{this.mileage}}
+                    </td>
+                    <td>
+                        {{this.mileageSpeeding}}
+                    </td>
+                    <td>
+                        {{this.idlingRPM}}
+                    </td>
+                    <td>
+                        {{this.excessRPM}}
+                    </td>
+                    <td>
+                        {{this.fuelConsumption}}
+                    </td>
+                    <td>
+                        {{this.dutyConsumptionMH}}
+                    </td>
+                    <td>
+                        {{this.dutyConsumption100}}
+                    </td>
+                    {{#each this.uniDataList}}
+                        <td>
+                            {{this.univInputOnTime}}
+                        </td>
+                        <td>
+                            {{this.univInputOnConsumption}}
+                        </td>
+                    {{/each}}
                 </tr>
-                
+                {{/each}}
             </tbody>
         </table>
     </main>

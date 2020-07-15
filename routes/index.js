@@ -23,17 +23,22 @@ router.get('/', async function (req, res, next) {
 });
 
 router.get('/table', function (req, res) {
-  name = data.results.rows[0].vehicleName;
-  mileage = String(data.results.rows[0].mileage);
-  idlingRPM = data.results.rows[0].idlingRPM;
-  excessRPM = data.results.rows[0].excessRPM;
-  fuelConsumption = data.results.rows[0].fuelConsumption;
-  dutyConsumptionMH = data.results.rows[0].dutyConsumptionMH;
-  mileageSpeeding = data.results.rows[0].mileageSpeeding;
-  univInputOnTime = data.results.rows[0].univInputOnTime;
-  res.render('table');
-  console.log(mileage);
-  console.log(name);
+  
+  res.render('table', {
+    rows: data.results.rows,
+    
+    /*
+    name: data.results.rows[0].vehicleName,
+    mileage: String(data.results.rows[0].mileage),
+    idlingRPM: data.results.rows[0].idlingRPM,
+    excessRPM: data.results.rows[0].excessRPM,
+    fuelConsumption: data.results.rows[0].fuelConsumption,
+    dutyConsumptionMH: data.results.rows[0].dutyConsumptionMH,
+    mileageSpeeding: data.results.rows[0].mileageSpeeding,
+    univInputOnTime: data.results.rows[0].univInputOnTime,
+    */
+  });
+  console.log(data.results.rows.length);
 });
 
 router.get('/signin', function (req, res) {

@@ -55,6 +55,12 @@ router.get('/about', function (req, res) {
   })
 });
 
+router.get('/main', function(req, res) {
+  res.render('main', {
+    title: 'Vector M-8'
+  });
+});
+
 /*router.post('/refresh', function (req, res) {
   const jwt = req.body.jwt;
   console.log(jwt);

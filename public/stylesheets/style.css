@@ -138,3 +138,70 @@ tr:nth-child(odd) {
 th {
     background-color: #89eb96;
 }
+
+/*ниже стили для вёрстки главной страницы*/
+
+.container {
+    margin: 0 auto;
+    max-width: 1350px;
+}
+
+.padding-site {
+    padding-left: 90px;
+    padding-right: 90px;
+}
+
+header {
+    background-color: #2f3133;
+    padding: 50px 0px 38px;
+    min-height: 130px;
+}
+
+body {
+    font-size: 16px;
+}
+
+.leftSide > a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #787E83;
+}
+
+.leftSide > a > i {
+    margin-right: 10px;
+    color: #ddd;
+    font-size: 1.1rem;
+}
+
+.rightSide > a {
+    padding: 6px;
+}
+
+.rightSide > a > i {
+    margin-right: 3px;
+    color: #787E83;
+    font-size: 1.1rem;
+}
+
+.header__top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainNav {
+    float: right;
+    margin-top: 80px;
+}
+
+.mainNav__ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.mainNav__link {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    font-size: 1.1rem;
+    
+} 

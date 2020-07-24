@@ -293,9 +293,9 @@ html {
 
 .products__title {
     color: #2f3133;
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: center;
-    text-transform: uppercase;
+    margin-bottom: 45px;
 }
 
 .products__text {
@@ -308,6 +308,12 @@ html {
     line-height: 38px;
 }
 
+.products__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
+
 .product {
     display: flex;
     flex-direction: column;
@@ -318,11 +324,61 @@ html {
     width: 200px;
     height: 200px;
     object-fit: cover;
-
+    border-radius: 50%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    -webkit-box-shadow: 3px 5px 30px -6px rgba(0,0,0,0.26);
+    -moz-box-shadow: 3px 5px 30px -6px rgba(0,0,0,0.26);
+    box-shadow: 3px 5px 30px -6px rgba(0,0,0,0.26);
+    margin-bottom: 20px;
 }
 
-.products__list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
+.product__image:hover {
+    transform: scale(1.1);
+    -webkit-box-shadow: 3px 5px 35px 2px rgba(0,0,0,0.26);
+    -moz-box-shadow: 3px 5px 35px 2px rgba(0,0,0,0.26);
+    box-shadow: 3px 5px 35px 2px rgba(0,0,0,0.26);
+}
+
+.product__image:active {
+    transform: scale(1.02);
+    -webkit-box-shadow: 3px 5px 30px -6px rgba(0,0,0,0.26);
+    -moz-box-shadow: 3px 5px 30px -6px rgba(0,0,0,0.26);
+    box-shadow: 3px 5px 30px -6px rgba(0,0,0,0.26);
+}
+
+.button {
+    display: flex;
+    padding: 5px 15px;
+}
+
+.product__button {
+    text-decoration: none;
+    color: #212121;
+    text-transform: uppercase;
+    -webkit-box-shadow: 3px 6px 19px -1px rgba(0,0,0,0.26);
+    -moz-box-shadow: 3px 6px 19px -1px rgba(0,0,0,0.26);
+    box-shadow: 3px 6px 19px -1px rgba(0,0,0,0.26);
+    border-radius: 24px;
+    background-color: #ffffff;
+    text-align: center;
+    min-height: 44px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product__button:hover {
+    transform: scale(1.05);
+    -webkit-box-shadow: 3px 6px 19px -1px rgba(0,0,0,0.36);
+    -moz-box-shadow: 3px 6px 19px -1px rgba(0,0,0,0.36);
+    box-shadow: 3px 6px 19px -1px rgba(0,0,0,0.36);
+}
+
+.product__button:active {
+    transform: scale(0.95);
+    -webkit-box-shadow: 3px 3px 19px -4px rgba(0,0,0,0.26);
+-moz-box-shadow: 3px 3px 19px -4px rgba(0,0,0,0.26);
+box-shadow: 3px 3px 19px -4px rgba(0,0,0,0.26);
+}
+
+.button__text {
+    margin: auto;
 }

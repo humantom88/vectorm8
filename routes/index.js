@@ -22,6 +22,10 @@ router.get('/', async function (req, res, next) {
   res.render('index');
 });
 
+router.get('/gallery', function(req, res) {
+  res.render('gallery');
+});
+
 router.get('/table', function (req, res) {
   
   res.render('table', {

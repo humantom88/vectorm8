@@ -21,19 +21,22 @@
 						aria-hidden="true"></i>ROP@VECTORM8.RU</a>
 			</div>
 			<div class="header__socialLinks social-links">
-				<a href="https://www.facebook.com/people/%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87/100028054223640" class="social-links__item"><i class="fa fa-facebook social-links__icon"
+				<a href="https://www.facebook.com/people/%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87/100028054223640" class="social-links__item" target="_blank"><i class="fa fa-facebook social-links__icon"
 						aria-hidden="true"></i></a>
-				<a href="https://vk.com/vectorm8" class="social-links__item"><i class="fa fa-vk social-links__icon"
+				<a href="https://vk.com/vectorm8" class="social-links__item" target="_blank"><i class="fa fa-vk social-links__icon"
 						aria-hidden="true"></i></a>
-				<a href="#" class="social-links__item"><i class="fa fa-twitter social-links__icon"
+				<a href="https://twitter.com/qfYBs1TOPPFOnws" class="social-links__item" target="_blank"><i class="fa fa-twitter social-links__icon"
 						aria-hidden="true"></i></a>
-				<a href="#" class="social-links__item"><i class="fa fa-instagram social-links__icon"
+				<a href="https://instagram.com/vectorm8" class="social-links__item" target="_blank"><i class="fa fa-instagram social-links__icon"
 						aria-hidden="true"></i></a>
-				<a href="#" class="social-links__item"><i class="fa fa-youtube-play social-links__icon"
+				<a href="https://www.youtube.com/channel/UCft4VaW2QvHTcHXnZIXqQhQ/videos?view=0&sort=dd&shelf_id=1&view_as=subscriber" class="social-links__item" target="_blank"><i class="fa fa-youtube-play social-links__icon"
 						aria-hidden="true"></i></a>
 			</div>
 		</div>
 		<div class="header__low">
+			<div class="header__burger" id="burger">
+				<span class="burger-btn"></span>
+			</div>
 			<nav class="header-nav">
 				<a href="#" class="header-nav__link">Главная</a>
 				<a href="#" class="header-nav__link">Продукты</a>
@@ -253,16 +256,50 @@
 					<input type="email" name="email" required title="Введите email" class="email-input" placeholder="Email*">
 					<input type="tel" required name="phone" title="Введите номер телефона" class="phone-input" placeholder="+1 (234) 567 89 99*">
 					<textarea name="text-input" id="text-area" required cols="30" rows="4" placeholder="Ваше сообщение*" class="text-input"></textarea>
-					<p class="form__concent"><input type="checkbox" id="concent" name="concent" class="concent-checkbox"><label for="concent" class="consent-label">Я согласен на обработку</label> <a href="#" class="consent-link">персональных данных</a> <label for="concent">и с условиями</label> <a href="#" class="consent-link">пользовательского соглашения</a></p>
-					<button type="submit" class="button"><span class="button__text submit-text">Отправить</span></button>
+					<p class="form__concent"><input type="checkbox" id="concent" name="concent" class="concent-checkbox"><label for="concent" class="consent-label">Я согласен на обработку</label> <a href="#" class="consent-link">персональных данных</a> <label for="concent" class="consent-label">и с условиями</label> <a href="#" class="consent-link">пользовательского соглашения</a></p>
+					<button type="submit" class="button feedback__button"><span class="button__text submit-text">Отправить</span></button>
 				</form>
 			</div>
 		</section>
-
 	</main>
-	<footer>
-
+	<footer class="footer padding-site">
+		<div class="footer__text footer-text">
+			<p class="footer-text__paragraph">ГЛОНАСС, GPS, спутниковый мониторинг транспорта.</p>
+			<p class="footer-text__paragraph"><a href="#" class="footer-text__link">Система контроля расхода топлива.</a></p>
+			<p class="footer-text__paragraph"><a href="#" class="footer-text__link">Система мониторинга АЗС. </a></p>
+			<p class="footer-text__paragraph"><a href="#" class="footer-text__link">Агронавигатор.</a></p>
+			<p class="footer-text__paragraph"><a href="#" class="footer-text__link">ЭРА-ГЛОНАСС.</a></p>
+			<p class="footer-text__paragraph">Установка, обслуживание и&nbsp;ремонт в&nbsp;Вологодской области, Архангельской области, Ярославской области, Костромской области, Ленинградской области, Республике Карелия.</p>
+		</div>
+		<div class="footer__contacts footer-contacts">
+			<h5 class="footer__title">Вектор М-8</h5>
+			<p class="footer-contacts__item footer-contacts__item_phone">8 (8172) 70-68-70</p>
+			<p class="footer-contacts__item footer-contacts__item_adress">г. Вологда, ул. Советский пр-т, д.&nbsp;125&nbsp;Б, 4&nbsp;этаж</p>
+			<p class="footer-contacts__item footer-contacts__item_mail">rop@vectorm8.ru</p>
+			<div class="footer__socialLinks footer-links">
+				<a href="https://www.facebook.com/people/%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87/100028054223640" class="footer-links__item footer-links__item_facebook" target="_blank"><i class="fa fa-facebook social-links__icon"
+						aria-hidden="true"></i></a>
+				<a href="https://vk.com/vectorm8" class="footer-links__item footer-links__item_vk" target="_blank"><i class="fa fa-vk social-links__icon"
+						aria-hidden="true"></i></a>
+				<a href="https://twitter.com/qfYBs1TOPPFOnws" class="footer-links__item footer-links__item_twitter" target="_blank"><i class="fa fa-twitter social-links__icon"
+						aria-hidden="true"></i></a>
+				<a href="https://www.instagram.com/vectorm8/" class="footer-links__item footer-links__item_instagram" target="_blank"><i class="fa fa-instagram social-links__icon"
+						aria-hidden="true"></i></a>
+				<a href="https://www.youtube.com/channel/UCft4VaW2QvHTcHXnZIXqQhQ/videos?view=0&sort=dd&shelf_id=1&view_as=subscriber" class="footer-links__item footer-links__item_youtube" target="_blank"><i class="fa fa-youtube-play social-links__icon"
+						aria-hidden="true"></i></a>
+			</div>
+		</div>
+		<div class="footer__feedback">
+			<h5 class="footer__title">Напишите нам</h5>
+			<form action="#" class="footer__form">
+				<input type="text" required name="name" title="Введите имя" class="footer__name-input" placeholder="Имя*" pattern="^[a-zA-ZА-Яа-яЁё\s]+$">
+				<input type="email" name="email" required title="Введите email" class="footer__email-input" placeholder="Email*">
+				<textarea name="text-input" id="text-area" required cols="20" rows="3" placeholder="Ваше сообщение*" class="footer__text-input"></textarea>
+				<button type="submit" class="button footer__submit"><span class="button__text submit-text">Отправить</span></button>
+			</form>
+		</div>
 	</footer>
+	
 	<script type="text/javascript">
 		VK.Widgets.Group("vk_vectorm8", {mode: 3, width: "auto", no_cover: 1}, 170593309);
 	</script>

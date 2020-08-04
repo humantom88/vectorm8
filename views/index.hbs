@@ -1,7 +1,8 @@
 <div class="container">
 	<header class="header padding-site">
 		<div class="header__logo logo">
-			<a href="#" class="logo__link"><svg class="logo__svg logo__svg_top" xmlns="http://www.w3.org/2000/svg"
+			<a href="#" class="logo__link">
+				<svg class="logo__svg logo__svg_top" xmlns="http://www.w3.org/2000/svg"
 					xml:space="preserve" version="1.1"
 					style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
 					viewBox="0 0 21000 29700" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -34,20 +35,54 @@
 			</div>
 		</div>
 		<div class="header__low">
-			<div class="header__burger" id="burger">
-				<span class="burger-btn"></span>
-			</div>
 			<nav class="header-nav">
 				<a href="#" class="header-nav__link">Главная</a>
 				<a href="#" class="header-nav__link">Продукты</a>
 				<a href="/gallery" class="header-nav__link">Фотогалерея</a>
-				<a href="#" class="header-nav__link">Статьи</a>
+				<a href="/articles" class="header-nav__link">Статьи</a>
 				<a href="#" class="header-nav__link">Контакты</a>
 			</nav>
 		</div>
 	</header>
 
 	<main>
+		<div class="mobile-header">
+			<div class="mobile-header__wrapper">
+				<a href="#" class="mobile-logo_link">
+					<svg class="logo__text" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="297mm" height="420mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+				viewBox="0 0 29700 42000"
+				xmlns:xlink="http://www.w3.org/1999/xlink">
+					<g id="Слой_x0020_1">
+						<path class="fil0" d="M7372 34125l0 828 -202 0 0 -1004 651 0 0 176 -449 0zm1251 325c0,-120 -17,-206 -49,-256 -32,-51 -85,-76 -160,-76 -82,0 -138,32 -170,96 -13,27 -22,60 -28,98 -6,39 -9,88 -9,146 0,116 16,199 48,250 33,51 86,76 161,76 75,0 128,-25 159,-77 32,-51 48,-137 48,-257zm201 4c0,109 -8,197 -25,262 -17,65 -46,118 -85,157 -61,61 -144,91 -250,91 -58,0 -106,-8 -143,-25 -38,-17 -76,-47 -114,-89l0 508 -202 0 0 -1409 198 0 0 105c20,-21 39,-39 58,-53 18,-15 37,-27 57,-36 20,-9 41,-16 64,-21 23,-4 50,-7 80,-7 90,0 164,22 223,65 59,43 98,108 118,195 8,35 13,72 16,110 4,39 5,88 5,147zm590 698c-25,69 -60,119 -104,151 -44,31 -102,47 -175,47l-81 0 0 -182 51 0c41,0 72,-7 92,-21 21,-13 38,-41 53,-84l55 -158 -352 -956 216 0 239 709 234 -709 215 0 -443 1203zm1219 -199l0 -828 -400 0 0 828 -202 0 0 -1004 804 0 0 1004 -202 0zm1124 0l0 -828 -400 0 0 828 -202 0 0 -1004 804 0 0 1004 -202 0zm1060 -442l-237 0c-120,0 -180,48 -180,143 0,49 16,84 47,108 32,23 82,34 151,34 79,0 135,-16 169,-47 33,-32 50,-85 50,-159l0 -79zm2 442l0 -92c-21,22 -41,39 -60,52 -19,13 -39,23 -60,31 -22,7 -44,12 -68,14 -24,3 -50,4 -79,4 -112,0 -198,-26 -258,-78 -60,-52 -90,-127 -90,-224 0,-91 31,-163 92,-214 61,-51 145,-77 252,-77l269 0 0 -73c0,-66 -18,-114 -53,-143 -36,-29 -93,-43 -172,-43 -56,0 -101,8 -135,25 -14,7 -28,16 -40,27 -13,11 -26,26 -41,45l-133 -125c28,-30 51,-53 68,-67 17,-15 38,-27 63,-38 54,-26 129,-40 224,-40 279,0 419,115 419,345l0 671 -198 0zm1619 0l-287 -446 -145 165 0 281 -201 0 0 -1004 201 0 0 477 400 -477 247 0 -366 412 398 592 -247 0zm1031 -499c0,-63 -4,-117 -12,-161 -8,-45 -25,-81 -51,-110 -19,-20 -41,-36 -65,-48 -25,-12 -55,-17 -89,-17 -34,0 -64,5 -89,17 -25,12 -46,29 -65,50 -25,30 -41,68 -49,115 -8,46 -12,98 -12,158 0,67 5,121 16,162 11,41 27,75 49,101 36,42 86,63 150,63 34,0 64,-6 90,-17 25,-12 47,-29 66,-50 23,-29 39,-65 48,-109 8,-43 13,-95 13,-154zm201 -8c0,50 -2,95 -6,135 -4,39 -10,75 -19,106 -10,32 -22,61 -37,86 -15,26 -33,50 -54,73 -77,79 -177,118 -301,118 -123,0 -222,-39 -299,-118 -42,-45 -72,-98 -91,-158 -18,-60 -28,-139 -28,-238 0,-98 10,-176 28,-236 19,-61 49,-113 91,-158 77,-79 176,-119 299,-119 124,0 224,40 301,119 42,44 72,96 90,156 17,60 26,138 26,234zm1071 507l0 -644 -232 459 -126 0 -236 -459 0 644 -202 0 0 -1004 200 0 301 598 299 -598 198 0 0 1004 -202 0zm1126 0l0 -828 -400 0 0 828 -202 0 0 -1004 803 0 0 1004 -201 0zm1060 -442l-237 0c-120,0 -180,48 -180,143 0,49 15,84 47,108 32,23 82,34 150,34 80,0 136,-16 170,-47 33,-32 50,-85 50,-159l0 -79zm2 442l0 -92c-21,22 -41,39 -60,52 -19,13 -40,23 -61,31 -21,7 -43,12 -67,14 -24,3 -50,4 -79,4 -112,0 -198,-26 -258,-78 -60,-52 -90,-127 -90,-224 0,-91 30,-163 92,-214 61,-51 145,-77 252,-77l269 0 0 -73c0,-66 -18,-114 -53,-143 -36,-29 -93,-43 -172,-43 -56,0 -101,8 -135,25 -15,7 -28,16 -41,27 -12,11 -26,26 -40,45l-133 -125c28,-30 50,-53 68,-67 17,-15 38,-27 63,-38 54,-26 129,-40 223,-40 280,0 420,115 420,345l0 671 -198 0zm1110 0l0 -428 -400 0 0 428 -201 0 0 -1004 201 0 0 400 400 0 0 -400 202 0 0 1004 -202 0zm1154 0l0 -691 -430 691 -202 0 0 -1004 202 0 0 681 430 -681 201 0 0 1004 -201 0zm1153 0l0 -691 -429 691 -202 0 0 -1004 202 0 0 681 429 -681 202 0 0 1004 -202 0zm105 -1421c-13,90 -46,158 -99,205 -53,46 -127,70 -222,70 -95,0 -168,-24 -220,-70 -52,-47 -85,-115 -98,-205l144 0c10,38 28,69 55,93 27,24 67,35 121,35 54,0 95,-11 121,-35 26,-24 44,-55 52,-93l146 0zm-930 -3915c245,196 416,390 512,582 96,191 143,423 143,697 0,267 -46,511 -139,729 -93,219 -224,405 -393,558 -170,153 -376,272 -619,356 -244,85 -513,127 -808,127 -295,0 -564,-42 -807,-127 -244,-84 -450,-203 -619,-356 -170,-153 -301,-338 -394,-554 -93,-216 -139,-457 -139,-725 0,-355 93,-659 278,-910 50,-66 99,-125 148,-176 49,-52 126,-119 230,-201 -219,-192 -373,-376 -464,-554 -90,-177 -135,-389 -135,-635 0,-246 48,-471 144,-676 95,-205 228,-384 397,-537 170,-153 370,-272 603,-357 232,-85 485,-127 758,-127 273,0 526,42 758,127 233,85 433,204 603,357 169,153 302,332 398,537 95,205 143,430 143,676 0,246 -45,458 -135,635 -90,178 -245,362 -463,554zm-746 -1107c0,-159 -54,-292 -160,-402 -107,-109 -239,-164 -398,-164 -158,0 -291,54 -398,160 -106,107 -159,239 -159,398 0,158 53,291 159,397 107,107 240,160 398,160 153,0 284,-53 394,-160 109,-106 164,-236 164,-389zm57 2336c0,-174 -59,-322 -176,-442 -118,-121 -264,-181 -439,-181 -169,0 -314,60 -434,181 -121,120 -181,265 -181,434 0,170 60,314 181,435 120,120 265,180 434,180 164,0 307,-60 430,-180 123,-121 185,-263 185,-427zm-6571 -31l0 -1273 2711 0 0 1273 -2711 0zm-2972 1802l0 -2819 -835 1455 -926 0 -835 -1455 0 2819 -1446 0 0 -5886 1421 0 1323 2596 1323 -2596 1422 0 0 5886 -1447 0zm11334 -9192c0,139 -25,268 -75,385 -50,117 -121,218 -211,303 -91,85 -199,152 -323,199 -124,48 -260,71 -408,71l-448 0 0 1063 -732 0 0 -2980 1180 0c148,0 284,24 408,71 124,48 232,114 323,199 90,85 161,186 211,304 50,117 75,245 75,385zm-732 0c0,-87 -30,-159 -90,-216 -60,-57 -136,-86 -228,-86l-415 0 0 603 415 0c92,0 168,-29 228,-86 60,-57 90,-129 90,-215zm-1972 531c0,109 0,216 -2,320 -1,105 -11,207 -29,306 -18,99 -48,195 -90,289 -42,93 -102,182 -180,266 -212,223 -488,335 -829,335 -343,0 -622,-112 -837,-335 -75,-78 -134,-162 -176,-251 -42,-90 -72,-182 -90,-277 -18,-95 -28,-190 -31,-286 -3,-97 -4,-191 -4,-283l0 -188c0,-145 5,-272 14,-379 10,-108 26,-203 48,-287 23,-84 53,-158 92,-222 40,-64 88,-127 147,-188 212,-223 488,-335 829,-335 343,0 622,112 837,335 106,109 183,234 230,377 48,142 71,322 71,540l0 263zm-732 -125c0,-143 -9,-266 -25,-371 -17,-104 -45,-183 -84,-236 -70,-87 -167,-130 -293,-130 -126,0 -223,43 -293,130 -39,53 -67,132 -84,236 -16,105 -25,228 -25,371l0 205c0,190 9,333 25,429 17,96 45,169 84,220 73,89 170,134 293,134 59,0 114,-12 165,-36 52,-24 94,-57 128,-98 39,-51 67,-124 84,-220 16,-96 25,-239 25,-429l0 -205zm-2600 -712l0 2327 -732 0 0 -2327 -733 0 0 -653 2198 0 0 653 -733 0zm-2444 2327l-687 -1222 -251 289 0 933 -724 0 0 -2980 724 0 0 1055 863 -1055 895 0 -1017 1206 1051 1774 -854 0zm-4207 0l0 -2980 2026 0 0 653 -1293 0 0 498 1105 0 0 653 -1105 0 0 523 1293 0 0 653 -2026 0zm-506 -874c0,134 -22,254 -65,362 -43,107 -105,198 -186,274 -81,75 -179,134 -293,176 -115,41 -243,62 -385,62l-1298 0 0 -2980 1235 0c145,0 276,20 393,59 117,39 217,95 299,167 83,73 146,161 191,264 45,103 67,219 67,347 0,134 -25,249 -75,346 -51,96 -134,186 -252,270 134,83 229,175 285,276 56,100 84,226 84,377zm-775 -1206c0,-75 -23,-135 -69,-178 -46,-43 -111,-65 -194,-65l-457 0 0 486 457 0c83,0 148,-22 194,-65 46,-43 69,-103 69,-178zm42 1160c0,-81 -23,-145 -71,-191 -47,-46 -113,-69 -197,-69l-494 0 0 523 494 0c84,0 150,-23 197,-71 48,-47 71,-112 71,-192z"/>
+					</g>
+				</svg>
+				</a>
+				<div class="header__burger" id="burger">
+					<span class="burger-btn"></span>
+				</div>
+				<nav class="mobile-nav">
+					<a href="#" class="mobile-nav__link">Главная</a>
+					<a href="#" class="mobile-nav__link">Продукты</a>
+					<a href="/gallery" class="mobile-nav__link">Фотогалерея</a>
+					<a href="/articles" class="mobile-nav__link">Статьи</a>
+					<a href="#" class="mobile-nav__link">Контакты</a>
+					<div class="mobile-social-links">
+						<a href="https://www.facebook.com/people/%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87/100028054223640" class="mobile-social-links__item" target="_blank"><i class="fa fa-facebook social-links__icon"
+						aria-hidden="true"></i></a>
+						<a href="https://vk.com/vectorm8" class="mobile-social-links__item" target="_blank"><i class="fa fa-vk social-links__icon"
+								aria-hidden="true"></i></a>
+						<a href="https://twitter.com/qfYBs1TOPPFOnws" class="mobile-social-links__item" target="_blank"><i class="fa fa-twitter social-links__icon"
+								aria-hidden="true"></i></a>
+						<a href="https://instagram.com/vectorm8" class="mobile-social-links__item" target="_blank"><i class="fa fa-instagram social-links__icon"
+								aria-hidden="true"></i></a>
+						<a href="https://www.youtube.com/channel/UCft4VaW2QvHTcHXnZIXqQhQ/videos?view=0&sort=dd&shelf_id=1&view_as=subscriber" class="mobile-social-links__item" target="_blank"><i class="fa fa-youtube-play social-links__icon"
+								aria-hidden="true"></i></a>
+					</div>
+				</nav>
+			</div>
+			
+		</div>
+		
 		<section class="poster padding-site">
 				<div class="poster__logo logo">
 					<svg class="logo__svg logo__svg_poster" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
@@ -136,6 +171,14 @@
 					<a href="#" class="solution__link"><img src="../img/digitalAgro.jpg" alt="digitalAgro" class="solution__img"></a>
 					<a href="#" class="button"><span class="button__text">Цифровое сельское хозяйство</span></a>
 				</div>
+				<div class="solution">
+					<a href="#" class="solution__link"><img src="../img/digitalAgro.jpg" alt="digitalAgro" class="solution__img"></a>
+					<a href="#" class="button"><span class="button__text">Цифровое сельское хозяйство</span></a>
+				</div>
+				<div class="solution">
+					<a href="#" class="solution__link"><img src="../img/digitalAgro.jpg" alt="digitalAgro" class="solution__img"></a>
+					<a href="#" class="button"><span class="button__text">Цифровое сельское хозяйство</span></a>
+				</div>
 			</div>
 		</section>
 		<section class="advantages">
@@ -171,7 +214,7 @@
 				<a href="https://alfastroy35.ru/" target="_blank" class="clients__link"><img src="../img/clientsLogo/alfaStroy.webp" alt="АльфаСтрой" class="clients__logo"></a>
 				<a href="https://www.tdsot.ru/" target="_blank" class="clients__link"><img src="../img/clientsLogo/stroyOptTorg.webp" alt="СтройОптТорг" class="clients__logo"></a>
 				<a href="https://www.lestradespb.ru/" target="_blank" class="clients__link"><img src="../img/clientsLogo/lestreid.webp" alt="ЛесТрейд" class="clients__logo"></a>
-				<a href="https://aptekaantey.ru/" target="_blank" class="clients__link"><img src="../img/clientsLogo/antey.webp" alt="Антей" class="clients__logo"></a>
+				<a href="https://aptekaantey.ru/" target="_blank" class="clients__link"><img src="../img/clientsLogo/antey.webp" alt="Антей" class="clients__logo clients__logo_antey"></a>
 				<a href="#" target="_blank" class="clients__link"><img src="../img/clientsLogo/velskAgro.webp" alt="Вельск" class="clients__logo"></a>
 				<a href="http://vologdascan.ru/" target="_blank" class="clients__link"><img src="../img/clientsLogo/vologdaSkan.webp" alt="Vologdascan" class="clients__logo"></a>
 				<a href="http://vtor-res.ru/" target="_blank" class="clients__link"><img src="../img/clientsLogo/vtorRes.webp" alt="Вторресурсы" class="clients__logo clients__logo_vtorres"></a>
@@ -231,7 +274,7 @@
 				<iframe width="560" height="315" class="channel__video" src="https://www.youtube.com/embed/YrWLBJ-xqjo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
 		</section>
-		<section class="news padding-site">
+		<section class="news">
 			<h4 class="title news__title">Новости</h4>
 			<div class="news__content">
 				<div id="vk_vectorm8" class="news__group"></div>
@@ -260,7 +303,7 @@
 					<button type="submit" class="button feedback__button"><span class="button__text submit-text">Отправить</span></button>
 				</form>
 			</div>
-		</section>
+		</section><!--
 	</main>
 	<footer class="footer padding-site">
 		<div class="footer__text footer-text">
@@ -299,7 +342,8 @@
 			</form>
 		</div>
 	</footer>
-	
+	-->
+	<script src="/javascripts/burger.js"></script>
 	<script type="text/javascript">
 		VK.Widgets.Group("vk_vectorm8", {mode: 3, width: "auto", no_cover: 1}, 170593309);
 	</script>

@@ -26,6 +26,10 @@ router.get('/gallery', function(req, res) {
   res.render('gallery');
 });
 
+router.get('/articles', function(req, res) {
+  res.render('articles');
+});
+
 router.get('/table', function (req, res) {
   
   res.render('table', {

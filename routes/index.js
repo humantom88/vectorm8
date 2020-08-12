@@ -30,6 +30,14 @@ router.get('/articles', function(req, res) {
   res.render('articles');
 });
 
+router.get('/privacy_policy', function(req, res) {
+  res.render('privacy_policy');
+});
+
+router.get('/user_agreement', function(req, res) {
+  res.render('user_agreement');
+});
+
 router.get('/table', function (req, res) {
   
   res.render('table', {

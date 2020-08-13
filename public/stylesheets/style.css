@@ -887,18 +887,77 @@ html {
 }
 
 .clients__accordeon_visible::before {
-    padding: 5px;
+    padding: 8px;
     position: absolute;
-    bottom: -40px;
+    bottom: -50px;
     font-family: 'FontAwesome';
     content: "\f0dd";
-    font-size: 2rem;
+    font-size: 3rem;
     color: #2f3133;
     transition: all 0.2s;
 }
 
 .clients__accordeon_visible:hover:before {
-    transform: scale(1.1);
+    transform: scale(1.2);
+    cursor: pointer;
+    color: #444546;
+}
+
+.clients__accordeon {
+    transition: all 0.2s;
+}
+
+.clients__accordeon[open] .clients__accordeon_visible ~ *{ 
+    animation: sweep 0.8s ease-in-out;
+}
+
+.clients__accordeon[open] .clients__accordeon_visible::before {
+    display: none;
+}
+
+@keyframes sweep {
+   0%    {opacity: 0;}
+   100%  {opacity: 1;}
+}
+/*
+.clients__accordeon_hidden {
+    position: relative;
+}
+
+.clients__accordeon_hidden:after {
+    padding: 8px;
+    position: absolute;
+    bottom: -30px;
+    text-align: center;
+    left: 48%;
+    font-family: 'FontAwesome';
+    content: "\f0de";
+    font-size: 2.4rem;
+    color: #2f3133;
+    transition: transform 0.2s;
+}
+
+.clients__accordeon_hidden:hover:after {
+    transform: scale(1.2);
+    cursor: pointer;
+}*/
+
+
+.accordeon__closeWrapper {
+    text-align: center;
+}
+
+.accordeon__closeArrow {
+    font-size: 3rem;
+    color: #2f3133;
+    padding: 8px;
+    transition: transform 0.2s;
+}
+
+.accordeon__closeArrow:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    color: #444546;
 }
 
 
@@ -906,7 +965,7 @@ html {
 
 
 .clients__title {
-    margin: 65px 0 55px;
+    margin: 75px 0 70px;
 }
 
 .clients__content_3cols {
@@ -1036,7 +1095,7 @@ html {
 }
 
 .partners__title {
-    margin: 65px 0 55px;
+    margin: 105px 0 55px;
 }
 
 .partners__content {

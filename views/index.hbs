@@ -208,13 +208,16 @@
 		</section>
 		<section class="clients padding-site">
 			<h4 class="title clients__title">Наши клиенты</h4>
-			<details class = "clients__accordeon">
-				<summary class="clients__accordeon_visible clients__content_3cols">
-						<a href="http://mti-termosteps.ru/" target="_blank" class="clients__link"><img src="../img/clientsLogo/termosteps.webp" alt="Термостепс" class="clients__logo"></a>
-						<a href="http://www.cherles.com/" target="_blank" class="clients__link"><img src="../img/clientsLogo/cherepovetcLes.webp" alt="Череповецлес" class="clients__logo clients__logo_cherepovetcles"></a>
-						<a href="https://alfastroy35.ru/" target="_blank" class="clients__link"><img src="../img/clientsLogo/alfaStroy.webp" alt="АльфаСтрой" class="clients__logo"></a>
-				</summary>
-				<div class="clients__accordeon_hidden">
+			<div class = "clients__accordeon">
+				<div class="clients__accordeon_visible clients__content_3cols">
+					<a href="http://mti-termosteps.ru/" target="_blank" class="clients__link"><img src="../img/clientsLogo/termosteps.webp" alt="Термостепс" class="clients__logo"></a>
+					<a href="http://www.cherles.com/" target="_blank" class="clients__link"><img src="../img/clientsLogo/cherepovetcLes.webp" alt="Череповецлес" class="clients__logo clients__logo_cherepovetcles"></a>
+					<a href="https://alfastroy35.ru/" target="_blank" class="clients__link"><img src="../img/clientsLogo/alfaStroy.webp" alt="АльфаСтрой" class="clients__logo"></a>
+				</div>
+				<div class="clients__accordeon_openWrapper">
+						<i class="fa fa-sort-desc clients__accordeon_openArrow" aria-hidden="true"></i>
+				</div>
+				<div class="clients__accordeon_hidden hidden">
 					<div class="clients__content_3cols">	
 						<a href="https://www.tdsot.ru/" target="_blank" class="clients__link"><img src="../img/clientsLogo/stroyOptTorg.webp" alt="СтройОптТорг" class="clients__logo"></a>
 						<a href="https://www.lestradespb.ru/" target="_blank" class="clients__link"><img src="../img/clientsLogo/lestreid.webp" alt="ЛесТрейд" class="clients__logo"></a>
@@ -233,16 +236,16 @@
 						<a href="#" target="_blank" class="clients__link"><img src="../img/clientsLogo/tehnoStroy.webp" alt="Технострой" class="clients__logo"></a>
 						<a href="#" target="_blank" class="clients__link"><img src="../img/clientsLogo/tarnogaLes.webp" alt="Тарнога лес" class="clients__logo"></a>
 					</div>
+					<div class="clients__accordeon_closeWrapper">
+						<i class="fa fa-sort-asc clients__accordeon_closeArrow" aria-hidden="true"></i>
+					</div>
 				</div>
-				<div class="accordeon__closeWrapper">
-					<span class="clients__accordeon_close"><i class="fa fa-sort-asc accordeon__closeArrow" aria-hidden="true"></i></span>
-				</div>
-			</details>
+			</div>
 		</section>
 		<section class="partners padding-site">
 			<h4 class="title partners__title">Наши партнеры</h4>
-			<div class="partners__content">
-				<div class="partners__line">
+			<div class="partners__content partners__accordeon">
+				<div class="partners__line partners__accordeon_visible">
 					<div class="partner-item" title="Рекламное агенство">
 						<a href="http://vologda.megafon.ru/" target="_blank" class="partner-item__link"><img src="../img/partnersLogo/megafon.webp" alt="Мегафон Вологда" class="partner-item__img partner-item__img_megafon"></a><a href="http://vologda.megafon.ru/" target="_blank" class="partner-item__title">Мегафон Вологда</a>
 					</div>
@@ -256,23 +259,31 @@
 						<a href="https://agroglobal.pro/" target="_blank" class="partner-item__link"><img src="../img/partnersLogo/agroglobal.png" alt="Агроглобал" class="partner-item__img"></a><a href="https://agroglobal.pro/" target="_blank" class="partner-item__title">Agroglobal</a>
 					</div>
 				</div>
-				<div class="partners__line">
-					<div class="partner-item" title="Производство оборудования для точного контроля и учета рабочего времени">
-						<a href="http://exzotron.ru/" target="_blank" class="partner-item__link"><img src="../img/partnersLogo/exzotron.png" alt="exzotron" class="partner-item__img"></a><a href="http://exzotron.ru/" target="_blank" class="partner-item__title">Экзотрон Технолоджи</a>
-					</div>
-					<div class="partner-item" title="Грузовая техника в Вологде">
-						<a href="http://vts35.ru/" target="_blank" class="partner-item__link"><img src="../img/partnersLogo/BTS.jpg" alt="ВологдаТракСервис" class="partner-item__img"></a><a href="http://vts35.ru/" target="_blank" class="partner-item__title">ВологдаТракСервис</a>
-					</div>
-					<div class="partner-item" title="Официальный дистрибьютор Komatsu">
-						<a href="https://istk.ru/" target="_blank" class="partner-item__link"><img src="../img/partnersLogo/istk.png" alt="ИСТК" class="partner-item__img"></a><a href="https://istk.ru/" target="_blank" class="partner-item__title">ИСТК</a>
-					</div>
-					<div class="partner-item">
-						<a href="https://baltlease.ru/" target="_blank" class="partner-item__link"><img src="../img/partnersLogo/baltLising.jpg" alt="Балтийский лизинг" class="partner-item__img"></a><a href="https://baltlease.ru/" target="_blank" class="partner-item__title">Балтийский лизинг</a>
-					</div>
+				<div class="partners__accordeon_openWrapper">
+						<i class="fa fa-sort-desc partners__accordeon_openArrow" aria-hidden="true"></i>
 				</div>
-				<div class="partners__line" title="Мобильные топливные емкости">
-					<div class="partner-item">
-						<a href="http://foresttank.ru/" target="_blank" class="partner-item__link"><img src="../img/partnersLogo/forestTank.jpg" alt="foresttank" class="partner-item__img partner-item__img_foresttank"></a><a href="http://foresttank.ru/" target="_blank" class="partner-item__title">Forest Tank</a>
+				<div class="partners__accordeon_hidden hidden">
+					<div class="partners__line">
+						<div class="partner-item" title="Производство оборудования для точного контроля и учета рабочего времени">
+							<a href="http://exzotron.ru/" target="_blank" class="partner-item__link"><img src="../img/partnersLogo/exzotron.png" alt="exzotron" class="partner-item__img"></a><a href="http://exzotron.ru/" target="_blank" class="partner-item__title">Экзотрон Технолоджи</a>
+						</div>
+						<div class="partner-item" title="Грузовая техника в Вологде">
+							<a href="http://vts35.ru/" target="_blank" class="partner-item__link"><img src="../img/partnersLogo/BTS.jpg" alt="ВологдаТракСервис" class="partner-item__img"></a><a href="http://vts35.ru/" target="_blank" class="partner-item__title">ВологдаТракСервис</a>
+						</div>
+						<div class="partner-item" title="Официальный дистрибьютор Komatsu">
+							<a href="https://istk.ru/" target="_blank" class="partner-item__link"><img src="../img/partnersLogo/istk.png" alt="ИСТК" class="partner-item__img"></a><a href="https://istk.ru/" target="_blank" class="partner-item__title">ИСТК</a>
+						</div>
+						<div class="partner-item">
+							<a href="https://baltlease.ru/" target="_blank" class="partner-item__link"><img src="../img/partnersLogo/baltLising.jpg" alt="Балтийский лизинг" class="partner-item__img"></a><a href="https://baltlease.ru/" target="_blank" class="partner-item__title">Балтийский лизинг</a>
+						</div>
+					</div>
+					<div class="partners__line" title="Мобильные топливные емкости">
+						<div class="partner-item">
+							<a href="http://foresttank.ru/" target="_blank" class="partner-item__link"><img src="../img/partnersLogo/forestTank.jpg" alt="foresttank" class="partner-item__img partner-item__img_foresttank"></a><a href="http://foresttank.ru/" target="_blank" class="partner-item__title">Forest Tank</a>
+						</div>
+					</div>
+					<div class="partners__accordeon_closeWrapper">
+						<i class="fa fa-sort-asc partners__accordeon_closeArrow" aria-hidden="true"></i>
 					</div>
 				</div>
 			</div>

@@ -22,7 +22,15 @@ router.get('/', async function (req, res, next) {
   res.render('index');
 });
 
-router.get('/gallery', function(req, res) {
+router.get('/register', function (req, res) {
+  res.render('register');
+});
+
+router.get('/login', function (req, res) {
+  res.render('login');
+});
+
+router.get('/gallery', function (req, res) {
   res.render('gallery');
 });
 

@@ -301,6 +301,7 @@ html {
         top: 0;
         left: 0;
         z-index: 5;
+        
     }
 
     .mobile-header::before {
@@ -310,8 +311,8 @@ html {
         left: 0;
         width: 100%;
         height: 100%;
-        background: #2f3133;
-        opacity: 0.9;
+        background: #000;
+        filter: opacity(70%);
         z-index: 3;
     }
 
@@ -321,6 +322,11 @@ html {
         align-items: center;
         position: relative;
         height: 74px;
+        
+    }
+
+    .blur {
+        backdrop-filter: blur(4px);
     }
 
     .mobile-logo_link {
@@ -400,7 +406,7 @@ html {
         position: fixed;
         display: flex;
         flex-direction: column;
-        top: -112%;
+        top: -200%;
         left: 0;
         width: 100%;
         height: 100%;
@@ -432,13 +438,14 @@ html {
 
     .mobile-social-links {
         display: flex;
+        padding-top: 10px;
     }
 
     .mobile-social-links__item {
         color: #fff;
-        font-size: 2.8rem;
+        font-size: 3.6rem;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-        padding: 7px;
+        padding: 10px;
         margin: 0 5px;
         transition: transform 0.2s;
     }
@@ -452,6 +459,22 @@ html {
     .article,
     .poster {
         margin-top: 74px;
+    }
+}
+
+@media (max-width: 370px) {
+    .mobile-social-links__item {
+        font-size: 3.2rem;
+        padding: 7px;
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 315px) {
+    .mobile-social-links__item {
+        font-size: 3rem;
+        padding: 5px;
+        margin: 0 5px;
     }
 }
 
@@ -482,21 +505,7 @@ html {
 	fill: #ffe065;
     scale: 1.2;
 }
-
-.poster__subLogo {
-    grid-row: 2 / 3;
-    grid-column: 3/4;
-    text-align: center;
-    margin-top: -30px;
-}
-
-.poster__subLogo_text {
-    color: #ffe065;
-    font-size: 2rem;
-    font-weight: 100px;
-    text-transform: uppercase;
-}
-
+/*
 .poster__title {
     font-size: 3rem;
     color: #ffe065;
@@ -506,14 +515,15 @@ html {
     margin-left: 180px;
     text-transform: uppercase;
 }
-
+*/
 .poster__description {
-    grid-column: 1 / 3;
-    grid-row: 4 / 5;
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+    font-weight: 100;
 }
 
 .poster__text {
-    font-size: 1.6rem;
+    font-size: 2.6rem;
     color: #fff;
 }
 

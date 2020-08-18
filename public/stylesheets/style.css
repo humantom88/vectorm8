@@ -496,7 +496,7 @@ html {
     }
 
     .gallery,
-    .article,
+    .articles,
     .poster {
         margin-top: 74px;
     }
@@ -1313,7 +1313,7 @@ html {
 /*ниже стили для страницы входа*/
 
 .login__wrapper {
-    width: 380px;
+    max-width: 380px;
     margin: 60px auto 120px;
 }
 
@@ -1428,6 +1428,30 @@ html {
 .register_link {
     text-decoration: none;
     font-size: 0.9rem;
+}
+
+@media (max-width: 740px) {
+    .login__wrapper {
+        margin: 85px auto 60px;
+    }
+}
+
+@media (max-width: 530px) {
+    .login__form {
+        border: none;
+        outline: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        padding: 0 25px;
+    }
+
+    .register_wrap {
+        justify-content: start;
+    }
+    .register_link {
+        margin-left: 18px;
+    }
 }
 
 /*выше стили для страницы входа*/
@@ -2220,19 +2244,19 @@ html {
 .article__text {
     color: #fff;
     font-weight: lighter;
-    margin-top: 11px;
+    margin-top: 15px;
 }
 
 .article__link {
     font-size: 1.3rem;
     color: #fff;
     padding: 3px 7px 5px;
-    border: 2px solid #ffe065;
+    border: 1px solid #ffe065;
     border-radius: 8px;
     text-decoration: none;
     align-self: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 30px;
+    margin-bottom: 40px;
     text-transform: lowercase;
     box-shadow: 3px 6px 19px -1px rgba(0,0,0,0.3);
     transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;

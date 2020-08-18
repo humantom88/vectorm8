@@ -134,7 +134,7 @@ html {
 
 .header {
 	display: grid;
-	grid-template-columns: 1fr 2fr;
+	grid-template-columns: auto auto;
 	padding: 40px 100px;
 	background-color: #2f3133;
 }
@@ -216,6 +216,10 @@ html {
 	align-items: flex-end;
 }
 
+.header-nav {
+    position: relative;
+}
+
 .header-nav__link {
 	text-decoration: none;
 	text-transform: uppercase;
@@ -224,6 +228,37 @@ html {
 	margin-left: 15px;
 	transition: color 0.2s, border 0.2s;
 	padding: 0 7px 10px 7px;
+}
+
+.profile-btn {
+    cursor: pointer;
+    user-select: none;
+}
+
+.profile {
+    display: none;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 7px;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    right: 0;
+}
+.profile.popupActive {
+    display: flex;
+}
+
+.profile__link {
+    font-size: 1.2rem;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    display: block;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 1px 17px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 17px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 1px 17px -6px rgba(0,0,0,0.75);
 }
 
 .header-nav__link:hover {
@@ -241,7 +276,7 @@ html {
     }
 }
 
-@media (max-width: 1099px) {
+@media (max-width: 1199px) {
     .header {
         padding: 40px 60px;
     }
@@ -253,6 +288,13 @@ html {
     }
     .header-nav__link {
         padding: 0 4px 10px 4px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .header-nav__link {
+        padding: 0 3px 10px 3px;
+        font-size: 1.1rem;
     }
 }
 
@@ -301,7 +343,7 @@ html {
         top: 0;
         left: 0;
         z-index: 5;
-        
+        backdrop-filter: blur(4px);
     }
 
     .mobile-header::before {
@@ -322,11 +364,6 @@ html {
         align-items: center;
         position: relative;
         height: 74px;
-        
-    }
-
-    .blur {
-        backdrop-filter: blur(4px);
     }
 
     .mobile-logo_link {
@@ -418,6 +455,8 @@ html {
 
     .mobile-nav.burger_active {
         top: 0;
+        height: 100vh;
+        
     }
 
     .mobile-nav__link {
@@ -428,6 +467,7 @@ html {
         font-weight: 400;
         padding: 7px 0 7px 12px;
         transition: background-color 0.2s;
+        user-select: none;
     }
     .mobile-nav__link:hover {
         background-color: #fff;
@@ -676,7 +716,7 @@ html {
     -moz-box-shadow: 3px 6px 19px -1px rgba(0,0,0,0.26);
     box-shadow: 3px 6px 19px -1px rgba(0,0,0,0.26);
     border-radius: 10px;
-    border: 1px solid #ffe065;
+    border: 1px solid #ececec;
     background-color: #fff;
     text-align: center;
     min-height: 44px;
@@ -688,6 +728,7 @@ html {
 .button:hover {
     transform: scale(1.05);
     background: #ffe065;
+    border: 1px solid #ffe065;
     -webkit-box-shadow: 3px 6px 19px -1px rgba(0,0,0,0.36);
     -moz-box-shadow: 3px 6px 19px -1px rgba(0,0,0,0.36);
     box-shadow: 3px 6px 19px -1px rgba(0,0,0,0.36);

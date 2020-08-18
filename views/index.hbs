@@ -41,6 +41,11 @@
 				<a href="/gallery" class="header-nav__link">Фотогалерея</a>
 				<a href="/articles" class="header-nav__link">Статьи</a>
 				<a href="#contacts" class="header-nav__link">Контакты</a>
+				<span id="profileBtn" class="header-nav__link profile-btn">Профиль</span>
+				<div id="profilePopup" class="profile">
+					<a href="/login" class="profile__link button"><span class="button__text">Войти</span></a>
+					<a href="/register" class="profile__link button"><span class="button__text">Зарегистрироваться</span></a>
+				</div>
 			</nav>
 		</div>
 	</header>
@@ -48,7 +53,7 @@
 	<main>
 		<div class="mobile-header">
 			
-			<div class="mobile-header__wrapper blur">
+			<div class="mobile-header__wrapper">
 				<a href="#" class="mobile-logo_link">
 					<svg class="logo__text" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="297mm" height="420mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
 				viewBox="0 0 29700 42000"
@@ -67,6 +72,8 @@
 					<a href="/gallery" class="mobile-nav__link">Фотогалерея</a>
 					<a href="/articles" class="mobile-nav__link">Статьи</a>
 					<a href="#contacts" class="mobile-nav__link">Контакты</a>
+					<a href="/login" class="mobile-nav__link">Вход</a>
+					<a href="/register" class="mobile-nav__link">Регистрация</a>
 					<div class="mobile-social-links">
 						<a href="https://www.facebook.com/people/%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87/100028054223640" class="mobile-social-links__item" target="_blank"><i class="fa fa-facebook social-links__icon"
 						aria-hidden="true"></i></a>
@@ -351,6 +358,7 @@
 	
 	<script src="/javascripts/burger.js"></script>
 	<script src="/javascripts/accordeon.js"></script>
+	<script src="/javascripts/profile_popup.js"></script>
 	<!--<script type="text/javascript">
 		VK.Widgets.Group("vk_vectorm8", {mode: 3, width: "auto", no_cover: 1}, 170593309);
 	</script>-->

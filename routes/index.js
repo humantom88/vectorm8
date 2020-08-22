@@ -19,15 +19,62 @@ const MongoClient = require("mongodb").MongoClient;
 router.get('/', async function (req, res, next) {
   //const data = await collection.find({}).toArray();
   //console.log(data)
-  res.render('index');
+  res.render('index', {
+    title: "Вектор М-8.  ГЛОНАСС. Спутниковый мониторинг транспорта. Контроль топлива. ЭРА-ГЛОНАСС. Агронавигатор.",
+    description: "система спутникового мониторинга транспорта, система мониторинга расхода топлива,  ЭРА-ГЛОНАСС, система мониторинга АЗС, система точного земледелия,  агронавигатор, система контроля давления в шинах, продажа в Вологде и Вологодской области, Архангельск, Кострома, Череповец, Ярославль",
+    keywords: "ГЛОНАСС, спутниковый мониторинг транспорта,  мониторинг транспорта, контроль топлива, ЭРА-ГЛОНАСС, агронавигатор, проблесковый маяк, контроль давления в шинах",
+    og_title: "Вектор М-8.  ГЛОНАСС. Спутниковый мониторинг транспорта. Контроль топлива. ЭРА-ГЛОНАСС. Агронавигатор.",
+    og_description: "система спутникового мониторинга транспорта, система мониторинга расхода топлива,  ЭРА-ГЛОНАСС, система мониторинга АЗС, система точного земледелия,  агронавигатор, система контроля давления в шинах, продажа в Вологде и Вологодской области, Архангельск, Кострома, Череповец, Ярославль",
+    og_url: "https://vectorm8.ru"
+  })
 });
 
-router.get('/gallery', function(req, res) {
-  res.render('gallery');
+router.get('/register', function (req, res) {
+  res.render('register');
+});
+
+router.get('/login', function (req, res) {
+  res.render('login');
+});
+
+router.get('/gallery', function (req, res) {
+  res.render('gallery', {
+    title: "контроль топлива, установка, обслуживание, переговоры",
+    description: "Новости ГЛОНАСС, транспортная телематика, контроль транспорта, контроль топлива",
+    keywords: "топливо, ГЛОНАСС, вектор м-8",
+    og_title: "контроль топлива, установка, обслуживание, переговоры",
+    og_description: "Новости ГЛОНАСС, транспортная телематика, контроль транспорта, контроль топлива",
+    og_url: "https://vectorm8.ru/gallery"
+  })
 });
 
 router.get('/articles', function(req, res) {
-  res.render('articles');
+  res.render('articles', {
+    title: "Новости. Контроль топлива. Мониторинг транспорта",
+    description: "Новости компании Вектор М-8 и рынка мониторинга транспорта.",
+    keywords: "Контроль топлива. Спутниковый мониторинг.  GPS. ГЛОНАСС. Мониторинг транспорта",
+    og_title: "Новости. Контроль топлива. Мониторинг транспорта",
+    og_description: "Новости компании Вектор М-8 и рынка мониторинга транспорта.",
+    og_url: "https://vectorm8.ru/articles"
+  });
+});
+
+router.get('/privacy_policy', function(req, res) {
+  res.render('privacy_policy', {
+    title: "Политика конфиденциальности",
+    og_title: "Политика конфиденциальности",
+    description: "",
+    keywords: ""
+  })
+});
+
+router.get('/user_agreement', function(req, res) {
+  res.render('user_agreement', {
+    title: "Пользовательское соглашение",
+    og_title: "Пользовательское соглашение",
+    description: "",
+    keywords: ""
+  })
 });
 
 router.get('/table', function (req, res) {

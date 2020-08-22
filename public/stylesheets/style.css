@@ -268,7 +268,8 @@ html {
 }
 
 .gallery::before,
-.articles::before {
+.articles::before,
+.login__wrapper::before {
     content: '';
     display: block;
     width: 100%;
@@ -1369,10 +1370,11 @@ html {
 
 .login__wrapper {
     width: 380px;
-    margin: 60px auto 120px;
+    margin: 0 auto 120px;
 }
 
 .login__title {
+    margin-top: 40px;
     margin-bottom: 30px;
 }
 
@@ -1472,7 +1474,7 @@ html {
 .register_wrap {
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 40px;
+    margin-top: 70px;
     padding: 15px 28px;
 }
 

@@ -277,6 +277,8 @@ html {
     /*background-color: #4f5355;*/
 }
 
+
+
 @media (max-width: 1199px) {
     .header__wrapper {
         padding: 20px 60px 12px;
@@ -2244,7 +2246,19 @@ html {
 /*стили для статей*/
 
 .articles__container {
-    background-color: #f6f6f6;
+    background-color: #fafafa;
+}
+
+/*.articles:first-child {
+    margin-top: 30px;
+}
+
+.articles:last-child {
+    margin-bottom: 30px;
+}*/
+
+.articles__wrapper {
+    padding: 32px 0 40px;
 }
 
 .article {
@@ -2277,13 +2291,11 @@ html {
 }
 
 .article__title:hover {
-    border-bottom: 2px solid #ffe065;
-    color: #ffe065;
+    border-bottom: 2px solid #2f3133;
 }
 
 .article__title:active {
     border-bottom: 2px solid #ffe065;
-    color: #2f3133;
 }
 
 .article__text {
@@ -2304,26 +2316,29 @@ html {
     margin-bottom: 35px;
     text-transform: lowercase;
     transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-    -webkit-box-shadow: 0px 2px 16px -8px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 2px 16px -8px rgba(0,0,0,0.75);
-    box-shadow: 0px 2px 16px -8px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 2px 12px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 12px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 12px -7px rgba(0,0,0,0.75);
 }
 
 .article__link:hover {
-    transform: scale(1.03);
-    
-    border: 1px solid #ffe065;
-    -webkit-box-shadow: 0px 2px 16px -8px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 2px 16px -8px rgba(0,0,0,0.75);
-    box-shadow: 0px 2px 16px -8px rgba(0,0,0,0.75);
-    color: #2f3133;
+    transform: scale(1.01);
+    border: 1px solid #666;
+    background-color: #666;
+    -webkit-box-shadow: 0px 2px 16px -8px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 2px 16px -8px rgba(0, 0, 0, 1);
+    box-shadow: 0px 2px 16px -8px rgba(0, 0, 0, 1);
+    color: #fff;
 }
 
 .article__link:active {
     transform: scale(1);
-    background-color: #2f3133;
-    box-shadow: 2px 4px 8px -1px rgba(0,0,0,0.8);
-    color: #fff;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 0px 2px 8px -5px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 2px 8px -5px rgba(0, 0, 0, 1);
+    box-shadow: 0px 2px 8px -5px rgba(0, 0, 0, 1);
+    color: #2f3133;
 }
 
 .article__author {
@@ -2333,23 +2348,69 @@ html {
 
 @media (max-width: 1290px) {
     .article {
-        padding: 0 90px;
+        padding: 30px 40px 0;
     }
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1199px) {
     .article {
-        padding: 0 60px 0 80px;
+        max-width: 85%;
+    }
+
+    .articles__wrapper {
+        padding: 25px 0 35px;
+    }
+}
+
+@media (max-width: 1112px) {
+    .article {
+        max-width: 90%;
+        padding: 30px 18px 0 22px;
+    }
+
+    .articles__title {
+        font-size: 1.7rem;
     }
 }
 
 @media (max-width: 999px) {
+    .articles__wrapper {
+        padding: 18px 0 26px;
+    }
+
     .article {
-        padding: 0 30px 0 55px;
+        max-width: 88%;
+        padding: 15px 15px 0 25px;
+    }
+
+    .article__link {
+        margin: 22px 0 30px;
     }
 }
 
+@media (max-width: 920px) {
+    .articles__wrapper {
+        padding: 0px 0 26px;
+    }
+
+    .article {
+        max-width: 90%;
+        padding: 15px 15px 0 25px;
+    }
+}
+
+
 @media (max-width: 776px) {
+    .articles__wrapper {
+        padding: 7px 0 26px;
+    }
+
+    .article {
+        max-width: 94%;
+        padding: 10px 8px 0 15px;
+        margin: 15px auto;
+    }
+
     .article__title {
         font-size: 1.7rem;
     }
@@ -2357,17 +2418,33 @@ html {
     .article__title-link {
         text-align: center;
     }
+
+    .article__link {
+        margin: 18px 0 21px;
+    }
 }
 
-@media (max-width: 570px) {
+@media (max-width: 740px) {
+    .articles__wrapper {
+        padding: 15px 0 26px;
+    }
+}
+
+@media (max-width: 622px) {
     .article {
-        padding: 0 18px 0 27px;
+        max-width: 100%;
+        padding: 10px 8px 0 15px;
+        margin: 12px 4px;
     }
 }
 
 @media (max-width: 460px) {
+    .articles__wrapper {
+        padding: 15px 0 20px;
+    }
+
     .article {
-        padding: 0 10px 0 15px;
+        padding: 5px 5px 0 10px;
     }
 
     .article__title {

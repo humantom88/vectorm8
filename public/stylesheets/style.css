@@ -146,6 +146,7 @@ html {
     top: 0;
     left: 0;
     right: 0;
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
 }
 
@@ -175,8 +176,13 @@ html {
 .fil1 {fill:#E7A748}
 .fil0 {fill:#FEFEFE;fill-rule:nonzero}
 
+.header__right-side {
+    display: grid;
+    grid-row: 1 / 3;
+}
+
 .header__top {
-	grid-column:  2 / 3;
+	grid-column:  1 / 2;
 	grid-row: 1 / 2;
 	display: flex;
 	justify-content: space-between;
@@ -184,7 +190,7 @@ html {
 
 .header__info {
 	display: flex;
-	margin-left: 40px;
+    margin-left: 270px;
 }
 
 .header-info__link {
@@ -224,7 +230,7 @@ html {
 }
 
 .header__low {
-	grid-column: 2 / 3;
+	grid-column: 1 / 2;
 	grid-row: 2 / 3;
 	display: flex;
 	justify-content: flex-end;
@@ -278,7 +284,11 @@ html {
     /*background-color: #4f5355;*/
 }
 
-
+@media (max-width: 1300px) {
+    .header__info {
+        margin-left: 180px;
+    }
+}
 
 @media (max-width: 1199px) {
     .header__wrapper {
@@ -286,6 +296,9 @@ html {
     }
     .header__top {
         justify-content: space-around;
+    }
+    .header__info {
+        margin-left: 160px;
     }
     .social-links__item {
         margin: 10px 0 0 10px;
@@ -296,6 +309,9 @@ html {
 }
 
 @media (max-width: 1080px) {
+    .header__info {
+        margin-left: 140px;
+    }
     .header-nav__link {
         padding: 0 3px 10px 3px;
         font-size: 1.1rem;
@@ -318,11 +334,12 @@ html {
     }
 
     .header__wrapper {
-        grid-template-rows: 45px 45px;
+        grid-template-rows: 40px 40px;
+        padding: 10px 40px 15px;
     }
 
     .logo__svg_top {
-        max-width: 90px;
+        max-width: 100px;
     }
 
     .header-info__link {
@@ -353,6 +370,7 @@ html {
         top: 0;
         left: 0;
         z-index: 5;
+        -webkit-backdrop-filter: blur(4px);
         backdrop-filter: blur(4px);
         padding-top: 5px;
     }
@@ -455,7 +473,7 @@ html {
         position: fixed;
         display: flex;
         flex-direction: column;
-        top: -230%;
+        top: -150px;
         left: 0;
         width: 100%;
         height: 100%;
@@ -491,6 +509,7 @@ html {
     .mobile-social-links {
         display: flex;
         padding-top: 10px;
+        height: 220px;
     }
 
     .mobile-social-links__item {
@@ -500,6 +519,7 @@ html {
         padding: 10px;
         margin: 0 5px;
         transition: transform 0.2s;
+        display: block;
     }
 
     .mobile-social-links__item:active {
@@ -530,6 +550,65 @@ html {
         font-size: 3rem;
         padding: 5px;
         margin: 0 5px;
+    }
+}
+
+.toTopBtn {
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: none;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 3px 16px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 16px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 16px -5px rgba(0,0,0,0.75);
+    opacity: 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.toTopBtn:hover {
+    transform: scale(1.1);
+    -webkit-box-shadow: 0px 3px 18px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 18px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 18px -5px rgba(0,0,0,0.75);
+}
+
+.toTopBtn:active {
+    transform: scale(0.98);
+    -webkit-box-shadow: 0px 2px 12px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 12px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 12px -5px rgba(0,0,0,0.75);
+}
+
+.toTopBtn_visible {
+    display: flex;
+    opacity: 0.95;
+}
+
+.toTopBtn__angle {
+    font-size: 2rem;
+    margin: -5px auto;
+}
+
+@media (max-width: 920px) {
+    .toTopBtn {
+        right: 10px;
+        bottom: 10px;
+        transform: scale(1.1);
+        -webkit-box-shadow: 0px 3px 18px -5px rgba(0,0,0,0.85);
+        -moz-box-shadow: 0px 3px 18px -5px rgba(0,0,0,0.85);
+        box-shadow: 0px 3px 18px -5px rgba(0,0,0,0.85);
+    }
+
+    .toTopBtn__angle {
+        font-size: 2.2rem;
+        margin: -5px auto;
     }
 }
 
@@ -1286,7 +1365,6 @@ html {
 .partners__line {
     display: flex;
     justify-content: center;
-    padding-left: 50px;
 }
 
 .partner-item {
@@ -1489,8 +1567,15 @@ html {
 
 /*выше стили для страницы входа*/
 
+.channel {
+    background-color: #2f3133;
+    padding: 5px 0 70px;
+    margin-top: 50px;
+}
+
 .channel__title {
-    margin: 40px 0 65px;
+    color: #fff;
+    margin: 40px 0 45px;
 }
 
 .channel__content {
@@ -1498,14 +1583,13 @@ html {
     justify-content: center;
 }
 
-.channel__video {
-    width: 840px;
-    height: 472px;
-}
-
 @media (max-width: 1000px) {
+    .channel {
+        margin-top: 40px;
+        padding: 5px 0 50px;
+    }
     .channel__title {
-        margin: 35px 0 55px;
+        margin: 35px 0 40px;
     }
     .channel__video {
         max-width: 560px;
@@ -1513,8 +1597,11 @@ html {
     }
 }
 @media (max-width: 740px) {
+    .channel {
+        padding: 5px 0 40px;
+    }
     .channel__title {
-        margin: 10px 0 45px;
+        margin: 20px 0 25px;
     }
     .channel__video {
         max-width: 373px;
@@ -1522,6 +1609,12 @@ html {
     }
 }
 @media (max-width: 400px) {
+    .channel {
+        padding: 5px 0 30px;
+    }
+    .channel__title {
+        margin: 15px 0 20px;
+    }
     .channel__video {
         max-width: 310px;
         height: 175px;
@@ -1795,7 +1888,7 @@ html {
 }
 
 .footer__text {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .footer-text__paragraph,
@@ -2307,11 +2400,11 @@ html {
 }
 
 .article__link {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #2f3133;
-    padding: 3px 10px 5px;
+    padding: 8px 18px 10px;
     border: 1px solid #ccc;
-    border-radius: 15px;
+    border-radius: 10px;
     text-decoration: none;
     align-self: center;
     margin-top: 30px;
@@ -2321,6 +2414,7 @@ html {
     -webkit-box-shadow: 0px 3px 15px -10px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 3px 15px -10px rgba(0,0,0,0.75);
     box-shadow: 0px 3px 15px -10px rgba(0,0,0,0.75);
+    font-weight: 300;
 }
 
 .article__link:hover {
@@ -2451,7 +2545,7 @@ box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
 /*стили для политики конфиденциальности*/
 
 .padding-privacy {
-    padding: 0 100px 0 120px;
+    padding: 100px 100px 0 120px;
 }
 
 .privacy__title {
@@ -2494,7 +2588,7 @@ box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
 
 @media (max-width: 1099px) {
     .padding-privacy {
-        padding: 0 50px 0 60px;
+        padding: 100px 50px 0 60px;
     }
 
     .privacy__text {
@@ -2505,7 +2599,7 @@ box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
 
 @media (max-width: 1000px) {
     .padding-privacy {
-        padding: 0 40px 0 50px;
+        padding: 100px 40px 0 50px;
     }
 
     .privacy__list {
@@ -2519,7 +2613,7 @@ box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
 
 @media (max-width: 842px) {
     .padding-privacy {
-        padding: 0 25px 0 40px;
+        padding: 100px 25px 0 40px;
     }
 
     .privacy__title {
@@ -2533,7 +2627,7 @@ box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
 
 @media (max-width: 739px) {
     .padding-privacy {
-        padding: 0 15px 0 24px;
+        padding: 50px 15px 0 24px;
     }
 
     .privacy__subtitle {
@@ -2574,7 +2668,7 @@ box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
     }
 
     .padding-privacy {
-        padding: 0 10px 0 20px;
+        padding: 50px 10px 0 20px;
     }
 }
 

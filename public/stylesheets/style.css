@@ -613,8 +613,8 @@ html {
 }
 
 .poster {
+    background-image: url(../img/full_road-car-tire.png);
     background-color: #212121;
-    background-image: url(../img/full_road-car-tire.jpg);
     background-position: 1% 10%;
     background-repeat: no-repeat;
     background-size: 1500px, auto;

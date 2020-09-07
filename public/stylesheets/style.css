@@ -152,25 +152,30 @@ html {
 
 .header__logo {
 	grid-column-start: 1;
-	grid-row: 1 / 3;
+    grid-row: 1 / 3;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .logo__link {
-	transition: all 0.3s;
+    transition: all 0.3s;
+}
+.logo__link:active {
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .logo__svg_top {
     max-width: 150px;
     max-height: 100px;
+    transition: all 0.2s;
 }
 
 .logo__link:hover .logo__svg_top {
 	transform: scale(1.05);
 	fill: #ffffff;
-}
-
-.logo__svg_top {
-    transition: all 0.2s;
 }
 
 .fil1 {fill:#E7A748}
@@ -202,6 +207,46 @@ html {
 
 .header-info__link:hover {
 	color: #ffffff;
+}
+
+@keyframes phoneSwing {
+    from {
+        transform: rotate(0);
+    }
+    37% {
+        transform: rotate(0);
+    }
+    40% {
+        transform: rotate(30deg);
+    }
+    45% {
+        transform: rotate(-20deg);
+    }
+    50% {
+        transform: rotate(30deg);
+    }
+    55% {
+        transform: rotate(-20deg);
+    }
+    57% {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(0);
+    }
+}
+
+.header__phone {
+    text-decoration: underline;
+    
+}
+
+.fa-phone {
+    animation: phoneSwing 3s infinite;
+}
+
+.header__phone:hover {
+    color: #ffe065;
 }
 
 .header__info-icon {
@@ -359,7 +404,7 @@ html {
     body.locked {
         overflow: hidden;
     }
-    .header {
+    .header__wrapper {
         display: none;
     }
 
@@ -613,8 +658,8 @@ html {
 }
 
 .poster {
-    background-image: url(../img/full_road-car-tire.png);
     background-color: #212121;
+    background-image: url("../img/full_road-car-tire.png");
     background-position: 1% 10%;
     background-repeat: no-repeat;
     background-size: 1500px, auto;
@@ -1634,9 +1679,22 @@ html {
     font-size: 1.5rem;
     color: #2f3133;
     margin-bottom: 15px;
+    text-decoration: none;
+    display: block;
 }
 
-.contacts__item_phone::before,
+.contacts__item_phone {
+    text-decoration: underline;
+}
+
+.contacts__item_phone:hover {
+    color: #ffe065;
+}
+
+.fa-phone_contacts {
+    margin-right: 20px;
+}
+
 .contacts__item_adress::before,
 .contacts__item_mail::before {
     font-family: 'FontAwesome';
@@ -1646,9 +1704,6 @@ html {
     font-size: 1.5rem;
 }
 
-.contacts__item_phone::before {
-    content: "\f095";
-}
 .contacts__item_adress::before {
     content: "\f041";
 }
@@ -1927,10 +1982,19 @@ html {
     margin-bottom: 15px;
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
+.fa-phone_footer {
+    margin-right: 20px;
+    color: #fff;
+    font-size: 1.5rem;
+}
 
-.footer-contacts__item_phone::before,
+.phone-text {
+    text-decoration: underline;
+}
+
 .footer-contacts__item_adress::before,
 .footer-contacts__item_mail::before {
     font-family: 'FontAwesome';
@@ -1940,9 +2004,10 @@ html {
     font-size: 1.5rem;
 }
 
-.footer-contacts__item_phone::before {
-    content: "\f095";
+.footer-contacts__item_phone:hover {
+    color: #ffe065;
 }
+
 .footer-contacts__item_adress::before {
     content: "\f041";
     margin-left: 3px;
@@ -2132,7 +2197,11 @@ html {
         padding: 7px;
         font-size: 2.2rem;
         margin-right: 0;
-    }/*
+    }
+    .footer-contacts__item_phone {
+        color: #ffe065;
+    }
+    /*
     .footer__feedback {
         grid-column: 1 / 2;
     }
@@ -2169,6 +2238,7 @@ html {
 
 .gallery {
     padding: 0 70px;
+    margin-bottom: 70px;
 }
 
 .gallery__title {
@@ -2240,6 +2310,9 @@ html {
 }
 
 @media (max-width: 1118px) {
+    .gallery {
+        margin-bottom: 50px;
+    }
     #lightgallery {
         grid-gap: 12px;
         padding: 0 4%;
@@ -2260,6 +2333,9 @@ html {
 }
 
 @media (max-width: 854px) {
+    .gallery {
+        margin-bottom: 30px;
+    }
     #lightgallery {
         grid-gap: 9px;
         padding: 0 3%;
@@ -2284,6 +2360,9 @@ html {
 }
 
 @media (max-width: 630px) {
+    .gallery {
+        margin-bottom: 25px;
+    }
     #lightgallery {
         grid-gap: 8px;
         padding: 0 3%;
@@ -2573,6 +2652,7 @@ box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
 
 .privacy__list {
     margin-left: 60px;
+    margin-bottom: 40px;
 }
 
 .privacy__text_last {
@@ -2683,6 +2763,143 @@ box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
 }
 
 
-.emailSended_wrapper {
-    padding: 140px auto;
+.emailSended {
+    background-color: #212121;
+    background-image: url("../img/full_road-car-tire.png");
+    background-position: 1% 10%;
+    background-repeat: no-repeat;
+    background-size: 1500px, auto;
+    min-height: 350px;
+    padding: 170px 0 60px;
+}
+
+.emailSended__block {
+    margin: 30px auto 70px;
+    max-width: 80%;
+    background-color: #000000;
+    filter: opacity(80%);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    padding: 50px 60px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+.emailSended__text {
+    font-size: 2rem;
+    line-height: 3.5rem;
+    text-align: center;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.toMainPageBtn {
+    text-align: center;
+    min-width: 220px;
+    font-size: 1.6rem;
+    color: #fff;
+    background-color: #212121;
+    filter: opacity(80%);
+    padding: 10px 18px 12px;
+    border: 1px solid #2f3133;
+    border-radius: 10px;
+    text-decoration: none;
+    align-self: center;
+    margin: 70px auto 10px;
+    text-transform: lowercase;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s, filter 0.2s;
+    -webkit-box-shadow: 0px 3px 15px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 15px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 15px -10px rgba(0,0,0,0.75);
+    font-weight: 300;
+}
+
+.toMainPageBtn:hover {
+    transform: scale(1.05);
+    filter: opacity(100%);
+    -webkit-box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
+}
+
+.toMainPageBtn:active {
+    transform: scale(0.95);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.emailSendedFooter {
+    background-color: #000000;
+    filter: opacity(95%);
+}
+
+.button_toMain {
+    margin: 0 auto 50px;
+}
+
+
+
+@media (max-width: 1225px) {
+    .emailSended {
+        background-size: 1366px, auto;
+        background-position: 20% 10%;
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .emailSended {
+        padding: 200px 50px 10px;
+        background-size: 1200px, auto;
+        background-position: 1% right 100px;
+    }
+    .emailSended__text {
+        font-size: 1.6rem;
+        line-height: 3.5rem;
+    }
+}
+
+@media (max-width: 950px) {
+    .emailSended {
+        background-size: 950px;
+        background-position: 20% 40%;
+        padding: 120px 10px 30px;
+        min-height: 200px;
+    }
+    .emailSended__block {
+        padding: 30px 40px;
+    }
+    .toMainPageBtn {
+        margin: 40px auto 10px;
+    }
+}
+
+@media (max-width: 740px) {
+    .emailSended {
+        background-position: 82% bottom;
+        padding: 80px 15px 20px;
+        min-height: 150px;
+        background-size: cover, auto;
+    }
+    .emailSended__block {
+        padding: 30px 20px;
+        margin: 30px auto 40px;
+    }
+    .emailSended__text {
+        line-height: 2.6rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .emailSended {
+        padding: 80px 0 20px;
+        min-height: 150px;
+        background-size: cover, auto;
+    }
+    .emailSended__block {
+        max-width: 85%;
+        padding: 30px 10px;
+    }
 }

@@ -2764,7 +2764,6 @@ box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
 
 
 .emailSended {
-    
     background-color: #212121;
     background-image: url("../img/full_road-car-tire.png");
     background-position: 1% 10%;
@@ -2838,4 +2837,69 @@ box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
 
 .button_toMain {
     margin: 0 auto 50px;
+}
+
+
+
+@media (max-width: 1225px) {
+    .emailSended {
+        background-size: 1366px, auto;
+        background-position: 20% 10%;
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .emailSended {
+        padding: 200px 50px 10px;
+        background-size: 1200px, auto;
+        background-position: 1% right 100px;
+    }
+    .emailSended__text {
+        font-size: 1.6rem;
+        line-height: 3.5rem;
+    }
+}
+
+@media (max-width: 950px) {
+    .emailSended {
+        background-size: 950px;
+        background-position: 20% 40%;
+        padding: 120px 10px 30px;
+        min-height: 200px;
+    }
+    .emailSended__block {
+        padding: 30px 40px;
+    }
+    .toMainPageBtn {
+        margin: 40px auto 10px;
+    }
+}
+
+@media (max-width: 740px) {
+    .emailSended {
+        background-position: 82% bottom;
+        padding: 80px 15px 20px;
+        min-height: 150px;
+        background-size: cover, auto;
+    }
+    .emailSended__block {
+        padding: 30px 20px;
+        margin: 30px auto 40px;
+    }
+    .emailSended__text {
+        line-height: 2.6rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .emailSended {
+        padding: 80px 0 20px;
+        min-height: 150px;
+        background-size: cover, auto;
+    }
+    .emailSended__block {
+        max-width: 85%;
+        padding: 30px 10px;
+    }
 }

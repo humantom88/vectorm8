@@ -2,16 +2,16 @@ var express = require('express');
 var router = express.Router();
 const axios = require('axios');
 const data = require('./consolidate.json');
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const { Article } = require('../models/article.js');
+//const { Article } = require('../models/article.js');
 require('dotenv').config();
 const mailer = require('./mailer');
 
 router.use(bodyParser.json());
 
-const url = `mongodb://localhost:${process.env.DB_PORT}/${process.env.DB_NAME}`;
-var db = mongoose.connect(url, {useNewUrlParser: true});
+//const url = `mongodb://localhost:${process.env.DB_PORT}/${process.env.DB_NAME}`;
+//var db = mongoose.connect(url, {useNewUrlParser: true});
 
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
@@ -39,43 +39,43 @@ router.get('/info', (req, res) => {
   })
 });
 
-router.get('/test',
-  (req, res) => Article.find()
-  .exec()
-  .then(articles => res.json(articles)),
-);
-
-//роут ниже не рендерит?
-router.get('/article/:linkName',
-  (req, res) => Article.findOne({linkName: req.params.linkName})
-  .exec()
-  .then(docs => res.render('article', {
-    docs
-  })),
-);
-
-
-router.get('/newArticles',
-  (req, res) => Article.find()
-  .exec()
-  .then(articles => {
-    
-    const context = {
-      articles,
-      host: process.env.HOSTNAME,
-      sublink: 'article/',
-      asf: 'asdfasdf'
-    }
-
-    return res.render('newArticles', context)
-  })
-);
-
-router.post('/test',
-  (req, res) => Article.create(req.body)
-  .then(createdArticle => res.json(createdArticle)),
-);
-//console.log(db.articles);   //почему undefind?
+//router.get('/test',
+//  (req, res) => Article.find()
+//  .exec()
+//  .then(articles => res.json(articles)),
+//);
+//
+////роут ниже не рендерит?
+//router.get('/article/:linkName',
+//  (req, res) => Article.findOne({linkName: req.params.linkName})
+//  .exec()
+//  .then(docs => res.render('article', {
+//    docs
+//  })),
+//);
+//
+//
+//router.get('/newArticles',
+//  (req, res) => Article.find()
+//  .exec()
+//  .then(articles => {
+//    
+//    const context = {
+//      articles,
+//      host: process.env.HOSTNAME,
+//      sublink: 'article/',
+//      asf: 'asdfasdf'
+//    }
+//
+//    return res.render('newArticles', context)
+//  })
+//);
+//
+//router.post('/test',
+//  (req, res) => Article.create(req.body)
+//  .then(createdArticle => res.json(createdArticle)),
+//);
+////console.log(db.articles);   //почему undefind?
 
 
 router.get('/', async function (req, res, next) {

@@ -1,5 +1,5 @@
 <div class="container">
-	<header class="header">
+    <header class="header">
 		<div class="header__wrapper">
 			<div class="header__logo logo">
 				<a href="/" class="logo__link">
@@ -42,7 +42,7 @@
 						<a href="/" class="header-nav__link">Главная</a>
 						<a href="#products" class="header-nav__link">Продукты</a>
 						<a href="/gallery" class="header-nav__link">Фотогалерея</a>
-						<a href="/articles" class="header-nav__link">Статьи</a>
+						<a href="#" class="header-nav__link">Статьи</a>
 						<a href="#contacts" class="header-nav__link">Контакты</a>
 					</nav>
 				</div>
@@ -72,7 +72,7 @@
 					<a href="/" class="mobile-nav__link">Главная</a>
 					<a href="#products" class="mobile-nav__link">Продукты</a>
 					<a href="/gallery" class="mobile-nav__link">Фотогалерея</a>
-					<a href="/articles" class="mobile-nav__link">Статьи</a>
+					<a href="#" class="mobile-nav__link">Статьи</a>
 					<a href="#contacts" class="mobile-nav__link">Контакты</a>
 					<div class="mobile-social-links">
 						<a href="https://www.facebook.com/people/%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87/100028054223640" class="mobile-social-links__item" target="_blank"><i class="fa fa-facebook social-links__icon"
@@ -91,30 +91,29 @@
 		</div>
 	</header>
 
-	<main>
+    <main class="articles__container">
 
-        <div class="login__wrapper">
-            <h4 class="title login__title">Войти на сайт</h4>
-            <form method="POST" action="/admin/login" class="login__form" id="loginForm">
-                <label for="email" class="login__label">email:</label>
-                <input required type="text" name="email" id="email" class="login__input" tabindex="1">
-                <label for="pass" class="login__label">
-                    Пароль
-                    <a href="#" class="login__link">Забыли пароль?</a>
-                </label>
-                <input required type="password" name="pass" id="pass" class="login__input" tabindex="2">
-                <input type="submit" class="login__submit" value="Войти">
-            </form>
-        
+        <div class="articles">
+            <div class="articles__show">
 
-			<div class="login__form register_wrap">
-				<p class="register_text">Впервые здесь?</p>
-				<a href="/admin/register" class="register_link">зарегистрироваться</a>
-			</div>
-		</div>
+                <h1 class="article__title_show">{{name}}</h1>
+				{{#if author}}
+                	<p class="article__text">
+                	    <span class="article__author">Автор: {{author}} &copy;</span>
+                	</p>
+				{{/if}}
+                <div class="article__markdown">{{{renderedDescription}}}</div>
+                <div class="article__markdown">{{{renderedText}}}</div>
+            
+                {{#if imageUrl}}
+                    <img src="../img/articles/{{imageUrl}}" class="article__image" alt="{{name}}">
+                {{/if}}
+            </div>
+        </div>
+
     </main>
 
-	<footer class="footer">
+    <footer class="footer">
 		<div class="footer__text footer-text">
 			<p class="footer-text__paragraph">ГЛОНАСС, GPS, спутниковый мониторинг транспорта.</p>
 			<p class="footer-text__paragraph"><a href="#" class="footer-text__link">Система контроля расхода топлива.</a></p>
@@ -141,9 +140,10 @@
 						aria-hidden="true"></i></a>
 			</div>
 		</div>
-		<div class="toTopBtn"><span class="toTopBtn__angle"><i class="fa fa-angle-up" aria-hidden="true"></i></span></div>
+        <div class="toTopBtn"><span class="toTopBtn__angle"><i class="fa fa-angle-up" aria-hidden="true"></i></span></div>
 	</footer>
-	
-	<script src="/javascripts/scrollToTop.js"></script>
-	<script src="/javascripts/burger.js"></script>
+
+    <script src="/javascripts/scrollToTop.js"></script>
+    <script src="/javascripts/burger.js"></script>
 </div>
+    

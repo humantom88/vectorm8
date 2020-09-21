@@ -20,6 +20,9 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    {{#if bootstrap}}
+      <link rel="stylesheet" href={{bootstrap}} integrity={{integrity}} crossorigin={{crossorigin}}>
+    {{/if}}
   </head>
   <body>
     {{{body}}}

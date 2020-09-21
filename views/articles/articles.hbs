@@ -2,7 +2,7 @@
     <header class="header">
 		<div class="header__wrapper">
 			<div class="header__logo logo">
-				<a href="#" class="logo__link">
+				<a href="/" class="logo__link">
 					<svg class="logo__svg_top" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="35mm" height="23mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
 					viewBox="0 0 3500 2300"
 					xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -39,10 +39,10 @@
 				</div>
 				<div class="header__low">
 					<nav class="header-nav">
-						<a href="#" class="header-nav__link">Главная</a>
+						<a href="/" class="header-nav__link">Главная</a>
 						<a href="#products" class="header-nav__link">Продукты</a>
 						<a href="/gallery" class="header-nav__link">Фотогалерея</a>
-						<a href="/articles" class="header-nav__link">Статьи</a>
+						<a href="#" class="header-nav__link">Статьи</a>
 						<a href="#contacts" class="header-nav__link">Контакты</a>
 					</nav>
 				</div>
@@ -72,7 +72,7 @@
 					<a href="/" class="mobile-nav__link">Главная</a>
 					<a href="#products" class="mobile-nav__link">Продукты</a>
 					<a href="/gallery" class="mobile-nav__link">Фотогалерея</a>
-					<a href="/articles" class="mobile-nav__link">Статьи</a>
+					<a href="#" class="mobile-nav__link">Статьи</a>
 					<a href="#contacts" class="mobile-nav__link">Контакты</a>
 					<div class="mobile-social-links">
 						<a href="https://www.facebook.com/people/%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87/100028054223640" class="mobile-social-links__item" target="_blank"><i class="fa fa-facebook social-links__icon"
@@ -92,26 +92,33 @@
 	</header>
 
     <main class="articles__container">
-
         <div class="articles">
             <div class="articles__wrapper">
+
                 {{#each articles}}
+
                     <article class="article">
-                        <a href="#" class="article__title-link">
-                            <h3 class="article__title">{{this.title}}</h3>
+                        <a href="/articles/{{ this.link }}" class="article__title-link">
+                            <h3 class="article__title">{{ this.name }}</h3>
                         </a>
-                        <p class="article__text"><span class="article__author">{{this.author}}</span>
-                        <p class="article__text">{{this.text_1}}</p>
-                        <p class="article__text">{{this.text_2}}</p>
-						
-                        <a href="{{ ../sublink }}{{ this.linkName }}" class="article__link">Читать дальше</a>
+						{{#if this.author}}
+                        	<p class="article__text">
+                        	    <span class="article__author">Автор: {{ this.author }} &copy;</span>
+                        	</p>
+						{{/if}}
+                        <div class="article__markdown">{{{ this.renderedDescription }}}</div>
+                        
+                       <!-- <a href="{{ ../sublink }}{{ this.link }}" class="article__link">Читать дальше</a>-->
+                        <a href="/articles/{{ this.link }}" class="article__link">Читать дальше</a> 
                     </article>
+
                 {{/each}}
+
             </div>
         </div>
     </main>
-    
-	<footer class="footer">
+
+    <footer class="footer">
 		<div class="footer__text footer-text">
 			<p class="footer-text__paragraph">ГЛОНАСС, GPS, спутниковый мониторинг транспорта.</p>
 			<p class="footer-text__paragraph"><a href="#" class="footer-text__link">Система контроля расхода топлива.</a></p>
@@ -138,9 +145,14 @@
 						aria-hidden="true"></i></a>
 			</div>
 		</div>
-		<div class="toTopBtn"><span class="toTopBtn__angle"><i class="fa fa-angle-up" aria-hidden="true"></i></span></div>
+        <div class="toTopBtn"><span class="toTopBtn__angle"><i class="fa fa-angle-up" aria-hidden="true"></i></span></div>
 	</footer>
 
-	<script src="/javascripts/scrollToTop.js"></script>
+    <script src="/javascripts/scrollToTop.js"></script>
     <script src="/javascripts/burger.js"></script>
 </div>
+
+
+
+
+

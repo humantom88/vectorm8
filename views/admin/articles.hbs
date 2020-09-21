@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container__notBootstrap">
 	<header class="header">
 		<div class="header__wrapper">
 			<div class="header__logo logo">
-				<a href="/" class="logo__link">
+				<a href="#" class="logo__link">
 					<svg class="logo__svg_top" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="35mm" height="23mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
 					viewBox="0 0 3500 2300"
 					xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -19,10 +19,9 @@
 			</div>
 			<div class="header__right-side">
 				<div class="header__top">
-					<div class="header__info header-info">
-						<a href="tel:88172706870" class="header__phone header-info__link"><i class="fa fa-phone header__info-icon" aria-hidden="true"></i>8 (8172) 70-68-70</a>
-						<a href="mailto:rop@vectorm8.ru" class="header__email header-info__link"><i class="fa fa-envelope-o header__info-icon"
-							aria-hidden="true"></i>ROP@VECTORM8.RU</a>
+					<div class="header__info_admin">
+						<h3 class="title_admin">Админ панель</h3>
+                        <a href="/admin/logout" class="btn btn-danger exitBtn">Выйти</a>
 					</div>
 					<div class="header__socialLinks social-links">
 						<a href="https://www.facebook.com/people/%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87/100028054223640" class="social-links__item" target="_blank"><i class="fa fa-facebook social-links__icon"
@@ -39,11 +38,11 @@
 				</div>
 				<div class="header__low">
 					<nav class="header-nav">
-						<a href="/" class="header-nav__link">Главная</a>
-						<a href="#products" class="header-nav__link">Продукты</a>
-						<a href="/gallery" class="header-nav__link">Фотогалерея</a>
-						<a href="/articles" class="header-nav__link">Статьи</a>
-						<a href="#contacts" class="header-nav__link">Контакты</a>
+						<a href="/admin" class="header-nav__link">Главная</a>
+						<a href="#" class="header-nav__link">Продукты</a>
+						<a href="#" class="header-nav__link">Фотогалерея</a>
+						<a href="/admin/articles" class="header-nav__link">Статьи</a>
+						<a href="#" class="header-nav__link">Контакты</a>
 					</nav>
 				</div>
 			</div>
@@ -51,7 +50,7 @@
 
 		<div class="mobile-header">
 			<div class="mobile-header__wrapper">
-				<a href="/" class="mobile-logo_link">
+				<a href="#" class="mobile-logo_link">
 					<svg class="logo__text" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="35mm" height="23mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
 					viewBox="0 0 3500 2300"
 					xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -69,11 +68,12 @@
 					<span class="burger-btn"></span>
 				</div>
 				<nav class="mobile-nav">
-					<a href="/" class="mobile-nav__link">Главная</a>
-					<a href="#products" class="mobile-nav__link">Продукты</a>
-					<a href="/gallery" class="mobile-nav__link">Фотогалерея</a>
-					<a href="/articles" class="mobile-nav__link">Статьи</a>
-					<a href="#contacts" class="mobile-nav__link">Контакты</a>
+					<a href="/admin" class="mobile-nav__link">Главная</a>
+					<a href="#" class="mobile-nav__link">Продукты</a>
+					<a href="#" class="mobile-nav__link">Фотогалерея</a>
+					<a href="/admin/articles" class="mobile-nav__link">Статьи</a>
+					<a href="#" class="mobile-nav__link">Контакты</a>
+                    <a href="/admin/logout" class="btn btn-danger exitBtn">Выйти</a>
 					<div class="mobile-social-links">
 						<a href="https://www.facebook.com/people/%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87/100028054223640" class="mobile-social-links__item" target="_blank"><i class="fa fa-facebook social-links__icon"
 						aria-hidden="true"></i></a>
@@ -91,59 +91,44 @@
 		</div>
 	</header>
 
-	<main>
+    <main class="admin__main">
 
-        <div class="login__wrapper">
-            <h4 class="title login__title">Войти на сайт</h4>
-            <form method="POST" action="/admin/login" class="login__form" id="loginForm">
-                <label for="email" class="login__label">email:</label>
-                <input required type="text" name="email" id="email" class="login__input" tabindex="1">
-                <label for="pass" class="login__label">
-                    Пароль
-                    <a href="#" class="login__link">Забыли пароль?</a>
-                </label>
-                <input required type="password" name="pass" id="pass" class="login__input" tabindex="2">
-                <input type="submit" class="login__submit" value="Войти">
-            </form>
+        
+            
+                <div class="article_new mt-5">
+                    <a href="/admin/newArticle" class="btn btn-danger">Добавить статью</a>
+                </div>
+                
+
+                {{#each articles}}
+                    <article class="article">
+                        <a href="/articles/{{ this.link }}" class="article__title-link">
+                            <h3 class="article__title">{{ this.name }}</h3>
+                        </a>
+						{{#if this.author}}
+                        	<p class="article__text">
+                        	    <span class="article__author">Автор: {{ this.author }} &copy;</span>
+                        	</p>
+						{{/if}}
+                        <div class="article__markdown">{{{ this.renderedDescription }}}</div>
+                        
+                
+						<div class="control-articles">
+							<a href="/admin/articles/{{ this.link }}" class="article__link">Читать дальше</a>
+							<a href="/admin/articles/edit/{{ this.id }}" class="btn btn-info">Редактировать</a>
+							<form action="/admin/articles/{{this.id}}?_method=DELETE" method="POST">
+								<button type="submit" class="btn btn-danger">Удалить</button>
+							</form>
+						</div>
+						
+                    </article>
+                {{/each}}
+
+            
         
 
-			<div class="login__form register_wrap">
-				<p class="register_text">Впервые здесь?</p>
-				<a href="/admin/register" class="register_link">зарегистрироваться</a>
-			</div>
-		</div>
     </main>
 
-	<footer class="footer">
-		<div class="footer__text footer-text">
-			<p class="footer-text__paragraph">ГЛОНАСС, GPS, спутниковый мониторинг транспорта.</p>
-			<p class="footer-text__paragraph"><a href="#" class="footer-text__link">Система контроля расхода топлива.</a></p>
-			<p class="footer-text__paragraph"><a href="#" class="footer-text__link">Система мониторинга АЗС. </a></p>
-			<p class="footer-text__paragraph"><a href="#" class="footer-text__link">Агронавигатор.</a></p>
-			<p class="footer-text__paragraph"><a href="#" class="footer-text__link">ЭРА-ГЛОНАСС.</a></p>
-			<p class="footer-text__paragraph">Установка, обслуживание и&nbsp;ремонт в&nbsp;Вологодской области, Архангельской области, Ярославской области, Костромской области, Ленинградской области, Республике Карелия.</p>
-		</div>
-		<div class="footer__contacts footer-contacts">
-			<h5 class="footer__title">Вектор М-8</h5>
-			<a href="tel:88172706870" class="footer-contacts__item footer-contacts__item_phone"><i class="fa fa-phone fa-phone_footer" aria-hidden="true"></i><span class="phone-text">8 (8172) 70-68-70</span></a>
-			<a href="mailto:rop@vectorm8.ru" class="footer-contacts__item footer-contacts__item_mail"><i class="fa fa-envelope-o fa-envelope-o_footer" aria-hidden="true"></i><span class="email-text_footer">rop@vectorm8.ru</span></a>
-			<p class="footer-contacts__item footer-contacts__item_adress">г. Вологда, ул. Советский пр-т, д.&nbsp;125&nbsp;Б, 4&nbsp;этаж</p>
-			<div class="footer__socialLinks footer-links">
-				<a href="https://www.facebook.com/people/%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87/100028054223640" class="footer-links__item footer-links__item_facebook" target="_blank"><i class="fa fa-facebook social-links__icon"
-						aria-hidden="true"></i></a>
-				<a href="https://vk.com/vectorm8" class="footer-links__item footer-links__item_vk" target="_blank"><i class="fa fa-vk social-links__icon"
-						aria-hidden="true"></i></a>
-				<a href="https://twitter.com/qfYBs1TOPPFOnws" class="footer-links__item footer-links__item_twitter" target="_blank"><i class="fa fa-twitter social-links__icon"
-						aria-hidden="true"></i></a>
-				<a href="https://www.instagram.com/vectorm8/" class="footer-links__item footer-links__item_instagram" target="_blank"><i class="fa fa-instagram social-links__icon"
-						aria-hidden="true"></i></a>
-				<a href="https://www.youtube.com/channel/UCft4VaW2QvHTcHXnZIXqQhQ/videos?view=0&sort=dd&shelf_id=1&view_as=subscriber" class="footer-links__item footer-links__item_youtube" target="_blank"><i class="fa fa-youtube-play social-links__icon"
-						aria-hidden="true"></i></a>
-			</div>
-		</div>
-		<div class="toTopBtn"><span class="toTopBtn__angle"><i class="fa fa-angle-up" aria-hidden="true"></i></span></div>
-	</footer>
-	
-	<script src="/javascripts/scrollToTop.js"></script>
+    <footer></footer>
 	<script src="/javascripts/burger.js"></script>
 </div>

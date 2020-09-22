@@ -11,10 +11,7 @@ const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 let mailSended = undefined;
 router.post('/', urlencodedParser, function (req, res) {
-  if(!req.body) return res.sendStatus(400);
-  if(req.body.name === undefined || req.body.email === undefined || req.body.phone === undefined || req.body.message) {
-    return res.sendStatus(400);
-  } 
+  if(!req.body && req.body === undefined) return res.sendStatus(400);
   mailSended = req.body;
   const message = {
     from: process.env.EMAIL_USER,

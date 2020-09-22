@@ -11,11 +11,11 @@ router.get('/login', (req, res) => {
 
 router.post('/login', controller.login);
 
-router.get('/register', (req, res) => {
-    res.render('register');
-});
-
-router.post('/register', controller.register);
+//router.get('/register', (req, res) => {
+//    res.render('register');
+//});
+//
+//router.post('/register', controller.register);
 
 router.get('/', ensureAuthenticated, (req, res) => {
     res.render('admin/index', {

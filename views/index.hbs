@@ -323,7 +323,7 @@
 				<form action="/" method="POST" class="form feedback__form">
 					<input type="text" required name="name" title="Введите имя" class="name-input" placeholder="Имя*" pattern="^[a-zA-ZА-Яа-яЁё\s]+$">
 					<input type="email" name="email" required title="Введите email" class="email-input" placeholder="Email*">
-					<input type="tel" required name="phone" title="Введите номер телефона" class="phone-input" placeholder="+1 (234) 567 89 99*">
+					<input type="tel" required name="phone" title="Введите номер телефона" class="phone-input" placeholder="+1 (234) 567 89 99*" pattern="(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?">
 					<textarea name="message" id="text-area" required cols="30" rows="4" placeholder="Ваше сообщение*" class="text-input"></textarea>
 					<p class="form__concent"><input type="checkbox" id="concent" name="concent" required class="concent-checkbox"><label for="concent" class="consent-label">Я согласен на обработку</label> <a href="/privacy_policy" class="consent-link">персональных данных</a> <label for="concent" class="consent-label">и с условиями</label> <a href="/user_agreement" class="consent-link">пользовательского соглашения</a></p>
 					<button type="submit" class="button feedback__button"><span class="button__text submit-text">Отправить</span></button>

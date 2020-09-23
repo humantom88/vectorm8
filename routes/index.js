@@ -3,7 +3,6 @@ var router = express.Router();
 const axios = require('axios');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-//const { Article } = require('../models/article.js');
 const Article = require('../models/article');
 const mailer = require('./mailer');
 
@@ -36,7 +35,15 @@ router.get('/info', (req, res) => {
 
 router.get('/articles', async (req, res) => {
   const articles = await Article.find().sort('-date');
-  res.render('articles/articles', { articles: articles });
+  res.render('articles/articles', { 
+    articles: articles, 
+    title: "Новости. Контроль топлива. Мониторинг транспорта",
+    description: "Новости компании Вектор М-8 и рынка мониторинга транспорта.",
+    keywords: "Контроль топлива. Спутниковый мониторинг.  GPS. ГЛОНАСС. Мониторинг транспорта",
+    og_title: "Новости. Контроль топлива. Мониторинг транспорта",
+    og_description: "Новости компании Вектор М-8 и рынка мониторинга транспорта.",
+    og_url: "https://vectorm8.ru/articles"
+  });
 });
 
 router.get('/articles/:link', async (req, res) => {
@@ -108,8 +115,5 @@ router.get('/user_agreement', function(req, res) {
   })
 });
 
-router.get('/signin', function (req, res) {
-  res.render('signin');
-});
 
 module.exports = router;

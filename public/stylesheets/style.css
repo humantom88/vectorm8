@@ -2920,3 +2920,154 @@ box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
         padding: 30px 10px;
     }
 }
+
+
+
+/*СТИЛИ ДЛЯ СТРАНИЦ товаров*/
+
+.product-page {
+    padding: 0 80px 40px;
+}
+
+.product-main::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 137px;
+    background-color: #fff;
+}
+
+@media (max-width: 740px) {
+    .product-main::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 55px;
+        background-color: #4f5355;
+    }
+}
+
+.product-page__title {
+    margin: 40px;
+}
+
+.sub-title {
+    color: #616161;
+    font-size: 1.6rem;
+    text-align: center;
+    font-weight: 100;
+    line-height: 2.4rem;
+    margin-bottom: 5px;
+}
+
+.product-page__section {
+    margin-bottom: 30px;
+}
+
+.special-title {
+    color: #2f3133;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 100;
+    line-height: 2.4rem;
+}
+
+.product-description__title {
+    margin: 0 0 40px;
+}
+
+.section-title {
+    color: #2f3133;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.section-content {
+    display: flex;
+}
+
+.product-page__text {
+    color: #2f3133;
+    font-size: 1.2rem;
+}
+
+.product-page__img {
+    max-width: 40%;
+    object-fit: cover;
+}
+
+.teaching-line {
+    margin-top: 50px;
+}
+
+.title-link {
+    display: block;
+    font-size: 2rem;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.title-link:hover {
+    transform: scale(1.05);
+    color: #ffe065;
+}
+
+.title-link:active {
+    transform: scale(0.98);
+}
+
+.conclusion {
+    display: flex;
+    justify-content: center;
+}
+
+.conclusion-line {
+    margin-top: 30px;
+}
+
+.conclusion-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+}
+
+.conclusion-item__circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ffe065;
+    display: block;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.conclusion-item__circle::before {
+    content: '';
+    display: block;
+    background: #ffe065;
+    min-width: 200px;
+    height: 2px;
+    position: absolute;
+    top: 9px;
+    left: -450%;
+}
+
+.conclusion-item__text {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #2f3133;
+    font-weight: 100;
+    text-align: center;
+}
+
+.product-page__button {
+    margin: 30px auto;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.button__text_product {
+    font-size: 1.4rem;
+    font-weight: 300;
+}

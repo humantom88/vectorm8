@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const axios = require('axios');
-const data = require('./consolidate.json');
 //const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 //const { Article } = require('../models/article.js');
@@ -142,6 +141,8 @@ router.get('/user_agreement', function(req, res) {
 router.get('/signin', function (req, res) {
   res.render('signin');
 });
+
+
 
 //router.get('/table', function (req, res) {
 //  

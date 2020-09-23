@@ -105,7 +105,7 @@ function saveArticleAndRedirect(path) {
         try {
             article = await article.save();
             //console.log(article);
-            res.redirect(`/admin/articles/${article.link}`);
+            res.redirect(`/admin/articles`);
         } catch (e) {
             //console.log(article);
             res.render(`admin/${path}`, { article: article });

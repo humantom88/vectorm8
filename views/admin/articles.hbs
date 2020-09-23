@@ -96,12 +96,12 @@
         
             
                 <div class="article_new mt-5">
-                    <a href="/admin/newArticle" class="btn btn-danger">Добавить статью</a>
+                    <a href="/admin/newArticle" class="btn btn-success">Добавить статью</a>
                 </div>
                 
 
                 {{#each articles}}
-                    <article class="article">
+                    <article class="article article__admin">
                         <a href="/articles/{{ this.link }}" class="article__title-link">
                             <h3 class="article__title">{{ this.name }}</h3>
                         </a>
@@ -114,7 +114,7 @@
                         
                 
 						<div class="control-articles">
-							<a href="/admin/articles/{{ this.link }}" class="article__link">Читать дальше</a>
+							<a href="/admin/articles/{{ this.link }}" class="btn btn-secondary">Читать дальше</a>
 							<a href="/admin/articles/edit/{{ this.id }}" class="btn btn-info">Редактировать</a>
 							<form action="/admin/articles/{{this.id}}?_method=DELETE" method="POST">
 								<button type="submit" class="btn btn-danger">Удалить</button>

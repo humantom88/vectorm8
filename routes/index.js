@@ -8,6 +8,9 @@ const mailer = require('./mailer');
 
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
+const botTelegram = require('../api/telegramMsg');
+//router.post('/', ctrlTelegram.sendMsg);
+
 let mailSended = undefined;
 router.post('/', urlencodedParser, function (req, res) {
   if(!req.body && req.body === undefined) return res.sendStatus(400);
@@ -16,12 +19,13 @@ router.post('/', urlencodedParser, function (req, res) {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_ADDRESSEE,
     subject: 'new message',
-    text: `Новое сообщение от ${mailSended.name}.
-    
-    ${mailSended.message}
-    email: ${mailSended.email}
-    телефон: ${mailSended.phone}`
+    text: `Cообщение от: ${mailSended.name}.
+    Email: ${mailSended.email}
+    телефон: ${mailSended.phone}
+
+    ${mailSended.message}`
   }
+  botTelegram.sendMsg(mailSended);
   mailer(message);
   res.redirect('/info');
 });

@@ -27,10 +27,6 @@ mongoose.connect(db, {
 
 const indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');
-
-
-var indexRouter = require('./routes/index');
-//var usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 
 
@@ -67,9 +63,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', indexRouter);
-
 app.use('/admin', adminRouter);
-//app.use('/users', usersRouter);
 //app.use('/mailer', mailRouter);
 app.use('/products', productsRouter);
 

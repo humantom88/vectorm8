@@ -236,7 +236,6 @@ router.post('/lighthouse', urlencodedParser, function (req, res) {
 });
 
 
-
 router.get('/era-glonass', function(req, res) {
 	res.render('products/eraGlonass', {
 		title: "ЭРА-ГЛОНАСС",
@@ -248,6 +247,33 @@ router.get('/era-glonass', function(req, res) {
 	});
 });
 
+router.post('/era-glonass', urlencodedParser, function (req, res) {
+	if(!req.body && req.body === undefined) return res.sendStatus(400);
+	mailSended = req.body;
+	let telegramFields = [
+		'Узнать стоимость ЭРА-ГЛОНАСС.',
+	    `Сообщение от: ${mailSended.name}`,
+	    `Email: ${mailSended.email}`,
+	    `Телефон: ${mailSended.phone}`,
+	    `Комментарий: ${mailSended.message}`
+	];
+	const message = {
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_ADDRESSEE,
+    subject: 'new message',
+	text: `Узнать стоимость ЭРА-ГЛОНАСС.
+		Cообщение от: ${mailSended.name}.
+    	Email: ${mailSended.email}
+    	телефон: ${mailSended.phone}
+
+    	Комментарий: ${mailSended.message}`
+	}
+	botTelegram.sendMsg(telegramFields);
+	mailer(message);
+	res.redirect('/products/info');
+});
+
+
 router.get('/tire_pressure_control', function(req, res) {
 	res.render('products/tirePressureControl', {
 		title: "Контроль давления в шинах",
@@ -257,6 +283,32 @@ router.get('/tire_pressure_control', function(req, res) {
 		og_description: "Установка систем контроля давления в шинах. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область. Костромская область.",
 		og_url: "https://vectorm8.ru/products/tire_pressure_control"
 	});
+});
+
+router.post('/tire_pressure_control', urlencodedParser, function (req, res) {
+	if(!req.body && req.body === undefined) return res.sendStatus(400);
+	mailSended = req.body;
+	let telegramFields = [
+		'Узнать стоимость системы контроля давления в шинах.',
+	    `Сообщение от: ${mailSended.name}`,
+	    `Email: ${mailSended.email}`,
+	    `Телефон: ${mailSended.phone}`,
+	    `Комментарий: ${mailSended.message}`
+	];
+	const message = {
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_ADDRESSEE,
+    subject: 'new message',
+	text: `Узнать стоимость системы контроля давления в шинах.
+		Cообщение от: ${mailSended.name}.
+    	Email: ${mailSended.email}
+    	телефон: ${mailSended.phone}
+
+    	Комментарий: ${mailSended.message}`
+	}
+	botTelegram.sendMsg(telegramFields);
+	mailer(message);
+	res.redirect('/products/info');
 });
 
 

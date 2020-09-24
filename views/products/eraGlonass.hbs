@@ -122,14 +122,14 @@
 					<h4 class="modal-input__title">Узнать стоимость</h4>
 					<div id="modalCloseBtn" class="modal-input__close-btn"></div>
 				</div>
-				<form action="/" method="POST" class="form modal-input__form">
-					<input type="text" required name="name" title="Введите имя" class="name-input" placeholder="Имя*" pattern="^[a-zA-ZА-Яа-яЁё\s]+$">
+				<form action="/products/era-glonass" method="POST" class="form modal-input__form">
+					<input type="text" name="name" title="Введите имя" class="name-input" placeholder="Имя" pattern="^[a-zA-ZА-Яа-яЁё\s]+$">
 					<input type="email" name="email" required title="Введите email" class="email-input" placeholder="Email*">
 					<input type="tel" required name="phone" title="Введите номер телефона" class="phone-input" placeholder="+1 (234) 567 89 99*">
-					<textarea name="message" id="text-area" required cols="30" rows="4" placeholder="Ваше сообщение*" class="text-input"></textarea>
+					<textarea name="message" id="text-area" cols="30" rows="4" placeholder="Комментарий" class="text-input"></textarea>
 					<button type="submit" class="button modal-input__sendBtn"><span class="button__text submit-text">Отправить</span></button>
 				</form>
-		</div>
+			</div>
 		</div>
 	</main>
 

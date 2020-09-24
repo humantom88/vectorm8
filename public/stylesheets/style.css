@@ -3124,8 +3124,8 @@ body.locked {
 }
 
 .conclusion {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .conclusion-line {

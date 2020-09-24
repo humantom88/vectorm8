@@ -119,5 +119,4 @@ router.get('/user_agreement', function(req, res) {
   })
 });
 
-
 module.exports = router;

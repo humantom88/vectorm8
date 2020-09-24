@@ -154,6 +154,11 @@ html {
 	font-size: 16px;
 }
 
+body.locked {
+    overflow: hidden;
+}
+
+
 .container,
 .container__notBootstrap {
 	max-width: 1366px;
@@ -411,9 +416,7 @@ html {
 }
 
 @media (max-width: 740px) {
-    body.locked {
-        overflow: hidden;
-    }
+    
     .header__wrapper {
         display: none;
     }
@@ -3024,5 +3027,252 @@ html {
 .article__admin {
     padding-top: 20px;
     padding-bottom: 25px;
+}
+
+
+/*СТИЛИ ДЛЯ СТРАНИЦ товаров*/
+
+.product-page {
+    padding: 0 80px 40px;
+}
+
+.product-main::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 137px;
+    background-color: #fff;
+}
+
+@media (max-width: 740px) {
+    .product-main::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 55px;
+        background-color: #4f5355;
+    }
+}
+
+.product-page__title {
+    margin: 40px;
+}
+
+.sub-title {
+    color: #616161;
+    font-size: 1.6rem;
+    text-align: center;
+    font-weight: 100;
+    line-height: 2.4rem;
+    margin-bottom: 5px;
+}
+
+.product-page__section {
+    margin-bottom: 30px;
+}
+
+.special-title {
+    color: #2f3133;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 100;
+    line-height: 2.4rem;
+}
+
+.product-description__title {
+    margin: 0 0 40px;
+}
+
+.section-title {
+    color: #2f3133;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.section-content {
+    display: flex;
+}
+
+.product-page__text {
+    color: #2f3133;
+    font-size: 1.2rem;
+}
+
+.product-page__img {
+    max-width: 40%;
+    object-fit: cover;
+}
+
+.teaching-line {
+    margin-top: 50px;
+}
+
+.title-link {
+    display: block;
+    font-size: 2rem;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.title-link:hover {
+    transform: scale(1.05);
+    color: #ffe065;
+}
+
+.title-link:active {
+    transform: scale(0.98);
+}
+
+.conclusion {
+    display: flex;
+    justify-content: center;
+}
+
+.conclusion-line {
+    margin-top: 30px;
+}
+
+.conclusion-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+}
+
+.conclusion-item__circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ffe065;
+    display: block;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.conclusion-item__circle::before {
+    content: '';
+    display: block;
+    background: #ffe065;
+    min-width: 200px;
+    height: 2px;
+    position: absolute;
+    top: 9px;
+    left: -450%;
+}
+
+.conclusion-item__text {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #2f3133;
+    font-weight: 100;
+    text-align: center;
+}
+
+.product-page__button {
+    margin: 30px auto;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.button__text_product {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+.blackout {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(2px);
+    z-index: 50;
+    display: none;
+}
+
+.blackout.modal_active {
+    display: block;
+}
+
+.modal-input {
+    top: 80px;
+    margin: 60px auto;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.modal-input__header {
+    position: relative;
+}
+
+.modal-input__title {
+    color: #2f3133;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.modal-input__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-input__close-btn {
+	width: 33px;
+	height: 30px;
+	border-radius: 5px;
+    position: absolute;
+    top: 8px;
+    right: 5px;
+	background-color: #fff;
+	cursor: pointer;
+	transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.modal-input__close-btn:hover {
+	transform: scale(1.2);
+}
+.modal-input__close-btn:hover.modal-input__close-btn::before {
+	opacity: 0.8;
+}
+.modal-input__close-btn:hover.modal-input__close-btn::after {
+	opacity: 0.8;
+}
+.modal-input__close-btn::before,
+.modal-input__close-btn::after {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 2px;
+	background-color: #000000;
+	opacity: 0.5;
+	transition: opacity 0.3s ease-in-out;
+}
+.modal-input__close-btn::before {
+	top: 14px;
+	transform: rotate(45deg);
+}
+.modal-input__close-btn::after {
+	bottom: 14px;
+	transform: rotate(-45deg);
+}
+
+.modal-input__sendBtn {
+    outline: none;
+    cursor: pointer;
+    margin: 10px 0 20px;
+}
+
+
+
+.product-page__imgsContainer {
+    display: flex;
+    flex-direction: column;
 }
 

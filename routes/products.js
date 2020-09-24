@@ -36,8 +36,8 @@ router.post('/fuelConsumption', urlencodedParser, function (req, res) {
 	text: `Узнать стоимость системы контроля расхода топлива.
 		Cообщение от: ${mailSended.name}.
     	Email: ${mailSended.email}
-    	телефон: ${mailSended.phone}
-
+		телефон: ${mailSended.phone}
+		
     	Комментарий: ${mailSended.message}`
 	}
 	botTelegram.sendMsg(telegramFields);
@@ -237,9 +237,32 @@ router.post('/lighthouse', urlencodedParser, function (req, res) {
 
 
 
+router.get('/era-glonass', function(req, res) {
+	res.render('products/eraGlonass', {
+		title: "ЭРА-ГЛОНАСС",
+		description: "Постановление №153. Установка терминалов Omnicomm АСН. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
+		keywords: "ЭРА-ГЛОНАСС",
+		og_title: "ЭРА-ГЛОНАСС",
+		og_description: "Постановление №153. Установка терминалов Omnicomm АСН. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
+		og_url: "https://vectorm8.ru/products/era-glonass"
+	});
+});
+
+router.get('/tire_pressure_control', function(req, res) {
+	res.render('products/tirePressureControl', {
+		title: "Контроль давления в шинах",
+		description: "Установка систем контроля давления в шинах. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область. Костромская область.",
+		keywords: "ЭРА-ГЛОНАСС",
+		og_title: "Контроль давления в шинах",
+		og_description: "Установка систем контроля давления в шинах. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область. Костромская область.",
+		og_url: "https://vectorm8.ru/products/tire_pressure_control"
+	});
+});
+
+
 router.get('/info', (req, res) => {
 	res.render('emailsended', {
-	  email: mailSended.email
+		email: mailSended.email
 	})
 });
 

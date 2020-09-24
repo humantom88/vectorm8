@@ -5,8 +5,9 @@ const { ensureAuthenticated } = require('../config/isAuth');
 let Article = require('../models/article');
 const controller = require('../controller/auth.js');
 
+
 router.get('/login', (req, res) => {
-    res.render('login');
+    res.render('login', { norobots: true });
 });
 
 router.post('/login', controller.login);
@@ -19,6 +20,7 @@ router.post('/login', controller.login);
 
 router.get('/', ensureAuthenticated, (req, res) => {
     res.render('admin/index', {
+        norobots: true,
         bootstrap: "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css",
         integrity: "sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z",
         crossorigin: "anonymous"
@@ -28,6 +30,7 @@ router.get('/', ensureAuthenticated, (req, res) => {
 router.get('/articles', ensureAuthenticated, async (req, res) => {
     const articles = await Article.find().sort('-date');
     res.render('admin/articles', { 
+        norobots: true,
         articles: articles,
         bootstrap: "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css",
         integrity: "sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z",
@@ -38,6 +41,7 @@ router.get('/articles', ensureAuthenticated, async (req, res) => {
 
 router.get('/newArticle', ensureAuthenticated, (req, res) => {
     res.render('admin/newArticle', {
+        norobots: true,
         article: new Article(),
         bootstrap: "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css",
         integrity: "sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z",
@@ -79,6 +83,7 @@ router.delete('/articles/:id', ensureAuthenticated, async (req, res) => {
 router.get('/articles/edit/:id', ensureAuthenticated, async (req, res) => {
     const article = await Article.findById(req.params.id)
     res.render('admin/editArticle', { 
+        norobots: true,
         article: article, 
         bootstrap: "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css",
         integrity: "sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z",
@@ -117,6 +122,7 @@ router.get('/articles/:link', ensureAuthenticated, async (req, res) => {
   let article = await Article.findOne({ link: req.params.link });
   if (article === null) res.redirect('/admin/articles');
   res.render('admin/show', {
+    norobots: true,
     id: article.id,
     title: article.title,
     og_title: article.title,

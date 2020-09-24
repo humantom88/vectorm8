@@ -1,13 +1,8 @@
-module.exports.sendMsg = (mailSended, res) => {
+module.exports.sendMsg = (fields, res) => {
     const token = process.env.TELEGRAM_TOKEN;
     const chat = process.env.TELEGRAM_CHAT;
     let http = require('request');
-    let fields = [
-        `Сообщение от: ${mailSended.name}`,
-        `Email: ${mailSended.email}`,
-        `Телефон: ${mailSended.phone}`,
-        mailSended.message
-    ];
+   // let fields;
     let msg = '';
     fields.forEach(field => {
         msg += field + '\n'

@@ -5,16 +5,22 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Article = require('../models/article');
 const mailer = require('./mailer');
+const botTelegram = require('../api/telegramMsg');
 
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
-const botTelegram = require('../api/telegramMsg');
 //router.post('/', ctrlTelegram.sendMsg);
 
 let mailSended = undefined;
 router.post('/', urlencodedParser, function (req, res) {
   if(!req.body && req.body === undefined) return res.sendStatus(400);
   mailSended = req.body;
+  let telegramFields = [
+    `Сообщение от: ${mailSended.name}`,
+    `Email: ${mailSended.email}`,
+    `Телефон: ${mailSended.phone}`,
+    mailSended.message
+];
   const message = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_ADDRESSEE,
@@ -25,7 +31,7 @@ router.post('/', urlencodedParser, function (req, res) {
 
     ${mailSended.message}`
   }
-  botTelegram.sendMsg(mailSended);
+  botTelegram.sendMsg(telegramFields);
   mailer(message);
   res.redirect('/info');
 });

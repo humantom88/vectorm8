@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>{{title}}</title>
+    {{#if norobots}}
+      <meta name="robots" content="noindex, nofollow" />
+    {{/if}}
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="{{description}}" />
     <meta name="keywords" content="{{keywords}}" />

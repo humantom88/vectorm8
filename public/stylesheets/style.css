@@ -150,6 +150,10 @@ html {
 	font-size: 16px;
 }
 
+body.locked {
+    overflow: hidden;
+}
+
 .container {
 	max-width: 1366px;
 	margin: 0 auto;
@@ -405,9 +409,7 @@ html {
 }
 
 @media (max-width: 740px) {
-    body.locked {
-        overflow: hidden;
-    }
+    
     .header__wrapper {
         display: none;
     }
@@ -3070,4 +3072,101 @@ box-shadow: 0px 3px 20px -10px rgba(0,0,0,0.75);
 .button__text_product {
     font-size: 1.4rem;
     font-weight: 300;
+}
+
+.blackout {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(2px);
+    z-index: 50;
+    display: none;
+}
+
+.blackout.modal_active {
+    display: block;
+}
+
+.modal-input {
+    top: 80px;
+    margin: 60px auto;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.modal-input__header {
+    position: relative;
+}
+
+.modal-input__title {
+    color: #2f3133;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.modal-input__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-input__close-btn {
+	width: 33px;
+	height: 30px;
+	border-radius: 5px;
+    position: absolute;
+    top: 8px;
+    right: 5px;
+	background-color: #fff;
+	cursor: pointer;
+	transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.modal-input__close-btn:hover {
+	transform: scale(1.2);
+}
+.modal-input__close-btn:hover.modal-input__close-btn::before {
+	opacity: 0.8;
+}
+.modal-input__close-btn:hover.modal-input__close-btn::after {
+	opacity: 0.8;
+}
+.modal-input__close-btn::before,
+.modal-input__close-btn::after {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 2px;
+	background-color: #000000;
+	opacity: 0.5;
+	transition: opacity 0.3s ease-in-out;
+}
+.modal-input__close-btn::before {
+	top: 14px;
+	transform: rotate(45deg);
+}
+.modal-input__close-btn::after {
+	bottom: 14px;
+	transform: rotate(-45deg);
+}
+
+.modal-input__sendBtn {
+    outline: none;
+    cursor: pointer;
+    margin: 10px 0 20px;
+}
+
+
+
+.product-page__imgsContainer {
+    display: flex;
+    flex-direction: column;
 }

@@ -4,13 +4,14 @@ const { ensureAuthenticated } = require('../config/isAuth');
 
 let Article = require('../models/article');
 const controller = require('../controller/auth.js');
+const reCaptcha = require('../config/reCaptcha');
 
 
 router.get('/login', (req, res) => {
-    res.render('login', { norobots: true });
+    res.render('login', { norobots: true, recaptcha: true });
 });
 
-router.post('/login', controller.login);
+router.post('/login', reCaptcha, controller.login);
 
 //router.get('/register', (req, res) => {
 //    res.render('register');

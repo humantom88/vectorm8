@@ -96,6 +96,7 @@
         <div class="login__wrapper">
             <h4 class="title login__title">Войти на сайт</h4>
             <form method="POST" action="/admin/login" class="login__form" id="loginForm">
+				<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
                 <label for="email" class="login__label">email:</label>
                 <input required type="text" name="email" id="email" class="login__input" tabindex="1">
                 <label for="pass" class="login__label">

@@ -3,6 +3,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const mailer = require('./mailer');
 const botTelegram = require('../api/telegramMsg');
+const reCaptcha = require('../config/reCaptcha');
 
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
@@ -15,11 +16,12 @@ router.get('/digital_agriculture', function(req, res) {
 		keywords: "сельское хозяйство,спутниковый мониторинг, спутниковые снимки полей, книга агронома,  агроном",
 		og_title: "Цифровое сельское хозяйство",
 		og_description: "сельское хозяйство,спутниковый мониторинг, спутниковые снимки полей, книга агронома,  агроном",
-		og_url: "https://vectorm8.ru/digital_agriculture/digital_agriculture"
+		og_url: "https://vectorm8.ru/digital_agriculture/digital_agriculture",
+		recaptcha: true
 	});
 });
 
-router.post('/digital_agriculture', urlencodedParser, function (req, res) {
+router.post('/digital_agriculture', reCaptcha, urlencodedParser, function (req, res) {
 	if(!req.body && req.body === undefined) return res.sendStatus(400);
 	mailSended = req.body;
 	let telegramFields = [

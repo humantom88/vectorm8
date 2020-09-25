@@ -3,6 +3,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const mailer = require('./mailer');
 const botTelegram = require('../api/telegramMsg');
+const reCaptcha = require('../config/reCaptcha');
 
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
@@ -15,11 +16,12 @@ router.get('/fuelConsumption', function(req, res) {
 	  keywords: "контроль топлива, ГЛОНАСС , GPS, мониторинг транспорта",
 	  og_title: "Система контроля расхода топлива",
 	  og_description: "Установка систем контроля расхода топлива. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
-	  og_url: "https://vectorm8.ru/products/fuelConsumption"
+	  og_url: "https://vectorm8.ru/products/fuelConsumption",
+	  recaptcha: true
 	});
 });
 
-router.post('/fuelConsumption', urlencodedParser, function (req, res) {
+router.post('/fuelConsumption', reCaptcha, urlencodedParser, function (req, res) {
 	if(!req.body && req.body === undefined) return res.sendStatus(400);
 	mailSended = req.body;
 	let telegramFields = [
@@ -53,11 +55,12 @@ router.get('/gasStationMonitoring', function(req, res) {
 	  keywords: "АЗС, контроль топлива, ГЛОНАСС, GPS",
 	  og_title: "Система мониторинга АЗС",
 	  og_description: "Установка системы мониторинга АЗС.  Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
-	  og_url: "https://vectorm8.ru/products/gasStationMonitoring"
+	  og_url: "https://vectorm8.ru/products/gasStationMonitoring",
+	  recaptcha: true
 	});
 });
 
-router.post('/gasStationMonitoring', urlencodedParser, function (req, res) {
+router.post('/gasStationMonitoring', reCaptcha, urlencodedParser, function (req, res) {
 	if(!req.body && req.body === undefined) return res.sendStatus(400);
 	mailSended = req.body;
 	let telegramFields = [
@@ -91,11 +94,12 @@ router.get('/videoControlSystem', function(req, res) {
 	  keywords: "Видеомониторинг, спутниковый мониторинг.",
 	  og_title: "Видеомониторинг транспорта",
 	  og_description: "Установка систем видеомониторинга на транспорте. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
-	  og_url: "https://vectorm8.ru/products/videoControlSystem"
+	  og_url: "https://vectorm8.ru/products/videoControlSystem",
+	  recaptcha: true
 	});
 });
 
-router.post('/videoControlSystem', urlencodedParser, function (req, res) {
+router.post('/videoControlSystem', reCaptcha, urlencodedParser, function (req, res) {
 	if(!req.body && req.body === undefined) return res.sendStatus(400);
 	mailSended = req.body;
 	let telegramFields = [
@@ -129,11 +133,12 @@ router.get('/agronavigator', function(req, res) {
 	  keywords: "агронавигатор, агроном, сельское хозяйство, параллельное вождение",
 	  og_title: "Агронавигатор. Система параллельного вождения.",
 	  og_description: "Установка агронавигаторов и систем параллельного вождения. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
-	  og_url: "https://vectorm8.ru/products/agronavigator"
+	  og_url: "https://vectorm8.ru/products/agronavigator",
+	  recaptcha: true
 	});
 });
 
-router.post('/agronavigator', urlencodedParser, function (req, res) {
+router.post('/agronavigator', reCaptcha, urlencodedParser, function (req, res) {
 	if(!req.body && req.body === undefined) return res.sendStatus(400);
 	mailSended = req.body;
 	let telegramFields = [
@@ -167,11 +172,12 @@ router.get('/driversControlSystem', function(req, res) {
 	  keywords: "контроль водителей, диспетчер автопарка, связь",
 	  og_title: "Система интерактивного контроля водителей",
 	  og_description: "Установка интерактивного контроля водителей. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
-	  og_url: "https://vectorm8.ru/products/driversControlSystem"
+	  og_url: "https://vectorm8.ru/products/driversControlSystem",
+	  recaptcha: true
 	});
 });
 
-router.post('/driversControlSystem', urlencodedParser, function (req, res) {
+router.post('/driversControlSystem', reCaptcha, urlencodedParser, function (req, res) {
 	if(!req.body && req.body === undefined) return res.sendStatus(400);
 	mailSended = req.body;
 	let telegramFields = [
@@ -205,11 +211,12 @@ router.get('/lighthouse', function(req, res) {
 	  keywords: "проблесковый маяк",
 	  og_title: "Проблесковый маячок",
 	  og_description: "Установка проблесковых маяков. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
-	  og_url: "https://vectorm8.ru/products/lighthouse"
+	  og_url: "https://vectorm8.ru/products/lighthouse",
+	  recaptcha: true
 	});
 });
 
-router.post('/lighthouse', urlencodedParser, function (req, res) {
+router.post('/lighthouse', reCaptcha, urlencodedParser, function (req, res) {
 	if(!req.body && req.body === undefined) return res.sendStatus(400);
 	mailSended = req.body;
 	let telegramFields = [
@@ -243,11 +250,12 @@ router.get('/era-glonass', function(req, res) {
 		keywords: "ЭРА-ГЛОНАСС",
 		og_title: "ЭРА-ГЛОНАСС",
 		og_description: "Постановление №153. Установка терминалов Omnicomm АСН. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
-		og_url: "https://vectorm8.ru/products/era-glonass"
+		og_url: "https://vectorm8.ru/products/era-glonass",
+		recaptcha: true
 	});
 });
 
-router.post('/era-glonass', urlencodedParser, function (req, res) {
+router.post('/era-glonass', reCaptcha, urlencodedParser, function (req, res) {
 	if(!req.body && req.body === undefined) return res.sendStatus(400);
 	mailSended = req.body;
 	let telegramFields = [
@@ -281,13 +289,16 @@ router.get('/tire_pressure_control', function(req, res) {
 		keywords: "ЭРА-ГЛОНАСС",
 		og_title: "Контроль давления в шинах",
 		og_description: "Установка систем контроля давления в шинах. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область. Костромская область.",
-		og_url: "https://vectorm8.ru/products/tire_pressure_control"
+		og_url: "https://vectorm8.ru/products/tire_pressure_control",
+		recaptcha: true
 	});
 });
 
-router.post('/tire_pressure_control', urlencodedParser, function (req, res) {
+router.post('/tire_pressure_control', reCaptcha, urlencodedParser, function (req, res) {
 	if(!req.body && req.body === undefined) return res.sendStatus(400);
+
 	mailSended = req.body;
+
 	let telegramFields = [
 		'Узнать стоимость системы контроля давления в шинах.',
 	    `Сообщение от: ${mailSended.name}`,
@@ -295,17 +306,19 @@ router.post('/tire_pressure_control', urlencodedParser, function (req, res) {
 	    `Телефон: ${mailSended.phone}`,
 	    `Комментарий: ${mailSended.message}`
 	];
-	const message = {
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_ADDRESSEE,
-    subject: 'new message',
-	text: `Узнать стоимость системы контроля давления в шинах.
-		Cообщение от: ${mailSended.name}.
-    	Email: ${mailSended.email}
-    	телефон: ${mailSended.phone}
 
-    	Комментарий: ${mailSended.message}`
+	const message = {
+    	from: process.env.EMAIL_USER,
+    	to: process.env.EMAIL_ADDRESSEE,
+    	subject: 'new message',
+		text: `Узнать стоимость системы контроля давления в шинах.
+			Cообщение от: ${mailSended.name}.
+    		Email: ${mailSended.email}
+    		телефон: ${mailSended.phone}
+		
+    		Комментарий: ${mailSended.message}`
 	}
+
 	botTelegram.sendMsg(telegramFields);
 	mailer(message);
 	res.redirect('/products/info');

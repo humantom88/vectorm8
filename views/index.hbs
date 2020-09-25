@@ -321,6 +321,7 @@
 			<h5 class="feedback__subtitle">Наш менеджер свяжется с&nbsp;Вами</h5>
 			<div class="feedback__content">
 				<form action="/" method="POST" class="form feedback__form">
+					<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
 					<input type="text" required name="name" title="Введите имя" class="name-input" placeholder="Имя*" pattern="^[a-zA-ZА-Яа-яЁё\s]+$">
 					<input type="email" name="email" required title="Введите email" class="email-input" placeholder="Email*">
 					<input type="tel" required name="phone" title="Введите номер телефона" class="phone-input" placeholder="+1 (234) 567 89 99*" pattern="(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?">

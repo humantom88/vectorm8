@@ -6,13 +6,14 @@ const bodyParser = require('body-parser');
 const Article = require('../models/article');
 const mailer = require('./mailer');
 const botTelegram = require('../api/telegramMsg');
+const reCaptcha = require('../config/reCaptcha');
 
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 //router.post('/', ctrlTelegram.sendMsg);
 
 let mailSended = undefined;
-router.post('/', urlencodedParser, function (req, res) {
+router.post('/', reCaptcha, urlencodedParser, function (req, res) {
   if(!req.body && req.body === undefined) return res.sendStatus(400);
   mailSended = req.body;
   let telegramFields = [
@@ -81,7 +82,8 @@ router.get('/', function (req, res) {
     keywords: "ГЛОНАСС, спутниковый мониторинг транспорта,  мониторинг транспорта, контроль топлива, ЭРА-ГЛОНАСС, агронавигатор, проблесковый маяк, контроль давления в шинах",
     og_title: "Вектор М-8.  ГЛОНАСС. Спутниковый мониторинг транспорта. Контроль топлива. ЭРА-ГЛОНАСС. Агронавигатор.",
     og_description: "система спутникового мониторинга транспорта, система мониторинга расхода топлива,  ЭРА-ГЛОНАСС, система мониторинга АЗС, система точного земледелия,  агронавигатор, система контроля давления в шинах, продажа в Вологде и Вологодской области, Архангельск, Кострома, Череповец, Ярославль",
-    og_url: "https://vectorm8.ru"
+    og_url: "https://vectorm8.ru",
+    recaptcha: true
   })
 });
 

@@ -96,6 +96,7 @@
 			<h4 class="title login__title">Регистрация</h4>
 			<div>{{{messages}}}</div>
             <form action="#" method="POST" class="login__form">
+				<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
                 <label for="email" class="login__label">Адресс электронной почты</label>
                 <input required type="email" name="email" id="email" class="login__input" tabindex="1">
 				

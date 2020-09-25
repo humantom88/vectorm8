@@ -162,6 +162,7 @@
 					<div id="modalCloseBtn" class="modal-input__close-btn"></div>
 				</div>
 				<form action="/products/fuelConsumption" method="POST" class="form modal-input__form">
+					<input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
 					<input type="text" name="name" title="Введите имя" class="name-input" placeholder="Имя" pattern="^[a-zA-ZА-Яа-яЁё\s]+$">
 					<input type="email" name="email" required title="Введите email" class="email-input" placeholder="Email*">
 					<input type="tel" required name="phone" title="Введите номер телефона" class="phone-input" placeholder="+1 (234) 567 89 99*">

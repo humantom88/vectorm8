@@ -18,16 +18,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:type" content="website" />
-    <link rel="stylesheet" href='/fonts/font-awesome/css/font-awesome.min.css'>
-    <link rel="stylesheet" href="/dist/lightgallery.js/dist/css/lightgallery.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     {{#if bootstrap}}
       <link rel="stylesheet" href={{bootstrap}} integrity={{integrity}} crossorigin={{crossorigin}}>
     {{/if}}
+    {{#if recaptcha}}
+      <style>
+        .grecaptcha-badge {
+          display: none;
+        }
+      </style>
+    {{/if}}
+    <link rel="stylesheet" href='/fonts/font-awesome/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="/dist/lightgallery.js/dist/css/lightgallery.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    {{#if recaptcha}}
+       <script src="https://www.google.com/recaptcha/api.js?render=6LfvYdAZAAAAAKDde81SQtffJmwaA_7RvDc0R0fZ"></script>
+    {{/if}}
+    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
     {{{body}}}
+    {{#if recaptcha}}
+      <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LfvYdAZAAAAAKDde81SQtffJmwaA_7RvDc0R0fZ', { action: 'homepage' }).then(function(token) {
+              document.getElementById('g-recaptcha-response').value = token;
+            });
+        });
+      </script>
+    {{/if}}
+
+<!--<script>
+        function onClick(e) {
+          e.preventDefault();
+          grecaptcha.ready(function() {
+            grecaptcha.execute('reCAPTCHA_site_key', {action: 'submit'}).then(function(token) {
+                // Add your logic to submit to your backend server here.
+            });
+          });
+        }
+      </script>-->
+
   </body>
 </html>

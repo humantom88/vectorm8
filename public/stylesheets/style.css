@@ -3097,24 +3097,48 @@ body.locked {
 .product-page__text {
     color: #2f3133;
     font-size: 1.2rem;
-    margin-bottom: 10px;
+    margin: 10px 0 15px;
 }
 
 .product-page__list {
     color: #2f3133;
     font-size: 1.2rem;
-    list-style: disc inside;
+    list-style: disc;
     margin-top: 20px;
+    margin-left: 25px;
+}
+
+.product-page__list_ol {
+    color: #2f3133;
+    font-size: 1.2rem;
+    list-style: disc;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.product-page__list-item {
+    margin-bottom: 15px;
 }
 
 .product-page__img {
     max-width: 40%;
-    object-fit: cover;
+    object-fit: contain;
     margin-left: 20px;
 }
 
 .product-page__img_square {
     max-width: 30%;
+}
+
+.product-page__imgsContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+}
+
+.product-page__img_in-container {
+    max-width: 100%;
+    margin-bottom: 10px;
 }
 
 .teaching-line {

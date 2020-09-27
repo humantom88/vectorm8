@@ -8,7 +8,11 @@ const reCaptcha = require('../config/reCaptcha');
 
 
 router.get('/login', (req, res) => {
-    res.render('login', { norobots: true, recaptcha: true });
+    res.render('login', { 
+        norobots: true, 
+        recaptcha: true, 
+        yandexMetrica: true 
+    });
 });
 
 router.post('/login', reCaptcha, controller.login);

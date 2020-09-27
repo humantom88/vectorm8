@@ -17,7 +17,8 @@ router.get('/digital_agriculture', function(req, res) {
 		og_title: "Цифровое сельское хозяйство",
 		og_description: "сельское хозяйство,спутниковый мониторинг, спутниковые снимки полей, книга агронома,  агроном",
 		og_url: "https://vectorm8.ru/digital_agriculture/digital_agriculture",
-		recaptcha: true
+		recaptcha: true,
+		yandexMetrica: true
 	});
 });
 
@@ -50,7 +51,8 @@ router.post('/digital_agriculture', reCaptcha, urlencodedParser, function (req, 
 
 router.get('/info', (req, res) => {
 	res.render('emailsended', {
-		email: mailSended.email
+		email: mailSended.email,
+		yandexMetrica: true
 	})
 });
 

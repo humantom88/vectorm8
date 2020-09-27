@@ -17,7 +17,8 @@ router.get('/fuelConsumption', function(req, res) {
 	  og_title: "Система контроля расхода топлива",
 	  og_description: "Установка систем контроля расхода топлива. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
 	  og_url: "https://vectorm8.ru/products/fuelConsumption",
-	  recaptcha: true
+	  recaptcha: true,
+	  yandexMetrica: true
 	});
 });
 
@@ -56,7 +57,8 @@ router.get('/gasStationMonitoring', function(req, res) {
 	  og_title: "Система мониторинга АЗС",
 	  og_description: "Установка системы мониторинга АЗС.  Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
 	  og_url: "https://vectorm8.ru/products/gasStationMonitoring",
-	  recaptcha: true
+	  recaptcha: true,
+	  yandexMetrica: true
 	});
 });
 
@@ -95,7 +97,8 @@ router.get('/videoControlSystem', function(req, res) {
 	  og_title: "Видеомониторинг транспорта",
 	  og_description: "Установка систем видеомониторинга на транспорте. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
 	  og_url: "https://vectorm8.ru/products/videoControlSystem",
-	  recaptcha: true
+	  recaptcha: true,
+	  yandexMetrica: true
 	});
 });
 
@@ -134,7 +137,8 @@ router.get('/agronavigator', function(req, res) {
 	  og_title: "Агронавигатор. Система параллельного вождения.",
 	  og_description: "Установка агронавигаторов и систем параллельного вождения. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
 	  og_url: "https://vectorm8.ru/products/agronavigator",
-	  recaptcha: true
+	  recaptcha: true,
+	  yandexMetrica: true
 	});
 });
 
@@ -173,7 +177,8 @@ router.get('/driversControlSystem', function(req, res) {
 	  og_title: "Система интерактивного контроля водителей",
 	  og_description: "Установка интерактивного контроля водителей. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
 	  og_url: "https://vectorm8.ru/products/driversControlSystem",
-	  recaptcha: true
+	  recaptcha: true,
+	  yandexMetrica: true
 	});
 });
 
@@ -212,7 +217,8 @@ router.get('/lighthouse', function(req, res) {
 	  og_title: "Проблесковый маячок",
 	  og_description: "Установка проблесковых маяков. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
 	  og_url: "https://vectorm8.ru/products/lighthouse",
-	  recaptcha: true
+	  recaptcha: true,
+	  yandexMetrica: true
 	});
 });
 
@@ -251,7 +257,8 @@ router.get('/era-glonass', function(req, res) {
 		og_title: "ЭРА-ГЛОНАСС",
 		og_description: "Постановление №153. Установка терминалов Omnicomm АСН. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область.",
 		og_url: "https://vectorm8.ru/products/era-glonass",
-		recaptcha: true
+		recaptcha: true,
+		yandexMetrica: true
 	});
 });
 
@@ -290,7 +297,8 @@ router.get('/tire_pressure_control', function(req, res) {
 		og_title: "Контроль давления в шинах",
 		og_description: "Установка систем контроля давления в шинах. Вологда.  Череповец. Вологодская область. Архангельская область. Ярославская область. Костромская область.",
 		og_url: "https://vectorm8.ru/products/tire_pressure_control",
-		recaptcha: true
+		recaptcha: true,
+		yandexMetrica: true
 	});
 });
 
@@ -327,7 +335,8 @@ router.post('/tire_pressure_control', reCaptcha, urlencodedParser, function (req
 
 router.get('/info', (req, res) => {
 	res.render('emailsended', {
-		email: mailSended.email
+		email: mailSended.email,
+		yandexMetrica: true
 	})
 });
 

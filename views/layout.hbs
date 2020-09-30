@@ -39,6 +39,21 @@
     {{/if}}
     <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    {{#if yandexMetrica}}
+      <script type="text/javascript" >
+         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+         m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+      
+         ym(67696507, "init", {
+              clickmap:true,
+              trackLinks:true,
+              accurateTrackBounce:true,
+              webvisor:true
+         });
+      </script>
+      <noscript><div><img src="https://mc.yandex.ru/watch/67696507" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    {{/if}}
   </head>
   <body>
     {{{body}}}
@@ -51,17 +66,6 @@
         });
       </script>
     {{/if}}
-
-<!--<script>
-        function onClick(e) {
-          e.preventDefault();
-          grecaptcha.ready(function() {
-            grecaptcha.execute('reCAPTCHA_site_key', {action: 'submit'}).then(function(token) {
-                // Add your logic to submit to your backend server here.
-            });
-          });
-        }
-      </script>-->
 
   </body>
 </html>

@@ -10,7 +10,7 @@ const multerConf = require('../config/multerConf');
 const reCaptcha = require('../config/reCaptcha');
 
 
-router.get('/login', reCaptcha, (req, res) => {
+router.get('/login', (req, res) => {
     res.render('login', {
         norobots: true,
         recaptcha: true,
@@ -18,7 +18,7 @@ router.get('/login', reCaptcha, (req, res) => {
     });
 });
 
-router.post('/login', controller.login);
+router.post('/login', reCaptcha, controller.login);
 
 //router.get('/register', (req, res) => {
 //    res.render('register');

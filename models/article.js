@@ -36,7 +36,7 @@ const articleSchema = new mongoose.Schema({
     },
     imageUrl: {
         type: String,
-       // unique: true
+        // unique: true
     },
     link: {
         type: String,
@@ -54,8 +54,12 @@ const articleSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    isPublished: {
+        type: Boolean
     }
 })
+
 
 articleSchema.pre('validate', function(next) {
     if (this.name) {

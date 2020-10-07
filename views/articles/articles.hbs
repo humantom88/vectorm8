@@ -96,22 +96,21 @@
             <div class="articles__wrapper">
 
                 {{#each articles}}
-
-                    <article class="article">
-                        <a href="/articles/{{ this.link }}" class="article__title-link">
-                            <h3 class="article__title">{{ this.name }}</h3>
-                        </a>
-						{{#if this.author}}
-                        	<p class="article__text">
-                        	    <span class="article__author">Автор: {{ this.author }} &copy;</span>
-                        	</p>
-						{{/if}}
-                        <div class="article__markdown">{{{ this.renderedDescription }}}</div>
-                        
-                       <!-- <a href="{{ ../sublink }}{{ this.link }}" class="article__link">Читать дальше</a>-->
-                        <a href="/articles/{{ this.link }}" class="article__link">Читать дальше</a> 
-                    </article>
-
+					{{#if this.isPublished}}
+                    	<article class="article">
+                    	    <a href="/articles/{{ this.link }}" class="article__title-link">
+                    	        <h3 class="article__title">{{ this.name }}</h3>
+                    	    </a>
+							{{#if this.author}}
+                    	    	<p class="article__text">
+                    	    	    <span class="article__author">Автор: {{ this.author }} &copy;</span>
+                    	    	</p>
+							{{/if}}
+                    	    <div class="article__markdown">{{{ this.renderedDescription }}}</div>
+	
+                    	    <a href="/articles/{{ this.link }}" class="article__link">Читать дальше</a> 
+                    	</article>
+					{{/if}}
                 {{/each}}
 
             </div>

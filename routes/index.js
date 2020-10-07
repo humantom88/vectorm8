@@ -4,11 +4,12 @@ const axios = require('axios');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Article = require('../models/article');
+//const Product = require('../models/products');
 const mailer = require('./mailer');
 const botTelegram = require('../api/telegramMsg');
 const reCaptcha = require('../config/reCaptcha');
 
-const urlencodedParser = bodyParser.urlencoded({extended: false});
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 //router.post('/', ctrlTelegram.sendMsg);
 
@@ -16,14 +17,14 @@ let mailSended = undefined;
 
 
 router.post('/', reCaptcha, urlencodedParser, function (req, res) {
-  if(!req.body && req.body === undefined) return res.sendStatus(400);
+  if (!req.body && req.body === undefined) return res.sendStatus(400);
   mailSended = req.body;
   let telegramFields = [
     `Сообщение от: ${mailSended.name}`,
     `Email: ${mailSended.email}`,
     `Телефон: ${mailSended.phone}`,
     mailSended.message
-];
+  ];
   const message = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_ADDRESSEE,
@@ -46,11 +47,25 @@ router.get('/info', (req, res) => {
   })
 });
 
+router.get('/', function (req, res) {
+  //const products = await Product.find().sort('-date');
+  res.render('index', {
+    //products: products,
+    title: "Вектор М-8.  ГЛОНАСС. Спутниковый мониторинг транспорта. Контроль топлива. ЭРА-ГЛОНАСС. Агронавигатор.",
+    description: "система спутникового мониторинга транспорта, система мониторинга расхода топлива,  ЭРА-ГЛОНАСС, система мониторинга АЗС, система точного земледелия,  агронавигатор, система контроля давления в шинах, продажа в Вологде и Вологодской области, Архангельск, Кострома, Череповец, Ярославль",
+    keywords: "ГЛОНАСС, спутниковый мониторинг транспорта,  мониторинг транспорта, контроль топлива, ЭРА-ГЛОНАСС, агронавигатор, проблесковый маяк, контроль давления в шинах",
+    og_title: "Вектор М-8.  ГЛОНАСС. Спутниковый мониторинг транспорта. Контроль топлива. ЭРА-ГЛОНАСС. Агронавигатор.",
+    og_description: "система спутникового мониторинга транспорта, система мониторинга расхода топлива,  ЭРА-ГЛОНАСС, система мониторинга АЗС, система точного земледелия,  агронавигатор, система контроля давления в шинах, продажа в Вологде и Вологодской области, Архангельск, Кострома, Череповец, Ярославль",
+    og_url: "https://vectorm8.ru",
+    recaptcha: true,
+    yandexMetrica: true
+  })
+});
 
 router.get('/articles', async (req, res) => {
   const articles = await Article.find().sort('-date');
-  res.render('articles/articles', { 
-    articles: articles, 
+  res.render('articles/articles', {
+    articles: articles,
     title: "Новости. Контроль топлива. Мониторинг транспорта",
     description: "Новости компании Вектор М-8 и рынка мониторинга транспорта.",
     keywords: "Контроль топлива. Спутниковый мониторинг.  GPS. ГЛОНАСС. Мониторинг транспорта",
@@ -65,30 +80,16 @@ router.get('/articles/:link', async (req, res) => {
   const article = await Article.findOne({ link: req.params.link });
   if (article === null) res.redirect('/articles');
   res.render('articles/show', {
-      title: article.title,
-      og_title: article.title,
-      description: article.description,
-      og_description: article.description,
-      keywords: article.keywords,
-      name: article.name,
-      author: article.author,
-      renderedDescription: article.renderedDescription,
-      renderedText: article.renderedText,
-      imageUrl: article.imageUrl,
-      yandexMetrica: true
-  })
-});
-
-
-router.get('/', function (req, res) {
-  res.render('index', {
-    title: "Вектор М-8.  ГЛОНАСС. Спутниковый мониторинг транспорта. Контроль топлива. ЭРА-ГЛОНАСС. Агронавигатор.",
-    description: "система спутникового мониторинга транспорта, система мониторинга расхода топлива,  ЭРА-ГЛОНАСС, система мониторинга АЗС, система точного земледелия,  агронавигатор, система контроля давления в шинах, продажа в Вологде и Вологодской области, Архангельск, Кострома, Череповец, Ярославль",
-    keywords: "ГЛОНАСС, спутниковый мониторинг транспорта,  мониторинг транспорта, контроль топлива, ЭРА-ГЛОНАСС, агронавигатор, проблесковый маяк, контроль давления в шинах",
-    og_title: "Вектор М-8.  ГЛОНАСС. Спутниковый мониторинг транспорта. Контроль топлива. ЭРА-ГЛОНАСС. Агронавигатор.",
-    og_description: "система спутникового мониторинга транспорта, система мониторинга расхода топлива,  ЭРА-ГЛОНАСС, система мониторинга АЗС, система точного земледелия,  агронавигатор, система контроля давления в шинах, продажа в Вологде и Вологодской области, Архангельск, Кострома, Череповец, Ярославль",
-    og_url: "https://vectorm8.ru",
-    recaptcha: true,
+    title: article.title,
+    og_title: article.title,
+    description: article.description,
+    og_description: article.description,
+    keywords: article.keywords,
+    name: article.name,
+    author: article.author,
+    renderedDescription: article.renderedDescription,
+    renderedText: article.renderedText,
+    imageUrl: article.imageUrl,
     yandexMetrica: true
   })
 });
@@ -105,7 +106,7 @@ router.get('/gallery', function (req, res) {
   })
 });
 
-router.get('/privacy_policy', function(req, res) {
+router.get('/privacy_policy', function (req, res) {
   res.render('privacy_policy', {
     title: "Политика конфиденциальности",
     og_title: "Политика конфиденциальности",
@@ -115,7 +116,7 @@ router.get('/privacy_policy', function(req, res) {
   })
 });
 
-router.get('/user_agreement', function(req, res) {
+router.get('/user_agreement', function (req, res) {
   res.render('user_agreement', {
     title: "Пользовательское соглашение",
     og_title: "Пользовательское соглашение",

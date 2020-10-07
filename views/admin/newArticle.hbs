@@ -1,53 +1,71 @@
 <div class="padding-site">
-    
+
     <a href="/admin/articles" class="btn btn-secondary mb-3 mt-4">назад</a>
     <h3 class="mb-3">Новая статья</h3>
 
-    <form action="/admin/newArticle" method="POST">
+    <form action="/admin/newArticle" method="POST" enctype="multipart/form-data">
 
-        <div class="row">
-            <div class="col">
-                <label for="title">title:</label>
-                <input type="text" name="title" id="title" class="form-control" required value="{{ article.title }}">
+        <fieldset class="articles__fieldset">
+            <legend class="articles__legend">содержание</legend>
+            <div class="row">
+                <div class="col">
+                    <label class="articles__label" for="name">Заголовок:</label>
+                    <input type="text" name="name" value="{{ article.name }}" id="name" required class="form-control">
+                </div>
+                <div class="col">
+                    <label class="articles__label" for="author">Автор:</label>
+                    <input type="text" name="author" value="{{ article.author }}" id="author" class="form-control">
+                </div>
+                <div class="col">
+                    <label class="articles__label" for="articleImage">Изображение:</label>
+                    <input type="file" name="articleImage" id="articleImage">
+                </div>
             </div>
-            <div class="col">
-                <label for="image">изображение</label>
-                <input type="text" name="image" value="{{ article.image }}" id="image" class="form-control">
+            <div>
+                <label class="articles__label" for="visibleText">Описание:</label>
+                <textarea name="visibleText" id="visibleText" cols="30" rows="5"
+                    class="form-control">{{ article.visibleText }}</textarea>
             </div>
-        </div>
+            <div>
+                <label class="articles__label" for="fullText">Текст:</label>
+                <textarea name="fullText" id="fullText" cols="30" rows="8"
+                    class="form-control">{{ article.fullText }}</textarea>
+            </div>
+        </fieldset>
 
-        <div class="row">
-            <div class="col">
-                <label for="description">description:</label>
-                <textarea name="description" id="description" cols="30" rows="2" class="form-control">{{ article.description }}</textarea>
+        <fieldset class="articles__fieldset">
+            <legend class="articles__legend">seo</legend>
+            <div class="row">
+                <div class="col">
+                    <label class="articles__label" for="title">title:</label>
+                    <input type="text" name="title" id="title" class="form-control" required
+                        value="{{ article.title }}">
+                </div>
             </div>
-            <div class="col">
-                <label for="title">keywords:</label>
-                <textarea name="keywords" id="keywords" cols="30" rows="2" class="form-control">{{ article.keywords }}</textarea>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col">
-                <label for="name">Заголовок:</label>
-                <input type="text" name="name" value="{{ article.name }}" id="name" required class="form-control">
+            <div class="row">
+                <div class="col">
+                    <label class="articles__label" for="description">description:</label>
+                    <textarea name="description" id="description" cols="30" rows="2"
+                        class="form-control">{{ article.description }}</textarea>
+                </div>
+                <div class="col">
+                    <label class="articles__label" for="title">keywords:</label>
+                    <textarea name="keywords" id="keywords" cols="30" rows="2"
+                        class="form-control">{{ article.keywords }}</textarea>
+                </div>
             </div>
-            <div class="col">
-                <label for="author">Автор</label>
-                <input type="text" name="author" value="{{ article.author }}" id="author" class="form-control">
+        </fieldset>
+
+        <div class="adminArticle__controls">
+            <div class="articleAdmin__btns">
+                <h4>Опубликовано:</h4>
+                <input type="checkbox" name="isPublished" id="isPublished" class="articles__switch" />
+                <label for="isPublished" class="articles__switch_label">Published</label>
             </div>
+            <button type="submit" class="btn btn-primary loadArticle__btn">Загрузить статью</button>
         </div>
-        <div>
-            <label for="visibleText">Описание</label>
-            <textarea name="visibleText" id="visibleText" cols="30" rows="5" class="form-control">{{ article.visibleText }}</textarea>
-        </div>
-        <div>
-            <label for="fullText">Текст</label>
-            <textarea name="fullText" id="fullText" cols="30" rows="8" class="form-control">{{ article.fullText }}</textarea>
-        </div>
-        
-        
-        <button type="submit" class="btn btn-primary mt-4 mb-5">Загрузить статью</button>
-    </form>
     
+    </form>
+
 </div>

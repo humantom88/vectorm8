@@ -6,9 +6,9 @@
     {{#if norobots}}
       <meta name="robots" content="noindex, nofollow" />
     {{/if}}
-    {{#if yandexMetrica}}
+    {{!-- {{#if yandexMetrica}}
       <meta name="yandex-verification" content="4d94046ff169ef64" />
-    {{/if}}
+    {{/if}} --}}
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="{{description}}" />
     <meta name="keywords" content="{{keywords}}" />
@@ -34,14 +34,16 @@
       </style>
     {{/if}}
     <link rel="stylesheet" href='/fonts/font-awesome/css/font-awesome.min.css'>
-    <link rel="stylesheet" href="/dist/lightgallery.js/dist/css/lightgallery.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    {{#if lightgallery}}
+      <link rel="stylesheet" href="/dist/lightgallery.js/dist/css/lightgallery.min.css">
+    {{/if}}
+    <link rel='stylesheet' href='/stylesheets/style_old.css' />
     {{#if recaptcha}}
        <script src="https://www.google.com/recaptcha/api.js?render=6LfvYdAZAAAAAKDde81SQtffJmwaA_7RvDc0R0fZ"></script>
     {{/if}}
     <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    {{#if yandexMetrica}}
+    {{!-- {{#if yandexMetrica}}
       <script type="text/javascript" >
          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
          m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
@@ -55,7 +57,7 @@
          });
       </script>
       <noscript><div><img src="https://mc.yandex.ru/watch/67696507" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    {{/if}}
+    {{/if}} --}}
   </head>
   <body>
     {{{body}}}

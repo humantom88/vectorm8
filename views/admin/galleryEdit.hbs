@@ -46,8 +46,8 @@
 					<nav class="header-nav">
 						<a href="/admin" class="header-nav__link">Главная</a>
 						<a href="/admin/products" class="header-nav__link">Продукты</a>
-						<a href="/admin/gallery" class="header-nav__link">Фотогалерея</a>
-						<a href="#" class="header-nav__link">Статьи</a>
+						<a href="#" class="header-nav__link">Фотогалерея</a>
+						<a href="/admin/articles" class="header-nav__link">Статьи</a>
 						<a href="#" class="header-nav__link">Контакты</a>
 					</nav>
 				</div>
@@ -80,8 +80,8 @@
 				<nav class="mobile-nav">
 					<a href="/admin" class="mobile-nav__link">Главная</a>
 					<a href="/admin/products" class="mobile-nav__link">Продукты</a>
-					<a href="/admin/gallery" class="mobile-nav__link">Фотогалерея</a>
-					<a href="#" class="mobile-nav__link">Статьи</a>
+					<a href="#" class="mobile-nav__link">Фотогалерея</a>
+					<a href="/admin/articles" class="mobile-nav__link">Статьи</a>
 					<a href="#" class="mobile-nav__link">Контакты</a>
 					<a href="/admin/logout" class="btn btn-danger exitBtn">Выйти</a>
 					<div class="mobile-social-links">
@@ -105,41 +105,34 @@
 
 	<main class="admin__main">
 
-
-
 		<div class="mt-5 mb-5">
-			<a href="/admin/newArticle" class="btn btn-success">Добавить статью</a>
+			<a href="/admin/gallery" class="btn btn-secondary">Назад</a>
 		</div>
 
+		{{#each images}}
+			<div class="article product__admin">
+				
+                <img src="../img/galleryTest/{{ this.imageUrl }}" class="gallery__image gallery__image_edit" alt="vector_M-8"/>
+                
+				<div class="admin__product_controls">
+                    <form action="/admin/gallery/edit/{{ this.id }}?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <label class="articles__label" for="text">Подпись к фотографии:</label>
+                        <input type="text" name="text" value="{{ this.text }}" id="text" required class="form-control">
+                        <div class="col">
+                            <label class="articles__label" for="imageUrl">Изображение:</label>
+                            <input type="file" name="imageUrl" id="imageUrl">
+                        </div>
+                            
+                        <button type="submit" class="btn btn-primary mb-3 mt-3">Сохранить изменения</button>
+                    </form>
 
-		{{#each articles}}
-			<article class="article article__admin">
-				<a href="/admin/articles/{{ this.link }}" class="article__title-link">
-					<h3 class="article__title">{{ this.name }}</h3>
-				</a>
-				{{#if this.author}}
-					<p class="article__text">
-						<span class="article__author">Автор: {{ this.author }} &copy;</span>
-					</p>
-				{{/if}}
-				<div class="article__markdown">{{{ this.renderedDescription }}}</div>
-
-
-				<div class="control-articles-wrapper">
-					<div class="control-articles">
-						<a href="/admin/articles/{{ this.link }}" class="btn btn-secondary">Читать дальше</a>
-						<a href="/admin/articles/edit/{{ this.id }}" class="btn btn-info">Редактировать</a>
-						<form action="/admin/articles/{{this.id}}?_method=DELETE" method="POST">
+					<div class="control-articles-wrapper">
+                        <form action="/admin/gallery/{{ this.id }}?_method=DELETE" method="POST">
 							<button type="submit" class="btn btn-danger">Удалить</button>
-						</form>
+						</form> 
 					</div>
-
-					{{#if this.isPublished}} 
-						<h3 class="article__published_check">опубликовано</h3>
-					{{/if}} 
 				</div>
-
-			</article>
+			</div>
 		{{/each}}
 
 	</main>

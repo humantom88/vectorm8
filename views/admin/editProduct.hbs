@@ -1,0 +1,179 @@
+<div class="padding-site">
+
+    <a href="/admin/products" class="btn btn-secondary mb-3 mt-4">назад</a>
+    <h3>Редактировать</h3>
+
+    <form action="/admin/products/edit/{{ product.id }}?_method=PUT" method="POST" enctype="multipart/form-data">
+
+        <fieldset class="articles__fieldset">
+            <legend class="articles__legend">Имя продукта и картинка для главной страницы:</legend>
+            <div class="productAdmin__name">
+                <div>
+                    <label class="articles__label" for="name">Название:</label>
+                    <input type="text" name="name" value="{{ product.name }}" id="name" required class="form-control">
+                </div>
+                <div>
+                    <label class="articles__label" for="productImage">Изображение для ссылки:</label>
+                    <input type="file" name="productImage" id="productImage">
+                </div>
+            </div>      
+        </fieldset>
+
+        <div class="toggler">
+            <input type="checkbox" id="toggler__checkbox-id-0" class="toggler__checkbox">
+            <label for="toggler__checkbox-id-0" class="btn btn-secondary toggler__label">Добавить подзаголовки</label>
+            <div class="toggler__content-box">
+                <div>
+                    <label class="articles__label" for="subTitle_1">Подзаголовок шрифтом поменьше:</label>
+                    <textarea name="subTitle_1" id="subTitle_1" cols="30" rows="2" class="form-control">{{ product.subTitle_1 }}</textarea>
+                </div>
+                <div>
+                    <label class="articles__label" for="subTitle_2">Подзаголовок шрифтом побольше:</label>
+                    <textarea name="subTitle_2" id="subTitle_2" cols="30" rows="2" class="form-control">{{ product.subTitle_2 }}</textarea>
+                </div>
+            </div>
+        </div>
+        
+
+        <fieldset class="articles__fieldset">
+            <legend class="articles__legend">Обязательный текст:</legend>
+            <div>
+                <label class="articles__label" for="text_1">Текст:</label>
+                <textarea name="text_1" id="text_1" cols="30" rows="8" required class="form-control">{{ product.text_1 }}</textarea>
+            </div>
+            <div>
+                <label class="articles__label" for="productImage_1">Изображение:</label>
+                <input type="file" name="productImage_1" id="productImage_1">
+            </div>
+        </fieldset>
+
+        <div class="toggler">
+            <input type="checkbox" id="toggler__checkbox-id-1" class="toggler__checkbox">
+            <label for="toggler__checkbox-id-1" class="btn btn-secondary toggler__label">Добавить блок текста и изображение</label>
+            <div class="toggler__content-box">
+                <div>
+                    <label class="articles__label" for="text_2">Текст:</label>
+                    <textarea name="text_2" id="text_2" cols="30" rows="8" class="form-control">{{ product.text_2 }}</textarea>
+                </div>
+                <div>
+                    <label class="articles__label" for="productImage_2">Изображение:</label>
+                    <input type="file" name="productImage_2" id="productImage_2">
+                </div>
+            </div>
+        </div>
+
+        <div class="toggler">
+            <input type="checkbox" id="toggler__checkbox-id-2" class="toggler__checkbox">
+            <label for="toggler__checkbox-id-2" class="btn btn-secondary toggler__label">Добавить блок текста и изображение</label>
+            <div class="toggler__content-box">
+                <div>
+                    <label class="articles__label" for="text_3">Текст:</label>
+                    <textarea name="text_3" id="text_3" cols="30" rows="8" class="form-control">{{ product.text_3 }}</textarea>
+                </div>
+                <div>
+                    <label class="articles__label" for="productImage_3">Изображение:</label>
+                    <input type="file" name="productImage_3" id="productImage_3">
+                </div>
+            </div>
+        </div>
+
+        <div class="toggler">
+            <input type="checkbox" id="toggler__checkbox-id-3" class="toggler__checkbox">
+            <label for="toggler__checkbox-id-3" class="btn btn-secondary toggler__label">Добавить блок текста и изображение</label>
+            <div class="toggler__content-box">
+                <div>
+                    <label class="articles__label" for="text_4">Текст:</label>
+                    <textarea name="text_4" id="text_4" cols="30" rows="8" class="form-control">{{ product.text_4 }}</textarea>
+                </div>
+                <div>
+                    <label class="articles__label" for="productImage_4">Изображение:</label>
+                    <input type="file" name="productImage_4" id="productImage_4">
+                </div>
+            </div>
+        </div>
+
+        <div class="toggler">
+            <input type="checkbox" id="toggler__checkbox-id-4" class="toggler__checkbox">
+            <label for="toggler__checkbox-id-4" class="btn btn-secondary toggler__label">Добавить блок текста и изображение</label>
+            <div class="toggler__content-box">
+                <div>
+                    <label class="articles__label" for="text_5">Текст:</label>
+                    <textarea name="text_5" id="text_5" cols="30" rows="8" class="form-control">{{ product.text_5 }}</textarea>
+                </div>
+                <div>
+                    <label class="articles__label" for="productImage_5">Изображение:</label>
+                    <input type="file" name="productImage_5" id="productImage_5">
+                </div>
+            </div>
+        </div>
+
+
+        <article class="conclusion conclusion-line">
+			<div class="conclusion-item">
+				<div class="conclusion-item__circle"></div>
+                <textarea name="conclusion_1" id="conclusion_1" cols="30" rows="3" class="form-control">{{ product.conclusion_1 }}</textarea>
+			</div>
+			<div class="conclusion-item">
+				<div class="conclusion-item__circle"></div>
+                <textarea name="conclusion_2" id="conclusion_2" cols="30" rows="3" class="form-control">{{ product.conclusion_2 }}</textarea>
+			</div>
+			<div class="conclusion-item">
+				<div class="conclusion-item__circle"></div>
+                <textarea name="conclusion_3" id="conclusion_3" cols="30" rows="3" class="form-control">{{ product.conclusion_3 }}</textarea>
+			</div>
+		</article>
+
+
+        <fieldset class="articles__fieldset">
+            <legend class="articles__legend">seo</legend>
+            <div class="row">
+                <div class="col">
+                    <label class="articles__label" for="title">title:</label>
+                    <input type="text" name="title" id="title" class="form-control" required
+                        value="{{ product.title }}">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label class="articles__label" for="description">description:</label>
+                    <textarea name="description" id="description" cols="30" rows="2"
+                        class="form-control">{{ product.description }}</textarea>
+                </div>
+                <div class="col">
+                    <label class="articles__label" for="title">keywords:</label>
+                    <textarea name="keywords" id="keywords" cols="30" rows="2"
+                        class="form-control">{{ product.keywords }}</textarea>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="adminArticle__controls">
+            <div>
+                <div class="articleAdmin__btns">
+                    <h4>в продуктах:</h4>
+                    <input type="checkbox" 
+                        {{#if product.publicInProducts }}
+                            checked 
+                        {{/if}}
+                        name="publicInProducts" id="publicInProducts" class="articles__switch" />
+                    <label for="publicInProducts" class="articles__switch_label">Published</label>
+                </div>
+                <div class="articleAdmin__btns publicReadySol">
+                    <h4>в готовых решениях:</h4>
+                    <input type="checkbox" 
+                        {{#if product.publicInReadySolutions }}
+                            checked 
+                        {{/if}}
+                        name="publicInReadySolutions" id="publicInReadySolutions" class="articles__switch" />
+                    <label for="publicInReadySolutions" class="articles__switch_label">Published</label>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary loadArticle__btn">Сохранить изменения</button>
+            
+        </div>
+        
+    </form>
+
+</div>

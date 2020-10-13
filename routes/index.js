@@ -4,7 +4,7 @@ const axios = require('axios');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Article = require('../models/article');
-//const Product = require('../models/products');
+const Product = require('../models/product');
 const mailer = require('./mailer');
 const botTelegram = require('../api/telegramMsg');
 const reCaptcha = require('../config/reCaptcha');
@@ -47,6 +47,24 @@ router.get('/info', (req, res) => {
   })
 });
 
+//расскоментировать как добавлю продукты в бд!!!
+// router.get('/', function (req, res) {
+//   const products = await Product.find().sort('-date');
+//   res.render('index', {
+//     products: products,
+//     title: "Вектор М-8.  ГЛОНАСС. Спутниковый мониторинг транспорта. Контроль топлива. ЭРА-ГЛОНАСС. Агронавигатор.",
+//     description: "система спутникового мониторинга транспорта, система мониторинга расхода топлива,  ЭРА-ГЛОНАСС, система мониторинга АЗС, система точного земледелия,  агронавигатор, система контроля давления в шинах, продажа в Вологде и Вологодской области, Архангельск, Кострома, Череповец, Ярославль",
+//     keywords: "ГЛОНАСС, спутниковый мониторинг транспорта,  мониторинг транспорта, контроль топлива, ЭРА-ГЛОНАСС, агронавигатор, проблесковый маяк, контроль давления в шинах",
+//     og_title: "Вектор М-8.  ГЛОНАСС. Спутниковый мониторинг транспорта. Контроль топлива. ЭРА-ГЛОНАСС. Агронавигатор.",
+//     og_description: "система спутникового мониторинга транспорта, система мониторинга расхода топлива,  ЭРА-ГЛОНАСС, система мониторинга АЗС, система точного земледелия,  агронавигатор, система контроля давления в шинах, продажа в Вологде и Вологодской области, Архангельск, Кострома, Череповец, Ярославль",
+//     og_url: "https://vectorm8.ru",
+//     recaptcha: true,
+//     yandexMetrica: true
+//   });
+// });
+
+
+//старая версия без админки
 router.get('/', function (req, res) {
   //const products = await Product.find().sort('-date');
   res.render('index', {
@@ -59,7 +77,7 @@ router.get('/', function (req, res) {
     og_url: "https://vectorm8.ru",
     recaptcha: true,
     yandexMetrica: true
-  })
+  });
 });
 
 router.get('/articles', async (req, res) => {
@@ -80,16 +98,12 @@ router.get('/articles/:link', async (req, res) => {
   const article = await Article.findOne({ link: req.params.link });
   if (article === null) res.redirect('/articles');
   res.render('articles/show', {
+    article,
     title: article.title,
     og_title: article.title,
     description: article.description,
     og_description: article.description,
     keywords: article.keywords,
-    name: article.name,
-    author: article.author,
-    renderedDescription: article.renderedDescription,
-    renderedText: article.renderedText,
-    imageUrl: article.imageUrl,
     yandexMetrica: true
   })
 });
@@ -102,6 +116,7 @@ router.get('/gallery', function (req, res) {
     og_title: "контроль топлива, установка, обслуживание, переговоры",
     og_description: "Новости ГЛОНАСС, транспортная телематика, контроль транспорта, контроль топлива",
     og_url: "https://vectorm8.ru/gallery",
+    lightgallery: true,
     yandexMetrica: true
   })
 });

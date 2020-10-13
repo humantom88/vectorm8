@@ -114,9 +114,7 @@
 					</g>
 					</svg>
 				</div>
-				<!--
-				<h1 class="poster__title">Вектор М-8</h1>
-				-->
+
 				<div class="poster__description">
 					<p class="poster__text">Контроль над вашим транспортом</p>
 					<p class="poster__text">Эффективное управление автопарком вашей компании</p>
@@ -125,33 +123,27 @@
 		</section>
 
 
-		<!--
-		<section class="products padding-site">
+
+		{{!-- <section class="products padding-site">
 			<h3 class="title products__title">Продукты и&nbsp;услуги для&nbsp;эффективного управления вашим&nbsp;автопарком</h3>
 			<div class="products__list">
-				<div class="product">
-
-					{{#each products}}
-						<a href="/products/fuelConsumption" class="product__link">
-						<img src="../img/products/fuelControlSystem.jpg" alt="fuel_control_system" class="product__image product__image_fuel-control">
-					</a>
-					<a href="/products/fuelConsumption" class="button product__button">
-						<span class="button__text">
-								Система мониторинга расхода топлива
-						</span>
-					</a>
+					
+					{{#each products }}
+						{{#if this.publicInProducts }}
+							<div class="product">
+								<a href="/products/{{ this.link }}" class="product__link">
+									<img src="../img/productsTest/{{ this.imageUrl }}" alt="{{ this.name }}" class="product__image">
+								</a>
+								<a href="/products/{{ this.link }}" class="button product__button">
+									<span class="button__text">
+										{{ this.name }}
+									</span>
+								</a>
+							</div>
+						{{/if}}
 					{{/each}}
-					<a href="/products/fuelConsumption" class="product__link">
-						<img src="../img/products/fuelControlSystem.jpg" alt="fuel_control_system" class="product__image product__image_fuel-control">
-					</a>
-					<a href="/products/fuelConsumption" class="button product__button">
-							<span class="button__text">
-								Система мониторинга расхода топлива
-						</span>
-					</a>
-				</div>
 			</div>
-		</section>-->
+		</section> --}}
 
 		<section class="products padding-site">
 			<h3 class="title products__title">Продукты и&nbsp;услуги для&nbsp;эффективного управления вашим&nbsp;автопарком</h3>
@@ -208,6 +200,24 @@
 			</div>
 		</section>
 
+		{{!-- <section class="ready-solutions padding-site">
+			<h4 class="title ready-solutions__title">Готовые решения</h4>
+			<div class="ready-solutions__content">
+				{{#each products}}
+					{{#if this.publicInReadySolutions}}
+						<div class="solution">
+							<a href="/products/{{ this.link }}" class="solution__link">
+								<img src="../img/productsTest/{{ this.imageUrl }}" alt="{{ this.name }}" class="solution__img">
+							</a>
+							<a href="/products/{{ this.link }}" class="button">
+								<span class="button__text">{{ this.name }}</span>
+							</a>
+						</div>
+					{{/if}}
+				{{/each}}
+			</div>
+		</section> --}}
+
 		<section class="ready-solutions padding-site">
 			<h4 class="title ready-solutions__title">Готовые решения</h4>
 			<div class="ready-solutions__content">
@@ -217,6 +227,8 @@
 				</div>
 			</div>
 		</section>
+
+
 		<section class="advantages">
 			<h4 class="title advantages__title">Ключевые преимущества нашей компании</h4>
 			<div class="advantages__content padding-site">

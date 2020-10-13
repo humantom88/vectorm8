@@ -17,8 +17,34 @@ const imageFilter = (req, file, cb) => {
         cb(null, true);
     }
     else {
-        cb(null, false);
+        cb (null, false);
     }
 }
 
 module.exports.uploadArticleImg = multer({ storage: storageArticles, fileFilter: imageFilter });
+
+
+const storageProducts = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/img/products/')
+    },
+    filename: function (req, file, cb) {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+        cb (null, file.fieldname + '-' + uniqueSuffix)
+    }
+})
+
+module.exports.uploadProductImg = multer({ storage: storageProducts, fileFilter: imageFilter });
+
+
+const storageGallery = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb (null, 'public/img/gallery/')
+    },
+    filename: function (req, file, cb) {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+        cb(null, file.fieldname + '-' + uniqueSuffix)
+    }
+})
+
+module.exports.uploadGalleryImg = multer({ storage: storageGallery, fileFilter: imageFilter });

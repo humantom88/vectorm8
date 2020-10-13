@@ -39,8 +39,8 @@
 				<div class="header__low">
 					<nav class="header-nav">
 						<a href="/admin" class="header-nav__link">Главная</a>
-						<a href="#" class="header-nav__link">Продукты</a>
-						<a href="#" class="header-nav__link">Фотогалерея</a>
+						<a href="/admin/products" class="header-nav__link">Продукты</a>
+						<a href="/admin/gallery" class="header-nav__link">Фотогалерея</a>
 						<a href="/admin/articles" class="header-nav__link">Статьи</a>
 						<a href="#" class="header-nav__link">Контакты</a>
 					</nav>
@@ -69,8 +69,8 @@
 				</div>
 				<nav class="mobile-nav">
 					<a href="/admin" class="mobile-nav__link">Главная</a>
-					<a href="#" class="mobile-nav__link">Продукты</a>
-					<a href="#" class="mobile-nav__link">Фотогалерея</a>
+					<a href="/admin/products" class="mobile-nav__link">Продукты</a>
+					<a href="/admin/gallery" class="mobile-nav__link">Фотогалерея</a>
 					<a href="/admin/articles" class="mobile-nav__link">Статьи</a>
 					<a href="#" class="mobile-nav__link">Контакты</a>
                     <a href="/admin/logout" class="btn btn-danger exitBtn">Выйти</a>
@@ -93,23 +93,26 @@
 
     <main class="admin__main container">
 		
-		<div>
+		<div class="admin__show_controls mt-4 mb-4">
 			<a href="/admin/articles" class="btn btn-secondary">Назад</a>
-			<a href="/admin/articles/edit/{{id}}" class="btn btn-info">Редактировать</a>
+			<a href="/admin/articles/edit/{{ article.id }}" class="btn btn-info">Редактировать</a>
+			<form action="/admin/articles/{{ article.id }}?_method=DELETE" method="POST">
+				<button type="submit" class="btn btn-danger">Удалить</button>
+			</form>
 		</div>
 		
         <div>
-            <h1 class="article__title_show mt-4">{{name}}</h1>
-			{{#if author}}
+            <h1 class="article__title_show mt-4">{{ article.name }}</h1>
+			{{#if article.author }}
             	<p class="article__text">
-            	    <span class="article__author">Автор: {{author}} &copy;</span>
+            	    <span class="article__author">Автор: {{ article.author }} &copy;</span>
             	</p>
 			{{/if}}
-            <div class="article__markdown">{{{renderedDescription}}}</div>
-            <div class="article__markdown">{{{renderedText}}}</div>
+            <div class="article__markdown">{{{ article.renderedDescription }}}</div>
+            <div class="article__markdown">{{{ article.renderedText }}}</div>
         
-            {{#if imageUrl}}
-                <img src="../../img/articles/{{imageUrl}}" class="article__image" alt="{{name}}">
+            {{#if article.imageUrl }}
+                <img src="../../img/articles/{{ article.imageUrl }}" class="article__image" alt="{{ article.name }}">
             {{/if}}
         </div>
         

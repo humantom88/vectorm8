@@ -45,9 +45,9 @@
 				<div class="header__low">
 					<nav class="header-nav">
 						<a href="/admin" class="header-nav__link">Главная</a>
-						<a href="/admin/products" class="header-nav__link">Продукты</a>
+						<a href="#" class="header-nav__link">Продукты</a>
 						<a href="/admin/gallery" class="header-nav__link">Фотогалерея</a>
-						<a href="#" class="header-nav__link">Статьи</a>
+						<a href="/admin/articles" class="header-nav__link">Статьи</a>
 						<a href="#" class="header-nav__link">Контакты</a>
 					</nav>
 				</div>
@@ -79,9 +79,9 @@
 				</div>
 				<nav class="mobile-nav">
 					<a href="/admin" class="mobile-nav__link">Главная</a>
-					<a href="/admin/products" class="mobile-nav__link">Продукты</a>
+					<a href="#" class="mobile-nav__link">Продукты</a>
 					<a href="/admin/gallery" class="mobile-nav__link">Фотогалерея</a>
-					<a href="#" class="mobile-nav__link">Статьи</a>
+					<a href="/admin/articles" class="mobile-nav__link">Статьи</a>
 					<a href="#" class="mobile-nav__link">Контакты</a>
 					<a href="/admin/logout" class="btn btn-danger exitBtn">Выйти</a>
 					<div class="mobile-social-links">
@@ -105,41 +105,38 @@
 
 	<main class="admin__main">
 
-
-
 		<div class="mt-5 mb-5">
-			<a href="/admin/newArticle" class="btn btn-success">Добавить статью</a>
+			<a href="/admin/newProduct" class="btn btn-success">Добавить продукт</a>
 		</div>
 
-
-		{{#each articles}}
-			<article class="article article__admin">
-				<a href="/admin/articles/{{ this.link }}" class="article__title-link">
-					<h3 class="article__title">{{ this.name }}</h3>
+		{{#each products}}
+			<div class="article product__admin">
+				
+				<a href="/admin/products/{{ this.link }}" class="admin__product_link">
+					<img src="../img/productsTest/{{ this.imageUrl }}" alt="{{ this.name }}"
+						class="product__image product__image_admin">
 				</a>
-				{{#if this.author}}
-					<p class="article__text">
-						<span class="article__author">Автор: {{ this.author }} &copy;</span>
-					</p>
-				{{/if}}
-				<div class="article__markdown">{{{ this.renderedDescription }}}</div>
+				<div class="admin__product_controls">
+					<a href="/admin/products/{{ this.link }}" class="article__title-link">
+						<h3 class="article__title">{{ this.name }}</h3>
+					</a>
+					<div class="control-articles-wrapper">
+						<div class="control-articles">
+							<a href="/admin/products/edit/{{ this.id }}" class="btn btn-info">Редактировать</a>
+							<form action="/admin/products/{{ this.id }}?_method=DELETE" method="POST">
+								<button type="submit" class="btn btn-danger">Удалить</button>
+							</form>
+						</div>
 
-
-				<div class="control-articles-wrapper">
-					<div class="control-articles">
-						<a href="/admin/articles/{{ this.link }}" class="btn btn-secondary">Читать дальше</a>
-						<a href="/admin/articles/edit/{{ this.id }}" class="btn btn-info">Редактировать</a>
-						<form action="/admin/articles/{{this.id}}?_method=DELETE" method="POST">
-							<button type="submit" class="btn btn-danger">Удалить</button>
-						</form>
+						{{#if this.publicInProducts}} 
+							<h3 class="article__published_check">опубликовано в продуктах</h3>
+						{{/if}} 
+						{{#if this.publicInReadySolutions}} 
+							<h3 class="ready__published_check">опубликовано в готовых решениях</h3>
+						{{/if}} 
 					</div>
-
-					{{#if this.isPublished}} 
-						<h3 class="article__published_check">опубликовано</h3>
-					{{/if}} 
 				</div>
-
-			</article>
+			</div>
 		{{/each}}
 
 	</main>

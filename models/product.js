@@ -7,6 +7,9 @@ const dompurify = createDomPurify(new JSDOM().window);
 
 const productSchema = new mongoose.Schema({
 
+    imageUrl: {
+        type: String,
+    },
     title: {
         type: String,
         //required: true
@@ -24,42 +27,44 @@ const productSchema = new mongoose.Schema({
         required: true,
         //unique: true
     },
-    author: {
-        type: String
+    subTitle_1: {
+        type: String,
+    },
+    subTitle_2: {
+        type: String,
+    },
+    link: {
+        type: String,
     },
     text_1: {
         type: String,
         required: true
     },
-    imageUrl_1: {
-        type: String,
-    },
     text_2: {
-        type: String,
-    },
-    imageUrl_2: {
         type: String,
     },
     text_3: {
         type: String,
     },
-    imageUrl_3: {
-        type: String,
-    },
     text_4: {
-        type: String,
-    },
-    imageUrl_4: {
         type: String,
     },
     text_5: {
         type: String,
     },
-    imageUrl_5: {
+    imageUrl_1: {
         type: String,
     },
-    
-    link: {
+    imageUrl_2: {
+        type: String,
+    },
+    imageUrl_3: {
+        type: String,
+    },
+    imageUrl_4: {
+        type: String,
+    },
+    imageUrl_5: {
         type: String,
     },
     renderedText_1: {
@@ -77,11 +82,23 @@ const productSchema = new mongoose.Schema({
     renderedText_5: {
         type: String,
     },
+    conclusion_1: {
+        type: String,
+    },
+    conclusion_2: {
+        type: String,
+    },
+    conclusion_3: {
+        type: String,
+    },
     date: {
         type: Date,
         default: Date.now
     },
-    isPublished: {
+    publicInProducts: {
+        type: Boolean
+    },
+    publicInReadySolutions: {
         type: Boolean
     }
 })

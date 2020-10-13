@@ -46,8 +46,8 @@
 					<nav class="header-nav">
 						<a href="/admin" class="header-nav__link">Главная</a>
 						<a href="/admin/products" class="header-nav__link">Продукты</a>
-						<a href="/admin/gallery" class="header-nav__link">Фотогалерея</a>
-						<a href="#" class="header-nav__link">Статьи</a>
+						<a href="#" class="header-nav__link">Фотогалерея</a>
+						<a href="/admin/articles" class="header-nav__link">Статьи</a>
 						<a href="#" class="header-nav__link">Контакты</a>
 					</nav>
 				</div>
@@ -80,8 +80,8 @@
 				<nav class="mobile-nav">
 					<a href="/admin" class="mobile-nav__link">Главная</a>
 					<a href="/admin/products" class="mobile-nav__link">Продукты</a>
-					<a href="/admin/gallery" class="mobile-nav__link">Фотогалерея</a>
-					<a href="#" class="mobile-nav__link">Статьи</a>
+					<a href="#" class="mobile-nav__link">Фотогалерея</a>
+					<a href="/admin/articles" class="mobile-nav__link">Статьи</a>
 					<a href="#" class="mobile-nav__link">Контакты</a>
 					<a href="/admin/logout" class="btn btn-danger exitBtn">Выйти</a>
 					<div class="mobile-social-links">
@@ -105,45 +105,50 @@
 
 	<main class="admin__main">
 
+        <div class="toggler">
+            <input type="checkbox" id="toggler__checkbox-id-1" class="toggler__checkbox">
+            <label for="toggler__checkbox-id-1" class="btn btn-success toggler__label mt-3 mb-3">Добавить фотографию</label>
+            <div class="toggler__content-box">
+                <form action="/admin/gallery" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <label class="articles__label" for="text">Текст:</label>
+						<input type="text" name="text" value="{{ image.text }}" id="text" required class="form-control">
+					</div>
+                    <div>
+                        <label class="articles__label" for="imageUrl">Изображение:</label>
+                        <input type="file" name="imageUrl" id="imageUrl">
+                    </div>
 
+                    <button type="submit" class="btn mt-3 btn-primary loadArticle__btn">Добавить фотографию</button>
+                </form>
+            </div>
+        </div>
 
-		<div class="mt-5 mb-5">
-			<a href="/admin/newArticle" class="btn btn-success">Добавить статью</a>
+		<div class="mb-5">
+			<a href="/admin/galleryEdit" class="btn btn-secondary">Перейти в режим редактирования</a>
 		</div>
 
 
-		{{#each articles}}
-			<article class="article article__admin">
-				<a href="/admin/articles/{{ this.link }}" class="article__title-link">
-					<h3 class="article__title">{{ this.name }}</h3>
-				</a>
-				{{#if this.author}}
-					<p class="article__text">
-						<span class="article__author">Автор: {{ this.author }} &copy;</span>
-					</p>
-				{{/if}}
-				<div class="article__markdown">{{{ this.renderedDescription }}}</div>
-
-
-				<div class="control-articles-wrapper">
-					<div class="control-articles">
-						<a href="/admin/articles/{{ this.link }}" class="btn btn-secondary">Читать дальше</a>
-						<a href="/admin/articles/edit/{{ this.id }}" class="btn btn-info">Редактировать</a>
-						<form action="/admin/articles/{{this.id}}?_method=DELETE" method="POST">
-							<button type="submit" class="btn btn-danger">Удалить</button>
-						</form>
-					</div>
-
-					{{#if this.isPublished}} 
-						<h3 class="article__published_check">опубликовано</h3>
-					{{/if}} 
-				</div>
-
-			</article>
-		{{/each}}
-
+        <div id="lightgallery">
+            {{#each images}}
+					<a href="../img/galleryTest/{{ this.imageUrl }}" class="gallery__link" data-sub-html='.{{ this.caption }}'>
+						<img src="../img/galleryTest/{{ this.imageUrl }}" class="gallery__image" alt="vector_M-8"/>
+						<div class="gallery__image-background {{ this.caption }}">
+							<p class="gallery__image-description">{{ this.text }}</p>
+						</div>
+					</a>
+			{{/each}}
+        </div>
+		
 	</main>
 
-	<footer></footer>
-	<script src="/javascripts/burger.js"></script>
+	<script src="/dist/lightgallery.js/dist/js/lightgallery.min.js"></script>
+
+	<script type="text/javascript">
+		lightGallery(document.getElementById('lightgallery'), {
+			download: false,
+			getCaptionFromTitleOrAlt: true,
+		});
+	</script>
+	<script src="/javascripts/burger.js"></script> 
 </div>

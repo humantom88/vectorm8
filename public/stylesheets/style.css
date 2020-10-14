@@ -3185,7 +3185,7 @@ body.locked {
 }
 
 .product-page__img {
-    max-width: 35%;
+    max-width: 30%;
     object-fit: contain;
     float: right;
     padding: 55px 0 0;

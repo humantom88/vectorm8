@@ -48,7 +48,7 @@ router.get('/info', (req, res) => {
 });
 
 //расскоментировать как добавлю продукты в бд!!!
-router.get('/', function (req, res) {
+router.get('/', async function (req, res) {
   const products = await Product.find().sort('-date');
   res.render('index', {
     products: products,

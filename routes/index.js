@@ -42,12 +42,12 @@ router.post('/', reCaptcha, urlencodedParser, function (req, res) {
 
 router.get('/info', (req, res) => {
   res.render('emailsended', {
-    email: mailSended.email,
+    mailSended,
     yandexMetrica: true
   })
 });
 
-//расскоментировать как добавлю продукты в бд!!!
+
 router.get('/', async function (req, res) {
   const products = await Product.find().sort('-date');
   res.render('index', {
@@ -62,23 +62,6 @@ router.get('/', async function (req, res) {
     yandexMetrica: true
   });
 });
-
-
-//старая версия без админки
-// router.get('/', function (req, res) {
-//   //const products = await Product.find().sort('-date');
-//   res.render('index', {
-//     //products: products,
-//     title: "Вектор М-8.  ГЛОНАСС. Спутниковый мониторинг транспорта. Контроль топлива. ЭРА-ГЛОНАСС. Агронавигатор.",
-//     description: "система спутникового мониторинга транспорта, система мониторинга расхода топлива,  ЭРА-ГЛОНАСС, система мониторинга АЗС, система точного земледелия,  агронавигатор, система контроля давления в шинах, продажа в Вологде и Вологодской области, Архангельск, Кострома, Череповец, Ярославль",
-//     keywords: "ГЛОНАСС, спутниковый мониторинг транспорта,  мониторинг транспорта, контроль топлива, ЭРА-ГЛОНАСС, агронавигатор, проблесковый маяк, контроль давления в шинах",
-//     og_title: "Вектор М-8.  ГЛОНАСС. Спутниковый мониторинг транспорта. Контроль топлива. ЭРА-ГЛОНАСС. Агронавигатор.",
-//     og_description: "система спутникового мониторинга транспорта, система мониторинга расхода топлива,  ЭРА-ГЛОНАСС, система мониторинга АЗС, система точного земледелия,  агронавигатор, система контроля давления в шинах, продажа в Вологде и Вологодской области, Архангельск, Кострома, Череповец, Ярославль",
-//     og_url: "https://vectorm8.ru",
-//     recaptcha: true,
-//     yandexMetrica: true
-//   });
-// });
 
 router.get('/articles', async (req, res) => {
   const articles = await Article.find().sort('-date');

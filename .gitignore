@@ -1,6 +1,6 @@
 node_modules
 .env
 sessions
-/public/img/articles
-/public/img/products
-/public/img/gallery
+/public/img/articles/
+/public/img/products/
+/public/img/gallery/

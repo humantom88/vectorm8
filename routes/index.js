@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Article = require('../models/article');
 const Product = require('../models/product');
+const Image = require('../models/image');
 const mailer = require('./mailer');
 const botTelegram = require('../api/telegramMsg');
 const reCaptcha = require('../config/reCaptcha');
@@ -91,8 +92,10 @@ router.get('/articles/:link', async (req, res) => {
   })
 });
 
-router.get('/gallery', function (req, res) {
+router.get('/gallery', async (req, res) => {
+  //const images = await Image.find().sort('-date');
   res.render('gallery', {
+    //images: images,
     title: "контроль топлива, установка, обслуживание, переговоры",
     description: "Новости ГЛОНАСС, транспортная телематика, контроль транспорта, контроль топлива",
     keywords: "топливо, ГЛОНАСС, вектор м-8",

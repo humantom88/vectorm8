@@ -5,9 +5,7 @@ const imageSchema = new mongoose.Schema({
         type: String
     },
     text: {
-        type: String,
-        //required: true,
-        //unique: true
+        type: String
     },
     caption: {
         type: String

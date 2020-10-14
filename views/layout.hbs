@@ -6,9 +6,9 @@
     {{#if norobots}}
       <meta name="robots" content="noindex, nofollow" />
     {{/if}}
-    {{!-- {{#if yandexMetrica}}
+    {{#if yandexMetrica}}
       <meta name="yandex-verification" content="4d94046ff169ef64" />
-    {{/if}} --}}
+    {{/if}}
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="{{description}}" />
     <meta name="keywords" content="{{keywords}}" />
@@ -39,11 +39,11 @@
     {{/if}}
     <link rel='stylesheet' href='/stylesheets/style.css' />
     {{#if recaptcha}}
-       <script src="https://www.google.com/recaptcha/api.js?render=6LfvYdAZAAAAAKDde81SQtffJmwaA_7RvDc0R0fZ"></script>
+       <script src="https://www.google.com/recaptcha/api.js?render=6Lc3W9AZAAAAAKgnstFcIceY5qKCGBGI8KNOSbgu"></script>
     {{/if}}
     <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    {{!-- {{#if yandexMetrica}}
+    {{#if yandexMetrica}}
       <script type="text/javascript" >
          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
          m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
@@ -57,14 +57,14 @@
          });
       </script>
       <noscript><div><img src="https://mc.yandex.ru/watch/67696507" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    {{/if}} --}}
+    {{/if}}
   </head>
   <body>
     {{{body}}}
     {{#if recaptcha}}
       <script>
         grecaptcha.ready(function() {
-            grecaptcha.execute('6LfvYdAZAAAAAKDde81SQtffJmwaA_7RvDc0R0fZ', { action: 'homepage' }).then(function(token) {
+            grecaptcha.execute('6Lc3W9AZAAAAAKgnstFcIceY5qKCGBGI8KNOSbgu', { action: 'homepage' }).then(function(token) {
               document.getElementById('g-recaptcha-response').value = token;
             });
         });

@@ -97,10 +97,10 @@
 			<div id="lightgallery">
 
 				{{!-- {{#each images}}
-					<a href="../img/gallery/{{ this.name }}" class="gallery__link" data-sub-html='.caption_1'>
-						<img src="../img/gallery/{{ this.name }}" class="gallery__image" alt="vector_M-8"/>
-						<div class="gallery__image-background caption_1">
-							<p class="gallery__image-description">{{ this.description }}</p>
+					<a href="../img/gallery/{{ this.imageUrl }}" class="gallery__link" data-sub-html='.{{ this.caption }}'>
+						<img src="../img/gallery/{{ this.imageUrl }}" class="gallery__image" alt="vector_M-8"/>
+						<div class="gallery__image-background {{ this.caption }}">
+							<p class="gallery__image-description">{{ this.text }}</p>
 						</div>
 					</a>
 				{{/each}} --}}

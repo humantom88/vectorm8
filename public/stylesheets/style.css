@@ -3071,10 +3071,6 @@ body.locked {
     margin-bottom: 15px;
 }
 
-.product-page__section {
-    margin-bottom: 30px;
-}
-
 .special-title {
     color: #2f3133;
     font-size: 2rem;
@@ -3086,13 +3082,6 @@ body.locked {
 .product-description__title {
     margin: 0 0 40px;
 }
-
-/* .section-title {
-    color: #2f3133;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-} */
 
 .section-content {
     display: block;
@@ -3109,7 +3098,6 @@ body.locked {
 
 
 .product-page__text-container {
-    /* float: left; */
     max-width: 100%;
 }
 
@@ -3119,12 +3107,6 @@ body.locked {
     margin: 18px 0;
     line-height: 29px;
 }
-
-/* .product-page__text {
-    color: #2f3133;
-    font-size: 1.2rem;
-    margin: 10px 0 15px;
-} */
 
 .product-page__text-container > ul {
     color: #2f3133;
@@ -3141,10 +3123,6 @@ body.locked {
     margin-left: 25px;
 }
 
-.product-page__list-item-heading {
-    font-weight: 600;
-}
-
 .product-page__text-container > ul > li {
     margin-bottom: 15px;
 }
@@ -3158,6 +3136,14 @@ body.locked {
     font-size: 1.5rem;
     text-transform: uppercase;
     margin-bottom: 20px;
+}
+
+.product-page__text-container > h3 {
+    color: #2f3133;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 400;
 }
 
 .product-page__text-container > h1 {
@@ -3263,27 +3249,6 @@ body.locked {
     }
 }
 
-/* .product__imgWrapper {
-    float: right;
-    max-width: max-content;
-} */
-
-/* .product-page__img_square {
-    max-width: 30%;
-}
-
-.product-page__imgsContainer {
-    display: flex;
-    flex-direction: column; 
-    max-width: 40%;
-    height: auto;
-    float: right;
-} */
-
-/*.product-page__img_in-container {
-    max-width: 100%;
-    margin-bottom: 10px;
-}*/
 
 .teaching-line {
     margin-top: 50px;
@@ -3500,33 +3465,9 @@ body.locked {
         margin: 20px;
     }
 
-    /* .section-content {
-        flex-direction: column;
-        align-items: center;
-    } */
-
-    .section-title {
-        margin-bottom: 10px;
-    }
-
     .product-page__img {
         max-width: 60%;
     }
-
-    .product-page__img_square {
-        max-width: 40%;
-    }
-
-    .product-page__imgsContainer {
-        flex-direction: row;
-        justify-content: center;
-        
-    }
-
-    /* .product-page__img_in-container {
-        max-width: 100%;
-        margin: 10px;
-    } */
 
     .conclusion {
         grid-gap: 15px;
@@ -3553,10 +3494,6 @@ body.locked {
         height: 60px;
         background-color: #4f5355;
     }
-
-    .section-title {
-        margin-bottom: 0;
-    }
 }
 
 @media (max-width: 676px) {
@@ -3568,21 +3505,6 @@ body.locked {
         max-width: 100%;
         margin: 15px;
     }
-
-    .product-page__img_square {
-        max-width: 80%;
-    }
-
-    .product-page__imgsContainer {
-        flex-direction: column;
-        align-items: center;
-        max-width: 100%;
-    }
-
-    .product-page__img_in-container {
-        max-width: 80%;
-        margin-bottom: 15px;
-    } 
 
     .teaching-line__title {
         font-size: 1.5rem;
@@ -3714,60 +3636,33 @@ body.locked {
   
 
 
-
-/* псевдоэлемент, отменяет выделение текста стилями при быстрых кликах */
 .toggler__label::selection {
     color: none;
     background: none;
 }
 
-
 .toggler {
     padding: 5px;
 }
 
-
-/* Стили для заголовка блока, при нажатии на который появляется дополнительный блок */
-/* .toggler__label {
-    display: block;
-    font-weight: bold;
-    cursor: pointer;
-    border: 1px solid #ddd;
-    padding: 15px;
-    font-size: 1.1em;
-    background-color: #fff;
-} */
-
-/* скрытый блок позиционируется абсолютно, чтобы не оставлять пустое место */
 .toggler__content-box  {
     padding: 15px;
     border: 1px solid #a0a0a0;
     border-radius: 10px;
     margin: 15px 0;
-
     position: absolute;
-    /* transform: translate(9999px); */
     opacity: 0;  
     display: none;
 }
 
-/* скрываем checkbox */
 .toggler__checkbox {
     display: none;
 }
 
-/* при нажатии на блок label (каждый label через аттрибут for привязан к конкретному чекбоксу посредством уникального id)
-чекбокс меняет свое состояние (но мы этого не видим, так как скрыли его)
-и элемент с классом .toggler__content-box, ближайший к нажатому чекбоксу, плавно выдвигается, отображаяя
-свое содержимое. */
 .toggler__checkbox:checked ~ .toggler__content-box {
     display: block;
     position: relative;
-
-    /* transition: opacity .5s linear;   */
-    /* transform:translate(0); */
     opacity: 1;
-
     margin-top:5px;
     cursor: pointer;
     border: 1px solid #ddd;
@@ -3806,4 +3701,23 @@ body.locked {
 
 .gallery__image_edit {
     margin-right: 20px;
+}
+
+.admin__text {
+    color: #242527;
+    font-size: 1.2rem;
+    margin: 18px 0;
+    line-height: 29px;
+}
+
+.admin__text_wrapper > p {
+    color: #242527;
+    font-size: 1.1rem;
+    margin: 14px 0;
+    line-height: 29px;
+}
+
+.admin__text_wrapper > h3 {
+    color: #242527;
+    margin: 23px 0 12px;
 }

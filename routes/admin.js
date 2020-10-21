@@ -22,13 +22,16 @@ router.get('/login', (req, res) => {
     });
 });
 
-router.post('/login', reCaptcha, controller.login);
+// router.post('/login', reCaptcha, controller.login);
 
-//router.get('/register', (req, res) => {
-//    res.render('register');
-//});
-//
-//router.post('/register', reCaptcha, controller.register);
+// router.get('/register', (req, res) => {
+//    res.render('register', {
+//        norobots: true,
+//        recaptcha: true
+//    });
+// });
+
+router.post('/register', reCaptcha, controller.register);
 
 
 router.get('/', ensureAuthenticated, async (req, res) => {
@@ -75,7 +78,7 @@ router.delete('/articles/:id', ensureAuthenticated, async (req, res) => {
 
 router.get('/articles/edit/:id', ensureAuthenticated, async (req, res) => {
     const article = await Article.findById(req.params.id)
-    //console.log(article)
+    
     res.render('admin/editArticle', {
         norobots: true,
         article: article,
@@ -149,7 +152,6 @@ router.post('/newProduct', ensureAuthenticated, multerConf.uploadProductImg.fiel
         { name: 'productImage_5', maxCount: 1 }
     ]
 ), async (req, res, next) => {
-    //console.log(req.files)
     req.product = new Product()
     next()
 }, saveProductAndRedirect('newProduct'));

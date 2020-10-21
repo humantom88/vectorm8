@@ -1069,6 +1069,10 @@ body.locked {
     margin: 0 auto;
 }
 
+.clients__accordeon_openWrapper {
+    margin-top: -30px;
+}
+
 .arrow__animate {
     animation: pulseArrow 2.8s infinite;
 }
@@ -1120,7 +1124,7 @@ body.locked {
 
 
 .clients__title {
-    margin: 75px 0 70px;
+    margin: 75px 0 45px;
 }
 
 .clients__content_3cols {
@@ -1129,7 +1133,7 @@ body.locked {
     grid-gap: 50px 10px;
     padding-left: 50px;
     justify-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .clients__content_4cols {
@@ -1159,7 +1163,14 @@ body.locked {
     width: 120%;
 }
 
-.clients__logo_vologdales,
+.clients__logo_vologdales {
+    max-width: 80%;
+}
+
+.clients__accordeon_visible > .clients__link {
+    align-self: center;
+}
+
 .clients__logo_soldek {
     max-width: 80%;
     margin-top: 15%;
@@ -1333,11 +1344,13 @@ body.locked {
         margin: 0 0 25px;
     }
 }
-@media (max-width: 374px) {
-    .partners__line {
-        display: block
+
+@media (max-width: 460px) {
+    .partner-item__title {
+        font-size: 1rem;
     }
 }
+
 
 
 /*ниже стили для страницы входа*/

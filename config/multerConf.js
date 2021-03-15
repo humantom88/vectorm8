@@ -2,7 +2,7 @@ const multer = require('multer');
 
 const storageArticles = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'public/img/articles/')
+        cb(null, './../public/img/articles/')
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + file.originalname)
@@ -22,10 +22,9 @@ const imageFilter = (req, file, cb) => {
 
 module.exports.uploadArticleImg = multer({ storage: storageArticles, fileFilter: imageFilter });
 
-
 const storageProducts = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'public/img/products/')
+        cb(null, './../public/img/products/')
     },
     filename: function (req, file, cb) {
         cb (null, Date.now() + file.originalname)
@@ -34,10 +33,9 @@ const storageProducts = multer.diskStorage({
 
 module.exports.uploadProductImg = multer({ storage: storageProducts, fileFilter: imageFilter });
 
-
 const storageGallery = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb (null, 'public/img/gallery/')
+        cb (null, './../public/img/gallery/')
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + file.originalname)

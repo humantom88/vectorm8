@@ -10,7 +10,6 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 let mailSended = undefined;
 
-
 router.get('/:link', async (req, res) => {
   const product = await Product.findOne({ link: req.params.link });
   if (product === null) {
@@ -25,7 +24,8 @@ router.get('/:link', async (req, res) => {
     keywords: product.keywords,
 		og_url: `https://vectorm8.ru/products/${product.link}`,
     recaptcha: true,
-    yandexMetrica: true
+    yandexMetrica: true,
+    bitriksChat: true
   });
 });
 
@@ -61,7 +61,8 @@ router.post('/:link', reCaptcha, urlencodedParser, async (req, res) => {
 router.get('/info/msg', (req, res) => {
 	res.render('emailsended', {
     mailSended,
-		yandexMetrica: true
+		yandexMetrica: true,
+    bitriksChat: true
   })
 });
 

@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-//const multer = require('multer');
 
 const { ensureAuthenticated } = require('../config/isAuth');
 let Article = require('../models/article');
@@ -13,7 +12,6 @@ const saveArticleAndRedirect = require('../controller/saveArticle');
 const saveProductAndRedirect = require('../controller/saveProduct');
 const saveImageAndRedirect = require('../controller/saveImage');
 
-
 router.get('/login', (req, res) => {
     res.render('login', {
         norobots: true,
@@ -22,7 +20,7 @@ router.get('/login', (req, res) => {
     });
 });
 
-// router.post('/login', reCaptcha, controller.login);
+router.post('/login', reCaptcha, controller.login);
 
 // router.get('/register', (req, res) => {
 //    res.render('register', {
@@ -31,8 +29,7 @@ router.get('/login', (req, res) => {
 //    });
 // });
 
-router.post('/register', reCaptcha, controller.register);
-
+// router.post('/register', reCaptcha, controller.register);
 
 router.get('/', ensureAuthenticated, async (req, res) => {
     res.render('admin/index', {
@@ -42,8 +39,6 @@ router.get('/', ensureAuthenticated, async (req, res) => {
         crossorigin: "anonymous"
     });
 });
-
-
 
 router.get('/articles', ensureAuthenticated, async (req, res) => {
     const articles = await Article.find().sort('-date');
@@ -106,8 +101,6 @@ router.get('/articles/:link', ensureAuthenticated, async (req, res) => {
     })
 });
 
-
-
 router.get('/products', ensureAuthenticated, async (req, res) => {
     const products = await Product.find().sort('-date');
     res.render('admin/products', {
@@ -130,7 +123,6 @@ router.get('/products/:link', ensureAuthenticated, async (req, res) => {
         crossorigin: "anonymous"
     })
 });
-
 
 router.get('/newProduct', ensureAuthenticated, (req, res) => {
     res.render('admin/newProduct', {
@@ -224,8 +216,6 @@ router.delete('/gallery/:id', ensureAuthenticated, async (req, res) => {
     await Image.findByIdAndDelete(req.params.id)
     res.redirect('/admin/galleryEdit')
 });
-
-
 
 router.get('/logout', (req, res) => {
     req.logout();

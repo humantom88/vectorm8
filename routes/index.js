@@ -16,7 +16,6 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 let mailSended = undefined;
 
-
 router.post('/', reCaptcha, urlencodedParser, function (req, res) {
   if (!req.body && req.body === undefined) return res.sendStatus(400);
   mailSended = req.body;
@@ -44,10 +43,10 @@ router.post('/', reCaptcha, urlencodedParser, function (req, res) {
 router.get('/info', (req, res) => {
   res.render('emailsended', {
     mailSended,
-    yandexMetrica: true
+    yandexMetrica: true,
+    bitriksChat: true
   })
 });
-
 
 router.get('/', async function (req, res) {
   const products = await Product.find().sort('-date');
@@ -60,7 +59,8 @@ router.get('/', async function (req, res) {
     og_description: "система спутникового мониторинга транспорта, система мониторинга расхода топлива,  ЭРА-ГЛОНАСС, система мониторинга АЗС, система точного земледелия,  агронавигатор, система контроля давления в шинах, продажа в Вологде и Вологодской области, Архангельск, Кострома, Череповец, Ярославль",
     og_url: "https://vectorm8.ru",
     recaptcha: true,
-    yandexMetrica: true
+    yandexMetrica: true,
+    bitriksChat: true
   });
 });
 
@@ -74,7 +74,8 @@ router.get('/articles', async (req, res) => {
     og_title: "Новости. Контроль топлива. Мониторинг транспорта",
     og_description: "Новости компании Вектор М-8 и рынка мониторинга транспорта.",
     og_url: "https://vectorm8.ru/articles",
-    yandexMetrica: true
+    yandexMetrica: true,
+    bitriksChat: true
   });
 });
 
@@ -88,7 +89,8 @@ router.get('/articles/:link', async (req, res) => {
     description: article.description,
     og_description: article.description,
     keywords: article.keywords,
-    yandexMetrica: true
+    yandexMetrica: true,
+    bitriksChat: true
   })
 });
 
@@ -103,7 +105,8 @@ router.get('/gallery', async (req, res) => {
     og_description: "Новости ГЛОНАСС, транспортная телематика, контроль транспорта, контроль топлива",
     og_url: "https://vectorm8.ru/gallery",
     lightgallery: true,
-    yandexMetrica: true
+    yandexMetrica: true,
+    bitriksChat: true
   })
 });
 
@@ -113,7 +116,8 @@ router.get('/privacy_policy', function (req, res) {
     og_title: "Политика конфиденциальности",
     description: "",
     keywords: "",
-    yandexMetrica: true
+    yandexMetrica: true,
+    bitriksChat: true
   })
 });
 
@@ -123,7 +127,8 @@ router.get('/user_agreement', function (req, res) {
     og_title: "Пользовательское соглашение",
     description: "",
     keywords: "",
-    yandexMetrica: true
+    yandexMetrica: true,
+    bitriksChat: true
   })
 });
 

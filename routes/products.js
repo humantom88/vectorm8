@@ -24,8 +24,8 @@ router.get('/:link', async (req, res) => {
     keywords: product.keywords,
 		og_url: `https://vectorm8.ru/products/${product.link}`,
     recaptcha: true,
-    yandexMetrica: true,
-    bitriksChat: true
+    yandexMetrica: true
+    // bitriksChat: true
   });
 });
 
@@ -61,8 +61,8 @@ router.post('/:link', reCaptcha, urlencodedParser, async (req, res) => {
 router.get('/info/msg', (req, res) => {
 	res.render('emailsended', {
     mailSended,
-		yandexMetrica: true,
-    bitriksChat: true
+		yandexMetrica: true
+    // bitriksChat: true
   })
 });
 
